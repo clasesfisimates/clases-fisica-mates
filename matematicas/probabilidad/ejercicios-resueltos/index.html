@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Problemas de Probabilidad con esquemas y soluciones paso a paso.">
+  <title>Ejercicios resueltos · Probabilidad</title>
+  <link rel="stylesheet" href="../../../assets/estilos.css">
+  <link rel="stylesheet" href="../../../assets/ejercicios.css">
+  <script src="../../../assets/indice.js" defer></script>
+</head>
+<body class="matematicas">
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="../../../index.html"><span class="marca-icono" aria-hidden="true">∿</span> La cueva del conocimiento</a>
+    </div>
+  </header>
+  <div class="contenedor disposicion-sitio">
+    <aside class="columna-indice">
+      <button type="button" class="indice-menu" id="abrir-indice" aria-controls="indice-sitio" aria-expanded="false" hidden>
+        <span class="indice-icono-menu" aria-hidden="true"></span> Índice <span class="indice-flecha" aria-hidden="true"></span>
+      </button>
+      <nav class="indice-sitio" id="indice-sitio" aria-label="Índice del laboratorio">
+        <p class="indice-titulo">Índice</p>
+        <ul class="indice-lista" id="indice-lista">
+          <li><a class="indice-enlace" href="../../index.html">Matemáticas</a></li>
+          <li><a class="indice-enlace" href="../index.html">Probabilidad</a></li>
+          <li><a class="indice-enlace" href="index.html" aria-current="page">Ejercicios resueltos</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="pagina-indice" id="contenido" tabindex="-1">
+      <header class="cabecera-visual cabecera-ejercicios">
+        <nav class="ruta-tema" aria-label="Ruta del tema"><a href="../index.html">Probabilidad</a></nav>
+        <h1>Ejercicios resueltos</h1>
+        <p class="introduccion">Representa los sucesos, elige el grupo de referencia y calcula a partir del esquema.</p>
+      </header>
+      <nav aria-label="Tipos de ejercicios">
+        <ul class="ejercicios-indice">
+          <li><a href="#laplace">Sucesos y Laplace</a></li>
+          <li><a href="#condicionada">Condicionada e independencia</a></li>
+          <li><a href="#bayes">Árbol, probabilidad total y Bayes</a></li>
+          <li><a href="#urna">Extracciones con y sin reposición</a></li>
+        </ul>
+      </nav>
+      <article class="ejercicio" id="laplace" aria-labelledby="titulo-laplace">
+        <h2 id="titulo-laplace">Dos sucesos en un dado de doce caras</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Lanzamos un dado equilibrado de 12 caras. A es «sacar un número par» y B es «sacar un número mayor que 5». Describe ambos sucesos, sus complementarios, la unión y la intersección. Calcula sus probabilidades.</p>
+            <div class="ejercicio-datos"><span>Ω = {1, 2, …, 12}</span><span>12 resultados equiprobables</span></div>
+            <p class="ejercicio-fuente">Ficha ejercicios probabilidad 2 · ejercicio 1</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-fichas"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span class="marcada">6</span><span>7</span><span class="marcada">8</span><span>9</span><span class="marcada">10</span><span>11</span><span class="marcada">12</span></div>
+              <figcaption>Las caras resaltadas cumplen las dos condiciones: son pares y mayores que 5.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Separa cada suceso de su complementario</h3>
+              <p>El complementario de A contiene los impares. El de B contiene los números hasta 5.</p>
+              <p class="ejercicio-formula">A = {2, 4, 6, 8, 10, 12} · Aᶜ = {1, 3, 5, 7, 9, 11}</p>
+              <p class="ejercicio-formula">B = {6, 7, 8, 9, 10, 11, 12} · Bᶜ = {1, 2, 3, 4, 5}</p>
+            </li>
+            <li>
+              <h3>Forma la unión y la intersección</h3>
+              <p>En la unión entra cualquier valor que cumpla al menos una condición. En la intersección solo entran los que cumplen ambas.</p>
+              <p class="ejercicio-formula">A ∪ B = {2, 4, 6, 7, 8, 9, 10, 11, 12}</p>
+              <p class="ejercicio-formula">A ∩ B = {6, 8, 10, 12}</p>
+            </li>
+            <li>
+              <h3>Cuenta casos favorables y divide por 12</h3>
+              <p>La regla de Laplace se puede aplicar porque cada cara tiene la misma probabilidad de salir.</p>
+              <p class="ejercicio-formula">P(A) = P(Aᶜ) = 6/12 = 1/2 · P(B) = 7/12 · P(Bᶜ) = 5/12</p>
+              <p class="ejercicio-formula">P(A ∪ B) = 9/12 = 3/4 · P(A ∩ B) = 4/12 = 1/3</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> La probabilidad de cumplir al menos una condición es <b>3/4</b>. La de cumplir ambas es <b>1/3</b>.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../sucesos/index.html">Prueba el simulador de sucesos</a></p>
+      </article>
+      <article class="ejercicio" id="condicionada" aria-labelledby="titulo-condicionada">
+        <h2 id="titulo-condicionada">Cartas y dominó en un club</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Al 45 % de los socios le gustan las cartas, al 40 % le gusta el dominó y al 23 % le gustan ambos. Si el socio elegido juega al dominó, ¿qué probabilidad hay de que juegue a las cartas? Comprueba si los sucesos son independientes y calcula la probabilidad de que le guste al menos uno de los dos juegos.</p>
+            <div class="ejercicio-datos"><span>P(C) = 0,45</span><span>P(D) = 0,40</span><span>P(C ∩ D) = 0,23</span></div>
+            <p class="ejercicio-fuente">Adaptado de la ficha de probabilidad condicionada · problema del club</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <table aria-label="Socios en un grupo de 100">
+                <thead><tr><td></td><th scope="col">Dominó</th><th scope="col">Sin dominó</th><th scope="col">Total</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Cartas</th><td class="marcada">23</td><td>22</td><td>45</td></tr>
+                  <tr><th scope="row">Sin cartas</th><td>17</td><td>38</td><td>55</td></tr>
+                  <tr><th scope="row">Total</th><td class="marcada">40</td><td>60</td><td>100</td></tr>
+                </tbody>
+              </table>
+              <figcaption>Por cada 100 socios, de los 40 que juegan al dominó hay 23 que también juegan a las cartas.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Cambia el grupo de referencia</h3>
+              <p>Como ya sabemos que juega al dominó, el denominador representa a esos 40 socios de cada 100.</p>
+              <p class="ejercicio-formula">P(C | D) = P(C ∩ D) / P(D) = 0,23 / 0,40 = 0,575</p>
+            </li>
+            <li>
+              <h3>Comprueba si la información cambia la probabilidad</h3>
+              <p>En todo el club la probabilidad de jugar a las cartas es del 45 %. En el grupo de dominó sube al 57,5 %. Los sucesos son dependientes.</p>
+              <p class="ejercicio-formula">P(C | D) = 0,575 ≠ P(C) = 0,45</p>
+            </li>
+            <li>
+              <h3>Cuenta la unión una sola vez</h3>
+              <p>Al sumar los porcentajes de cada juego, el 23 % que juega a ambos aparece dos veces. Réstalo una vez.</p>
+              <p class="ejercicio-formula">P(C ∪ D) = 0,45 + 0,40 − 0,23 = 0,62</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> La probabilidad condicionada es <b>57,5 %</b>. Los sucesos son <b>dependientes</b> y la unión tiene probabilidad <b>62 %</b>.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../condicionada/index.html">Compara grupos en el simulador</a></p>
+      </article>
+      <article class="ejercicio" id="bayes" aria-labelledby="titulo-bayes">
+        <h2 id="titulo-bayes">De un aprobado a la modalidad de clase</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>En una academia, el 60 % de los alumnos va a clase presencial y el resto estudia en línea. Aprueban tres cuartas partes de los presenciales y la mitad de los alumnos en línea. Calcula la probabilidad de aprobar y la de estudiar en presencial si sabemos que el alumno ha aprobado.</p>
+            <div class="ejercicio-datos"><span>P(Presencial) = 0,60</span><span>P(En línea) = 0,40</span></div>
+            <p class="ejercicio-fuente">Ficha ejercicios diagrama de árbol · problema de la academia</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-arbol">
+                <div><b>Presencial · 60 %</b><ul><li><strong>Aprueba · 3/4</strong></li><li>Suspende · 1/4</li></ul></div>
+                <div><b>En línea · 40 %</b><ul><li><strong>Aprueba · 1/2</strong></li><li>Suspende · 1/2</li></ul></div>
+              </div>
+              <figcaption>Las dos ramas que acaban en aprobado cuentan para la probabilidad total.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Multiplica dentro de cada camino</h3>
+              <p>Cada camino empieza por una modalidad y termina con el resultado. Multiplica la probabilidad de la modalidad por la de aprobar en ese grupo.</p>
+              <p class="ejercicio-formula">P(Presencial ∩ Aprueba) = 0,60 · (3/4) = 0,45</p>
+              <p class="ejercicio-formula">P(En línea ∩ Aprueba) = 0,40 · (1/2) = 0,20</p>
+            </li>
+            <li>
+              <h3>Suma los caminos que llegan al aprobado</h3>
+              <p>Un alumno pertenece a una sola modalidad. Sumamos los dos caminos.</p>
+              <p class="ejercicio-formula">P(Aprueba) = 0,45 + 0,20 = 0,65</p>
+            </li>
+            <li>
+              <h3>Invierte el condicionamiento con Bayes</h3>
+              <p>Entre todos los aprobados, quédate con los que proceden de presencial. El denominador es la probabilidad total de aprobar.</p>
+              <p class="ejercicio-formula">P(Presencial | Aprueba) = 0,45 / 0,65 = 9/13 ≈ 69,2 %</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> La probabilidad de aprobar es <b>65 %</b>. Entre quienes aprueban, aproximadamente un <b>69,2 %</b> estudia en presencial.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../arbol/index.html">Sigue los caminos en el árbol interactivo</a></p>
+      </article>
+      <article class="ejercicio" id="urna" aria-labelledby="titulo-urna">
+        <h2 id="titulo-urna">Dos bolas de una urna</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>En una urna hay 3 bolas rojas, 4 azules y 5 verdes. Sacamos dos seguidas sin devolver la primera. Calcula la probabilidad de que tengan el mismo color, la de sacar roja después de una azul y la de que la primera fuera roja sabiendo que la segunda fue verde. ¿Qué cambia en el primer apartado si devuelves la bola?</p>
+            <div class="ejercicio-datos"><span>12 bolas antes de la primera extracción</span><span>11 antes de la segunda</span></div>
+            <p class="ejercicio-fuente">Adaptado del examen de probabilidad · problema de las 12 bolas</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-urna">
+                <span><i class="bola-roja" aria-hidden="true"></i>3 rojas</span>
+                <span><i class="bola-azul" aria-hidden="true"></i>4 azules</span>
+                <span><i class="bola-verde" aria-hidden="true"></i>5 verdes</span>
+              </div>
+              <figcaption>Al sacar una azul quedan 3 rojas, 3 azules y 5 verdes.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Suma los tres caminos de color repetido</h3>
+              <p>Los caminos roja-roja, azul-azul y verde-verde son excluyentes. Si el color se repite, en la segunda fracción queda una bola menos de ese color.</p>
+              <p class="ejercicio-formula">P(mismo color) = (3/12)(2/11) + (4/12)(3/11) + (5/12)(4/11) = 19/66</p>
+            </li>
+            <li>
+              <h3>Condiciona a que la primera fue azul</h3>
+              <p>Quedan 11 bolas en total y siguen estando las 3 rojas.</p>
+              <p class="ejercicio-formula">P(R₂ | A₁) = 3/11</p>
+            </li>
+            <li>
+              <h3>Condiciona a que la segunda fue verde</h3>
+              <p>En el numerador, exige el camino roja-verde. Cada bola inicial tiene la misma probabilidad de ocupar la segunda posición, por lo que la probabilidad de verde en esa posición es 5/12.</p>
+              <p class="ejercicio-formula">P(R₁ ∩ V₂) = (3/12)(5/11) = 15/132</p>
+              <p class="ejercicio-formula">P(R₁ | V₂) = (15/132) / (5/12) = 3/11</p>
+            </li>
+            <li>
+              <h3>Repite el primer cálculo con reposición</h3>
+              <p>Devolver la primera bola restaura la composición inicial. Para repetir un color, multiplica dos veces su misma probabilidad.</p>
+              <p class="ejercicio-formula">P(mismo color) = (3/12)² + (4/12)² + (5/12)² = 25/72</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> Sin reposición, las tres probabilidades son <b>19/66</b>, <b>3/11</b> y <b>3/11</b>. Con reposición, la probabilidad de repetir color es <b>25/72</b>.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../urna/index.html">Observa cómo cambia la urna cuando sacas una bola</a></p>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

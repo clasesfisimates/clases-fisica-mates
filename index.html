@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sin preguntas, no hay respuestas, sin problemas, no hay soluciones.">
+  <title>La cueva del conocimiento</title>
+  <link rel="stylesheet" href="assets/estilos.css">
+  <script src="assets/indice.js" defer></script>
+</head>
+<body class="inicio">
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="index.html">
+        <span class="marca-icono" aria-hidden="true">∿</span>
+        La cueva del conocimiento
+      </a>
+    </div>
+  </header>
+
+  <div class="contenedor disposicion-sitio">
+    <aside class="columna-indice">
+      <button type="button" class="indice-menu" id="abrir-indice" aria-controls="indice-sitio" aria-expanded="false" hidden>
+        <span class="indice-icono-menu" aria-hidden="true"></span> Índice <span class="indice-flecha" aria-hidden="true"></span>
+      </button>
+      <nav class="indice-sitio" id="indice-sitio" aria-label="Índice del laboratorio">
+        <p class="indice-titulo">Índice</p>
+        <ul class="indice-lista" id="indice-lista">
+          <li><a class="indice-enlace" href="index.html" aria-current="page">Inicio</a></li>
+          <li class="fisica"><a class="indice-enlace" href="fisica/index.html">Física</a></li>
+          <li class="fisica"><a class="indice-enlace" href="fisica/dinamica/index.html">Dinámica</a></li>
+          <li class="matematicas"><a class="indice-enlace" href="matematicas/index.html">Matemáticas</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="pagina-indice" id="contenido" tabindex="-1">
+      <section class="cabecera-visual portada" aria-labelledby="titulo">
+        <picture class="arte-portada">
+          <source media="(max-width: 29rem)" srcset="assets/ilustraciones/cueva-movil.webp" width="720" height="720">
+          <img class="lamina-fondo" src="assets/ilustraciones/cueva.webp" srcset="assets/ilustraciones/cueva-720.webp 720w, assets/ilustraciones/cueva.webp 1800w" sizes="(max-width: 43rem) 100vw, 80vw" width="1800" height="600" alt="" fetchpriority="high">
+        </picture>
+        <div class="cabecera-texto">
+          <p class="rotulo-portada">Laboratorio interactivo</p>
+          <h1 id="titulo">La cueva del <br><em>conocimiento</em></h1>
+          <p class="introduccion">Sin preguntas, no hay respuestas, sin problemas, no hay soluciones.</p>
+        </div>
+        <span class="luz-cueva" aria-hidden="true"></span>
+      </section>
+
+      <section class="asignaturas" aria-labelledby="asignaturas">
+        <h2 id="asignaturas">Asignaturas</h2>
+        <div class="rejilla-asignaturas">
+          <a class="ficha-asignatura fisica" href="fisica/index.html">
+            <div class="ficha-lamina"><img src="assets/ilustraciones/saturno-720.webp" srcset="assets/ilustraciones/saturno-720.webp 720w, assets/ilustraciones/saturno.webp 1280w" sizes="(max-width: 43rem) 100vw, 42vw" width="720" height="240" alt=""></div>
+            <div class="ficha-texto">
+              <h3>Física</h3>
+              <p>Simulaciones para observar fenómenos y experimentar con ellos.</p>
+              <span class="ficha-temas">Dinámica</span>
+            </div>
+          </a>
+
+          <a class="ficha-asignatura matematicas" href="matematicas/index.html">
+            <div class="ficha-lamina"><img src="assets/ilustraciones/toroide-720.webp" srcset="assets/ilustraciones/toroide-720.webp 720w, assets/ilustraciones/toroide.webp 1280w" sizes="(max-width: 43rem) 100vw, 42vw" width="720" height="240" alt=""></div>
+            <div class="ficha-texto">
+              <h3>Matemáticas</h3>
+              <p>Gráficas y actividades para visualizar ideas y ponerlas a prueba.</p>
+              <span class="ficha-temas">Probabilidad · Números reales · Polinomios</span>
+            </div>
+          </a>
+        </div>
+      </section>
+      <section class="accesos-taller" aria-labelledby="accesos">
+        <h2 id="accesos">Explorar por actividad</h2>
+        <div class="rejilla-accesos">
+          <a class="acceso fisica" href="fisica/dinamica/movimiento-sobre-planos/index.html"><span class="miniatura-acceso miniatura-plano" aria-hidden="true"></span><span><small>Dinámica</small>Movimiento sobre planos</span></a>
+          <a class="acceso matematicas" href="matematicas/probabilidad/arbol/index.html"><span class="miniatura-acceso miniatura-arbol" aria-hidden="true"></span><span><small>Probabilidad</small>Árbol y teorema de Bayes</span></a>
+          <a class="acceso matematicas" href="matematicas/polinomios/raices/index.html"><span class="miniatura-acceso miniatura-raices" aria-hidden="true"></span><span><small>Polinomios</small>Raíces y factorización</span></a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

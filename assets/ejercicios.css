@@ -1,0 +1,215 @@
+.cabecera-ejercicios {
+  display: block;
+  min-height: auto;
+  background: radial-gradient(circle, #ffffff28 .8px, transparent 1.1px) 0 0 / 1.2rem 1.2rem, var(--hero);
+}
+
+.cabecera-ejercicios .ruta-tema { margin-bottom: .7rem; }
+.cabecera-ejercicios .ruta-tema a { color: var(--texto-hero); }
+.cabecera-ejercicios h1 { font-size: clamp(2rem, 5vw, 4.4rem); }
+
+.ejercicios-indice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding: 0;
+  margin: 0 0 1.4rem;
+  list-style: none;
+}
+
+.ejercicios-indice a {
+  display: block;
+  padding: .48rem .8rem;
+  border: 1px solid var(--borde);
+  border-radius: .6rem;
+  background: #fff;
+  color: var(--acento);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.ejercicios-indice a:hover { background: var(--fondo-acento); text-decoration: underline; }
+.ejercicio {
+  min-width: 0;
+  margin-block: 1rem;
+  padding: clamp(1rem, 2.65vw, 1.8rem);
+  border: 1px solid var(--borde);
+  border-radius: 1.15rem;
+  background: #fff;
+  box-shadow: var(--sombra);
+  scroll-margin-top: 1rem;
+}
+
+.ejercicio:target { border-color: var(--foco); }
+.ejercicio > h2 { margin-bottom: .85rem; padding-left: .68rem; border-left: 3px solid var(--circulo); font-size: clamp(1.35rem, 2.65vw, 1.9rem); line-height: 1.2; }
+.ejercicio-planteamiento {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18.5rem), 1fr));
+  align-items: start;
+  gap: 1rem 1.5rem;
+}
+
+.ejercicio-datos, .ejercicio-fichas { display: flex; flex-wrap: wrap; gap: .45rem; }
+.ejercicio-datos { margin: .8rem 0; }
+.ejercicio-datos > span, .ejercicio-fichas > span {
+  padding: .27rem .52rem;
+  border: 1px solid var(--borde);
+  border-radius: .46rem;
+  background: #fff;
+  color: var(--acento);
+  font-weight: 740;
+}
+
+.ejercicio-fichas { justify-content: center; align-items: center; }
+.ejercicio-fichas > .marcada { background: var(--acento); color: #fff; border-color: var(--acento); }
+.ejercicio-fuente { color: var(--texto-secundario); font-size: .85rem; }
+.ejercicio-esquema {
+  display: grid;
+  gap: .62rem;
+  align-items: center;
+  min-width: 0;
+  margin: 0;
+  padding: .85rem;
+  border-radius: .75rem;
+  background: linear-gradient(#ffffff85 1px, transparent 1px) 0 0 / 1.05rem 1.05rem,
+              linear-gradient(90deg, #ffffff85 1px, transparent 1px) 0 0 / 1.05rem 1.05rem,
+              var(--fondo-acento);
+}
+
+.ejercicio-esquema figcaption { font-size: .86rem; color: var(--texto-secundario); }
+.ejercicio-esquema table { width: 100%; border-collapse: collapse; text-align: center; font-size: .86rem; }
+.ejercicio-esquema th, .ejercicio-esquema td { padding: .22rem .25rem; border-bottom: 1px solid var(--borde); background: #ffffffcf; }
+.ejercicio-esquema th { color: var(--acento); }
+.ejercicio-esquema .marcada { font-weight: 760; }
+.ejercicio-esquema td.marcada { background: var(--acento); color: #fff; }
+
+.ejercicio-arbol { display: grid; gap: .28rem; margin: 0 auto; width: fit-content; }
+.ejercicio-arbol ul { display: grid; gap: .2rem; margin: 0 0 .5rem .6rem; padding-left: .8rem; border-left: 2px solid var(--circulo); list-style: none; }
+.ejercicio-arbol ul li::before { content: "↳"; margin-right: .35rem; color: var(--acento); }
+.ejercicio-arbol li { font-size: .86rem; }
+
+.ejercicio-urna { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem 1rem; font-weight: 700; }
+.ejercicio-urna span { display: inline-flex; align-items: center; gap: .36rem; }
+.ejercicio-urna i { width: 1.25rem; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 34% 30%, #fff8, transparent 44%), var(--bola); }
+.bola-roja { --bola: #b92447; }
+.bola-azul { --bola: #245ec8; }
+.bola-verde { --bola: #167349; }
+
+.ejercicio-cancelacion { display: grid; gap: .55rem; }
+.ejercicio-cancelacion > div { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .55rem; }
+.ejercicio-cancelacion b { color: var(--acento); font-size: .85rem; }
+.ejercicio-cuadrado {
+  display: grid;
+  grid-template: 2fr 1fr / 2fr 1fr;
+  width: 7.1rem;
+  aspect-ratio: 1;
+  gap: 2px;
+  margin-inline: auto;
+  border: 2px solid #822440;
+  background: #822440;
+}
+
+.ejercicio-cuadrado span { display: grid; place-items: center; background: #f7adbc; font-weight: 750; }
+.ejercicio-cuadrado span:nth-child(2), .ejercicio-cuadrado span:nth-child(3) { background: #ffe1b2; }
+.ejercicio-cuadrado span:last-child { background: #fff4e4; }
+
+.ejercicio-planetas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; text-align: center; font-size: .86rem; }
+.ejercicio-planeta { display: grid; justify-items: center; gap: .22rem; }
+.ejercicio-planeta > i { display: block; width: 2.7rem; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(ellipse at 37% 28%, #53d2a9 0 20%, transparent 23%), radial-gradient(circle at 35% 30%, #62aef9, #2851a6); }
+.ejercicio-planeta + .ejercicio-planeta > i { background: repeating-linear-gradient(170deg, #9f5e47 0 7px, #efb377 7px 12px, #f5d0a6 12px 18px); }
+.ejercicio-planeta b { color: var(--acento); }
+
+.ejercicio-fuerzas {
+  position: relative;
+  width: min(100%, 15rem);
+  min-height: 9.4rem;
+  margin-inline: auto;
+  isolation: isolate;
+  font-size: .79rem;
+}
+
+.fuerzas-cuerpo {
+  position: absolute;
+  left: var(--x, 50%);
+  top: var(--y, 49%);
+  width: 3.2rem;
+  height: 2.45rem;
+  translate: -50% -50%;
+  rotate: var(--giro, 0deg);
+  border: 2px solid #354671;
+  border-radius: .34rem;
+  background: linear-gradient(135deg, #fff, #d0ddfb);
+}
+
+.fuerzas-superficie {
+  position: absolute;
+  top: 62%;
+  left: 8%;
+  width: 84%;
+  height: 15%;
+  border-top: 2px solid #587093;
+  background: repeating-linear-gradient(-45deg, transparent 0 5px, #7991b33d 5px 7px);
+}
+
+.fuerzas-superficie.rampa { top: 56%; left: 12%; width: 78%; rotate: -30deg; height: 17%; }
+.fuerzas-cuerda { position: absolute; inset: 10% 36% auto; height: 42%; border: 2px solid #587093; border-bottom: 0; border-radius: 3rem 3rem 0 0; }
+.fuerzas-polea { position: absolute; top: 13%; left: 50%; width: 24%; aspect-ratio: 1; translate: -50% 0; border: 2px solid #587093; border-radius: 50%; background: radial-gradient(circle, #587093 0 15%, #f8faff 17% 55%, #c7d6f3 56%); }
+.fuerzas-curva { position: absolute; top: 12%; left: 26%; width: 46%; aspect-ratio: 1; border: .6rem solid #c2cee4; border-radius: 50%; outline: 1px dashed #879abc; }
+.fuerzas-curva::after { position: absolute; inset: calc(50% - .2rem); border-radius: 50%; background: #587093; content: ""; }
+.fuerzas-vector {
+  position: absolute;
+  left: var(--x, 50%);
+  top: var(--y, 49%);
+  width: var(--largo, 3.18rem);
+  height: 2px;
+  z-index: 1;
+  transform-origin: left;
+  rotate: var(--angulo);
+  background: currentColor;
+  color: var(--vector, #9e245d);
+}
+
+.fuerzas-vector::after { position: absolute; right: 0; top: 50%; width: .5rem; aspect-ratio: 1; border-block-start: 2px solid; border-inline-end: 2px solid; transform: translateY(-50%) rotate(45deg); content: ""; }
+.fuerzas-vector b { position: absolute; right: .3rem; top: -.4rem; translate: 50% -50%; rotate: calc(-1 * var(--angulo)); padding: 0 .18em; border-radius: .18rem; background: #ffffffee; white-space: nowrap; }
+.fuerzas-vector.normal { --vector: #164e9a; }
+.fuerzas-vector.aplicada { --vector: #13634f; }
+.fuerzas-vector.rozamiento { --vector: #8a4217; }
+.fuerzas-vector.componente { --vector: #7b4564; height: 0; border-top: 1px dashed; }
+.fuerzas-nota { position: absolute; left: var(--x, 1%); top: var(--y, 80%); color: #344669; font-weight: 720; }
+
+.ejercicio-muelle { display: grid; gap: .6rem; font-size: .8rem; }
+.ejercicio-muelle > div { display: grid; gap: .15rem; }
+.ejercicio-muelle span { display: flex; align-items: center; width: min(100%, 11rem); height: 1.5rem; padding-right: .45rem; border-left: .25rem solid #587093; }
+.ejercicio-muelle i {
+  height: 1rem;
+  width: 58%;
+  background: #37568c;
+  clip-path: polygon(
+    0 44%, 5% 44%, 11% 0, 18% 83%, 25% 0, 32% 83%, 39% 0, 46% 83%, 53% 0,
+    60% 83%, 67% 0, 74% 83%, 81% 0, 88% 83%, 94% 44%, 100% 44%, 100% 56%, 94% 56%,
+    88% 100%, 81% 17%, 74% 100%, 67% 17%, 60% 100%, 53% 17%, 46% 100%, 39% 17%,
+    32% 100%, 25% 17%, 18% 100%, 11% 17%, 5% 56%, 0 56%
+  );
+}
+.ejercicio-muelle > div + div i { width: 100%; }
+.ejercicio-muelle small { color: var(--acento); font-size: .8rem; }
+.ejercicio-interaccion { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; text-align: center; font-size: .85rem; }
+.ejercicio-interaccion div { display: grid; grid-template-rows: 1fr 2.7rem 1fr; justify-items: center; align-items: center; gap: .13rem; }
+.ejercicio-interaccion i { width: 1.25rem; aspect-ratio: 1; border: 1px solid #922b66; border-radius: 50%; background: #e69cbd; }
+.ejercicio-interaccion div + div i { width: 2.7rem; border-color: #3258a4; background: radial-gradient(ellipse at 38% 27%, #5de3ad 0 20%, transparent 26%), radial-gradient(circle at 35% 32%, #73b6ee, #3157a5); }
+.ejercicio-interaccion span { color: var(--acento); font-weight: 750; }
+.ejercicio-rebote { display: grid; gap: .45rem; padding: .3rem .55rem; border-right: .48rem solid #7484a2; background: linear-gradient(90deg, transparent, #d9e5fa); font-weight: 700; }
+
+.ejercicio-solucion { margin-top: 1rem; border-top: 1px solid var(--borde); }
+.ejercicio-solucion summary { width: fit-content; padding: .65rem .2rem .45rem; color: var(--acento); font-weight: 780; cursor: pointer; }
+.ejercicio-solucion summary:hover { text-decoration: underline; }
+.ejercicio-pasos { display: grid; gap: .7rem; padding-left: 1.4rem; margin: .45rem 0 .85rem; }
+.ejercicio-pasos li { padding: .03rem 0 .1rem .6rem; border-left: 1px solid var(--borde); }
+.ejercicio-pasos li::marker { color: var(--acento); font-weight: 780; }
+.ejercicio-pasos h3 { font-size: 1rem; }
+.ejercicio-pasos p { margin-top: .18rem; }
+.ejercicio-formula { display: block; padding: .48rem .66rem; border-left: 3px solid var(--circulo); border-radius: .18rem; background: var(--fondo-acento); color: var(--acento); font: 680 .95rem/1.55 ui-monospace, monospace; overflow-wrap: anywhere; }
+.ejercicio-respuesta { padding: .64rem .85rem; border: 1px solid var(--borde); border-radius: .58rem; background: var(--fondo-acento); }
+.ejercicio-respuesta strong { color: var(--acento); }
+.ejercicio-actividad { margin-top: .7rem; }
+.ejercicio-actividad a { color: var(--acento); font-weight: 700; text-underline-offset: .18em; }

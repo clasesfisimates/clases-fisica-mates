@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prueba cuándo se mantiene un coche en una curva horizontal.">
+  <title>Fuerza centrípeta y curvas · Dinámica</title>
+  <link rel="stylesheet" href="../../../assets/estilos.css">
+  <link rel="stylesheet" href="../../../assets/formula-interactiva.css">
+  <link rel="stylesheet" href="../estilos.css">
+  <link rel="stylesheet" href="../taller.css">
+  <script src="../../../assets/indice.js" defer></script>
+  <script src="../../../assets/formula-interactiva.js" defer></script>
+  <script src="../laboratorio.js" defer></script>
+  <script src="../modelos-taller.js" defer></script>
+  <script src="../taller.js" defer></script>
+  <script src="simulacion.js" defer></script>
+</head>
+<body class="fisica">
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="../../../index.html"><span class="marca-icono" aria-hidden="true">∿</span> La cueva del conocimiento</a>
+    </div>
+  </header>
+  <div class="contenedor disposicion-sitio">
+    <aside class="columna-indice">
+      <button type="button" class="indice-menu" id="abrir-indice" aria-controls="indice-sitio" aria-expanded="false" hidden>
+        <span class="indice-icono-menu" aria-hidden="true"></span> Índice <span class="indice-flecha" aria-hidden="true"></span>
+      </button>
+      <nav class="indice-sitio" id="indice-sitio" aria-label="Índice del laboratorio">
+        <p class="indice-titulo">Índice</p>
+        <ul class="indice-lista" id="indice-lista">
+          <li><a class="indice-enlace" href="../../index.html">Física</a></li>
+          <li><a class="indice-enlace" href="../index.html">Dinámica</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="pagina-indice taller taller-curva" id="contenido" tabindex="-1">
+      <header class="cabecera-visual taller-hero">
+        <div class="cabecera-texto">
+          <nav class="ruta-tema" aria-label="Ruta del tema"><a href="../index.html">Dinámica</a></nav>
+          <h1>Fuerza centrípeta y curvas</h1>
+          <p class="introduccion">Ajusta la rapidez, el radio y el agarre. Compara la fuerza que pide la curva con la que pueden dar los neumáticos.</p>
+        </div>
+        <div class="arte-tema" aria-hidden="true"><div class="formula-tema">F = m · v² / r</div></div>
+      </header>
+      <nav class="taller-enlaces" aria-label="En esta página">
+        <a href="#teoria">Teoría</a>
+        <a href="#formulario">Formulario</a>
+        <a href="../ejercicios-resueltos/index.html#circular">Ejercicio resuelto</a>
+      </nav>
+      <noscript><p>Activa JavaScript para mover el ensayo y explorar las fórmulas.</p></noscript>
+      <section aria-labelledby="titulo-ensayo">
+        <h2 id="titulo-ensayo">Simulación</h2>
+        <div class="taller-banco">
+          <div class="taller-escena">
+            <figure>
+              <canvas id="escena" role="img" aria-label="Vista cenital de una pista circular con un coche. La velocidad es tangente y, con agarre, la fuerza apunta al centro."></canvas>
+              <figcaption>
+                <ul class="taller-leyenda">
+                  <li><i style="--muestra: #a6f1ff" aria-hidden="true"></i>Velocidad</li>
+                  <li><i style="--muestra: #ffcc8b" aria-hidden="true"></i>Fuerza centrípeta</li>
+                  <li><i style="--muestra: #ff9bb9" aria-hidden="true"></i>Tangente de salida</li>
+                </ul>
+                Compara las barras de fuerza requerida y disponible. Al perder agarre, el modelo ideal sigue la tangente con rozamiento lateral nulo.
+              </figcaption>
+            </figure>
+            <div class="taller-acciones">
+              <div class="taller-botones">
+                <button type="button" class="boton" id="reproducir">Iniciar</button>
+                <button type="button" class="boton secundario" id="reiniciar">Reiniciar</button>
+                <label class="taller-ritmo">Ritmo <select id="ritmo"><option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+              </div>
+              <div class="taller-cursor">
+                <label for="recorrido">Recorrer el ensayo</label>
+                <output id="tiempo-ensayo" for="recorrido"></output>
+                <input id="recorrido" type="range" min="0" max="1000" step="1" value="0">
+              </div>
+              <p class="taller-estado" id="estado" role="status"></p>
+            </div>
+          </div>
+          <aside class="taller-panel" aria-labelledby="titulo-ajustes">
+            <h2 id="titulo-ajustes">Ajustes</h2>
+            <div id="controles">
+              <div class="taller-campo">
+                <label for="masa">Masa del coche</label>
+                <output id="masa-valor" for="masa"></output>
+                <input id="masa" type="range" min="400" max="1600" step="50" value="500" data-unidad=" kg">
+              </div>
+              <div class="taller-campo">
+                <label for="rapidez">Rapidez</label>
+                <output id="rapidez-valor" for="rapidez"></output>
+                <input id="rapidez" type="range" min="20" max="140" step="1" value="120" data-unidad=" km/h">
+              </div>
+              <div class="taller-campo">
+                <label for="radio">Radio de la curva</label>
+                <output id="radio-valor" for="radio"></output>
+                <input id="radio" type="range" min="40" max="140" step="1" value="80" data-unidad=" m">
+              </div>
+              <div class="taller-campo">
+                <label for="agarre">Coeficiente de agarre (μ)</label>
+                <output id="agarre-valor" for="agarre"></output>
+                <input id="agarre" type="range" min="0" max="1.6" step="0.01" value="1.5" data-unidad="">
+              </div>
+            </div>
+            <label class="taller-capa"><input id="capa" type="checkbox" checked> Ver los vectores de velocidad y fuerza</label>
+            <div class="taller-botones taller-preajustes" role="group" aria-label="Situaciones de partida">
+              <button type="button" class="boton secundario" data-preajuste='{"masa":500,"rapidez":120,"radio":80,"agarre":1.5}'>Ejercicio 9</button>
+              <button type="button" class="boton secundario" data-preajuste='{"masa":500,"rapidez":120,"radio":80,"agarre":0.6}'>Poco agarre</button>
+              <button type="button" class="boton secundario" data-preajuste='{"masa":500,"rapidez":70,"radio":80,"agarre":0.6}'>Reduce la rapidez</button>
+            </div>
+          </aside>
+        </div>
+        <dl class="taller-medidas">
+          <div><dt>Trayectoria</dt><dd data-medida="estado"></dd></div>
+          <div><dt>Fuerza requerida</dt><dd data-medida="f"></dd></div>
+          <div><dt>Agarre disponible</dt><dd data-medida="max"></dd></div>
+          <div><dt>Aceleración requerida</dt><dd data-medida="a"></dd></div>
+          <div><dt>Rapidez límite</dt><dd data-medida="vmax"></dd></div>
+        </dl>
+      </section>
+      <section class="taller-bloque" id="teoria" aria-labelledby="titulo-teoria">
+        <h2 id="titulo-teoria">Teoría</h2>
+        <div class="taller-teoria">
+          <article><h3>Rapidez fija, dirección variable</h3><p>El coche cambia la dirección de su velocidad al girar. La aceleración apunta al centro de la curva y tiene módulo v²/r.</p></article>
+          <article><h3>¿Qué empuja hacia el centro?</h3><p>En una curva horizontal con agarre, el rozamiento estático que ejerce la calzada sobre los neumáticos aporta la fuerza centrípeta. Su valor máximo ideal es μmg.</p></article>
+          <article><h3>El umbral de agarre</h3><p>Si m·v²/r supera μmg, el coche no puede mantener ese radio. La rapidez límite se obtiene al igualar ambas fuerzas. La masa se cancela en este modelo de rozamiento.</p></article>
+        </div>
+      </section>
+      <section class="taller-bloque" id="formulario" aria-labelledby="titulo-formulario">
+        <h2 id="titulo-formulario">Formulario interactivo</h2>
+        <div class="taller-formulas">
+          <article class="taller-formula">
+            <h3>Fuerza necesaria</h3>
+            <span class="taller-ecuacion">F = m · v² / r</span>
+            <p>Convierte la rapidez de km/h a m/s dividiendo entre 3,6.</p>
+            <button type="button" class="boton secundario" id="formula-curva">Explorar fuerza necesaria</button>
+          </article>
+          <article class="taller-formula">
+            <h3>Rapidez límite</h3>
+            <span class="taller-ecuacion">vₘₐₓ = √(μgr)</span>
+            <p>Una curva más cerrada o con menos agarre reduce la rapidez máxima.</p>
+            <button type="button" class="boton secundario" id="formula-limite">Explorar rapidez límite</button>
+          </article>
+        </div>
+      </section>
+      <section class="taller-reto" aria-labelledby="titulo-reto">
+        <h2 id="titulo-reto">Ponlo a prueba</h2>
+        <p>El ejercicio 9 da la masa, la rapidez y el radio. El taller añade un coeficiente de agarre ajustable. Activa «Poco agarre» y busca con qué rapidez el coche vuelve a tomar la curva.</p>
+        <details><summary>Ver la predicción</summary><p>Con μ = 0,60 y r = 80 m, se recupera el agarre por debajo de unos 78 km/h. A 120 km/h, ni el radio máximo del taller alcanza.</p></details>
+        <a href="../ejercicios-resueltos/index.html#circular">Un coche toma una curva · ejercicio 9</a>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

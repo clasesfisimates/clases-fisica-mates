@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Compara las masas, la aceleración y la tensión en una polea ideal.">
+  <title>Poleas y tensión · Dinámica</title>
+  <link rel="stylesheet" href="../../../assets/estilos.css">
+  <link rel="stylesheet" href="../../../assets/formula-interactiva.css">
+  <link rel="stylesheet" href="../estilos.css">
+  <link rel="stylesheet" href="../taller.css">
+  <script src="../../../assets/indice.js" defer></script>
+  <script src="../../../assets/formula-interactiva.js" defer></script>
+  <script src="../laboratorio.js" defer></script>
+  <script src="../modelos-taller.js" defer></script>
+  <script src="../taller.js" defer></script>
+  <script src="simulacion.js" defer></script>
+</head>
+<body class="fisica">
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="../../../index.html"><span class="marca-icono" aria-hidden="true">∿</span> La cueva del conocimiento</a>
+    </div>
+  </header>
+  <div class="contenedor disposicion-sitio">
+    <aside class="columna-indice">
+      <button type="button" class="indice-menu" id="abrir-indice" aria-controls="indice-sitio" aria-expanded="false" hidden>
+        <span class="indice-icono-menu" aria-hidden="true"></span> Índice <span class="indice-flecha" aria-hidden="true"></span>
+      </button>
+      <nav class="indice-sitio" id="indice-sitio" aria-label="Índice del laboratorio">
+        <p class="indice-titulo">Índice</p>
+        <ul class="indice-lista" id="indice-lista">
+          <li><a class="indice-enlace" href="../../index.html">Física</a></li>
+          <li><a class="indice-enlace" href="../index.html">Dinámica</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="pagina-indice taller taller-poleas" id="contenido" tabindex="-1">
+      <header class="cabecera-visual taller-hero">
+        <div class="cabecera-texto">
+          <nav class="ruta-tema" aria-label="Ruta del tema"><a href="../index.html">Dinámica</a></nav>
+          <h1>Poleas y tensión</h1>
+          <p class="introduccion">Cambia las dos masas, sigue la cuerda y descubre qué determina el sentido del movimiento.</p>
+        </div>
+        <div class="arte-tema" aria-hidden="true"><div class="formula-tema">T − P₁ = m₁ a</div></div>
+      </header>
+      <nav class="taller-enlaces" aria-label="En esta página">
+        <a href="#teoria">Teoría</a>
+        <a href="#formulario">Formulario</a>
+        <a href="../ejercicios-resueltos/index.html#polea">Ejercicio resuelto</a>
+      </nav>
+      <noscript><p>Activa JavaScript para mover el ensayo y explorar las fórmulas.</p></noscript>
+      <section aria-labelledby="titulo-ensayo">
+        <h2 id="titulo-ensayo">Simulación</h2>
+        <div class="taller-banco">
+          <div class="taller-escena">
+            <figure>
+              <canvas id="escena" role="img" aria-label="Polea con dos masas colgantes. La tensión tira hacia arriba y el peso hacia abajo en cada masa."></canvas>
+              <figcaption>
+                <ul class="taller-leyenda">
+                  <li><i style="--muestra: #83ecd5" aria-hidden="true"></i>Tensión</li>
+                  <li><i style="--muestra: #ffbc8d" aria-hidden="true"></i>Peso</li>
+                </ul>
+                La cuerda ideal obliga a las dos masas a recorrer la misma distancia en sentidos opuestos.
+              </figcaption>
+            </figure>
+            <div class="taller-acciones">
+              <div class="taller-botones">
+                <button type="button" class="boton" id="reproducir">Iniciar</button>
+                <button type="button" class="boton secundario" id="reiniciar">Reiniciar</button>
+                <label class="taller-ritmo">Ritmo <select id="ritmo"><option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+              </div>
+              <div class="taller-cursor">
+                <label for="recorrido">Recorrer el ensayo</label>
+                <output id="tiempo-ensayo" for="recorrido"></output>
+                <input id="recorrido" type="range" min="0" max="1000" step="1" value="0">
+              </div>
+              <p class="taller-estado" id="estado" role="status"></p>
+            </div>
+          </div>
+          <aside class="taller-panel" aria-labelledby="titulo-ajustes">
+            <h2 id="titulo-ajustes">Ajustes</h2>
+            <div id="controles">
+              <div class="taller-campo">
+                <label for="m1">Masa izquierda (m₁)</label>
+                <output id="m1-valor" for="m1"></output>
+                <input id="m1" type="range" min="1" max="12" step="0.5" value="2" data-unidad=" kg">
+              </div>
+              <div class="taller-campo">
+                <label for="m2">Masa derecha (m₂)</label>
+                <output id="m2-valor" for="m2"></output>
+                <input id="m2" type="range" min="1" max="12" step="0.5" value="5" data-unidad=" kg">
+              </div>
+            </div>
+            <label class="taller-capa"><input id="capa" type="checkbox" checked> Ver fuerzas en las dos masas</label>
+            <div class="taller-botones taller-preajustes" role="group" aria-label="Situaciones de partida">
+              <button type="button" class="boton secundario" data-preajuste='{"m1":2,"m2":5}'>Ejercicio 44</button>
+              <button type="button" class="boton secundario" data-preajuste='{"m1":5,"m2":5}'>Equilibrio</button>
+              <button type="button" class="boton secundario" data-preajuste='{"m1":7,"m2":3}'>Invierte el sentido</button>
+            </div>
+          </aside>
+        </div>
+        <dl class="taller-medidas">
+          <div><dt>Movimiento</dt><dd data-medida="sentido"></dd></div>
+          <div><dt>Aceleración con signo</dt><dd data-medida="a"></dd></div>
+          <div><dt>Tensión</dt><dd data-medida="T"></dd></div>
+          <div><dt>Distancia recorrida</dt><dd data-medida="distancia"></dd></div>
+        </dl>
+      </section>
+      <section class="taller-bloque" id="teoria" aria-labelledby="titulo-teoria">
+        <h2 id="titulo-teoria">Teoría</h2>
+        <div class="taller-teoria">
+          <article><h3>Una cuerda, dos movimientos</h3><p>La cuerda ideal tiene longitud constante. Si la derecha baja 10 cm, la izquierda sube 10 cm. Sus aceleraciones tienen el mismo módulo.</p></article>
+          <article><h3>Una ecuación para cada masa</h3><p>Tomamos hacia abajo como positivo a la derecha y hacia arriba a la izquierda. La misma tensión T aparece con signos opuestos al sumar las ecuaciones de ambos cuerpos.</p></article>
+          <article><h3>Más peso a un lado</h3><p>La diferencia de pesos impulsa al conjunto. La suma de las masas determina cuánto se resiste a acelerar. Con masas iguales, un sistema que parte del reposo sigue en reposo.</p></article>
+        </div>
+      </section>
+      <section class="taller-bloque" id="formulario" aria-labelledby="titulo-formulario">
+        <h2 id="titulo-formulario">Formulario interactivo</h2>
+        <div class="taller-formulas">
+          <article class="taller-formula">
+            <h3>Aceleración</h3>
+            <span class="taller-ecuacion">a = g(m₂ − m₁)/(m₁ + m₂)</span>
+            <p>Un resultado negativo indica que baja la masa izquierda.</p>
+            <button type="button" class="boton secundario" id="formula-a">Explorar aceleración</button>
+          </article>
+          <article class="taller-formula">
+            <h3>Tensión de la cuerda</h3>
+            <span class="taller-ecuacion">T = m₁(g + a)</span>
+            <p>Aplica la segunda ley a la masa izquierda con su eje hacia arriba.</p>
+            <button type="button" class="boton secundario" id="formula-t">Explorar tensión de la cuerda</button>
+          </article>
+        </div>
+      </section>
+      <section class="taller-reto" aria-labelledby="titulo-reto">
+        <h2 id="titulo-reto">Ponlo a prueba</h2>
+        <p>Carga el ejercicio 44. Antes de iniciar, predice qué masa baja. Después intercámbialas y compara la tensión.</p>
+        <details><summary>Ver la predicción</summary><p>La aceleración cambia de signo. La tensión conserva su valor porque, al cambiar ambas masas de lado, las fuerzas tienen los mismos módulos.</p></details>
+        <a href="../ejercicios-resueltos/index.html#polea">Dos masas unidas por una polea · ejercicio 44</a>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

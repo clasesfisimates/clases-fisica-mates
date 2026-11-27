@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Problemas de Números reales con esquemas y soluciones paso a paso.">
+  <title>Ejercicios resueltos · Números reales</title>
+  <link rel="stylesheet" href="../../../assets/estilos.css">
+  <link rel="stylesheet" href="../../../assets/ejercicios.css">
+  <script src="../../../assets/indice.js" defer></script>
+</head>
+<body class="matematicas">
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="../../../index.html"><span class="marca-icono" aria-hidden="true">∿</span> La cueva del conocimiento</a>
+    </div>
+  </header>
+  <div class="contenedor disposicion-sitio">
+    <aside class="columna-indice">
+      <button type="button" class="indice-menu" id="abrir-indice" aria-controls="indice-sitio" aria-expanded="false" hidden>
+        <span class="indice-icono-menu" aria-hidden="true"></span> Índice <span class="indice-flecha" aria-hidden="true"></span>
+      </button>
+      <nav class="indice-sitio" id="indice-sitio" aria-label="Índice del laboratorio">
+        <p class="indice-titulo">Índice</p>
+        <ul class="indice-lista" id="indice-lista">
+          <li><a class="indice-enlace" href="../../index.html">Matemáticas</a></li>
+          <li><a class="indice-enlace" href="../index.html">Números reales</a></li>
+          <li><a class="indice-enlace" href="index.html" aria-current="page">Ejercicios resueltos</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="pagina-indice" id="contenido" tabindex="-1">
+      <header class="cabecera-visual cabecera-ejercicios">
+        <nav class="ruta-tema" aria-label="Ruta del tema"><a href="../index.html">Números reales</a></nav>
+        <h1>Ejercicios resueltos</h1>
+        <p class="introduccion">Agrupa factores y transforma cada expresión conservando su valor.</p>
+      </header>
+      <nav aria-label="Tipos de ejercicios">
+        <ul class="ejercicios-indice">
+          <li><a href="#potencias">Potencias</a></li>
+          <li><a href="#radicales">Radicales</a></li>
+          <li><a href="#racionalizacion">Racionalización</a></li>
+          <li><a href="#logaritmos">Logaritmos</a></li>
+        </ul>
+      </nav>
+      <article class="ejercicio" id="potencias" aria-labelledby="titulo-potencias">
+        <h2 id="titulo-potencias">Dividir potencias de la misma base</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Simplifica 64<sup>12</sup> ÷ 64<sup>8</sup> y escribe el resultado como una potencia de base 2.</p>
+            <div class="ejercicio-datos"><span>Base común: 64</span><span>64 = 2⁶</span></div>
+            <p class="ejercicio-fuente">Ficha potencias y raíces 1 · apartado de potencias</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-cancelacion"><div><b>Numerador</b><div class="ejercicio-fichas"><span>8 factores de 64</span><span class="marcada">4 factores de 64</span></div></div><div><b>Denominador</b><div class="ejercicio-fichas"><span>8 factores de 64</span></div></div></div>
+              <figcaption>Ocho factores de 64 se cancelan con los ocho del denominador.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Resta los exponentes</h3>
+              <p>Al dividir potencias de la misma base, cada factor del denominador cancela uno del numerador.</p>
+              <p class="ejercicio-formula">64<sup>12</sup> ÷ 64<sup>8</sup> = 64<sup>12 − 8</sup> = 64⁴</p>
+            </li>
+            <li>
+              <h3>Escribe la base como potencia de 2</h3>
+              <p>Cada uno de los cuatro factores 64 equivale a 2⁶. En una potencia de otra potencia, los exponentes se multiplican.</p>
+              <p class="ejercicio-formula">(2⁶)⁴ = 2<sup>6 · 4</sup> = 2²⁴</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> La expresión equivale a <b>64⁴ = 2²⁴</b>.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../potencias/index.html">Prueba otras potencias en el taller</a></p>
+      </article>
+      <article class="ejercicio" id="radicales" aria-labelledby="titulo-radicales">
+        <h2 id="titulo-radicales">Sumar raíces después de simplificarlas</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Simplifica √20 + √45 − √5. Busca primero los cuadrados perfectos que hay dentro de cada raíz.</p>
+            <div class="ejercicio-datos"><span>20 = 4 · 5</span><span>45 = 9 · 5</span></div>
+            <p class="ejercicio-fuente">Variante de la ficha potencias y raíces 1 · operaciones con radicales</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-cancelacion"><div><b>√20</b><div class="ejercicio-fichas"><span>√4</span><span>×</span><span class="marcada">√5</span></div></div><div><b>√45</b><div class="ejercicio-fichas"><span>√9</span><span>×</span><span class="marcada">√5</span></div></div></div>
+              <figcaption>Al extraer 2 y 3 de las raíces, la parte √5 queda igual en todos los términos.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Extrae los cuadrados perfectos</h3>
+              <p>Descompón cada radicando en dos factores, uno de ellos un cuadrado perfecto.</p>
+              <p class="ejercicio-formula">√20 = √(4 · 5) = 2√5</p>
+              <p class="ejercicio-formula">√45 = √(9 · 5) = 3√5</p>
+            </li>
+            <li>
+              <h3>Suma y resta los coeficientes</h3>
+              <p>Como los tres términos comparten la raíz √5, podemos agruparlos.</p>
+              <p class="ejercicio-formula">2√5 + 3√5 − √5 = (2 + 3 − 1)√5 = 4√5</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> La expresión simplificada es <b>4√5</b>.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../radicales/index.html">Explora cómo extraer factores de una raíz</a></p>
+      </article>
+      <article class="ejercicio" id="racionalizacion" aria-labelledby="titulo-racionalizacion">
+        <h2 id="titulo-racionalizacion">Eliminar la raíz del denominador con el conjugado</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Racionaliza 7 / (√5 − 2).</p>
+            <div class="ejercicio-datos"><span>Denominador: √5 − 2</span><span>Conjugado: √5 + 2</span></div>
+            <p class="ejercicio-fuente">Variante de la ficha Racionalizar · denominador con dos términos</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-fichas"><span class="marcada">√5 − 2</span><span>×</span><span class="marcada">√5 + 2</span><span>→</span><span>5 − 4</span></div>
+              <figcaption>Los términos cruzados son opuestos y se anulan al multiplicar.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Multiplica por el conjugado arriba y abajo</h3>
+              <p>Aprovecha que dividir el conjugado entre sí da 1. Así mantienes el valor de la fracción.</p>
+              <p class="ejercicio-formula">7 / (√5 − 2) · (√5 + 2) / (√5 + 2)</p>
+            </li>
+            <li>
+              <h3>Aplica la diferencia de cuadrados</h3>
+              <p>El producto de los denominadores conjugados deja una resta de cuadrados.</p>
+              <p class="ejercicio-formula">(√5 − 2)(√5 + 2) = (√5)² − 2² = 5 − 4 = 1</p>
+            </li>
+            <li>
+              <h3>Lee el numerador que queda</h3>
+              <p>El único factor del denominador es 1.</p>
+              <p class="ejercicio-formula">7(√5 + 2) / 1 = 7√5 + 14</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> La expresión racionalizada es <b>7√5 + 14</b>.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../racionalizacion/index.html">Prueba el factor conjugado en el taller</a></p>
+      </article>
+      <article class="ejercicio" id="logaritmos" aria-labelledby="titulo-logaritmos">
+        <h2 id="titulo-logaritmos">Encontrar la base de un logaritmo</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Halla x si log<sub>x</sub>(32) = 5.</p>
+            <div class="ejercicio-datos"><span>Argumento: 32</span><span>Exponente: 5</span><span>x &gt; 0 y x ≠ 1</span></div>
+            <p class="ejercicio-fuente">Ficha Definición de logaritmo · ejercicio 2, apartado e</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-fichas"><span class="marcada">x</span><span>elevado a 5</span><span>→</span><span class="marcada">32</span></div>
+              <figcaption>La base es el número que, elevado al exponente indicado, da el argumento.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Pasa de logaritmo a potencia</h3>
+              <p>El logaritmo en base x de 32 vale 5 exactamente cuando x elevado a 5 da 32.</p>
+              <p class="ejercicio-formula">log<sub>x</sub>(32) = 5 ⇔ x⁵ = 32</p>
+            </li>
+            <li>
+              <h3>Reconoce la quinta potencia y comprueba la base</h3>
+              <p>Como 32 = 2 · 2 · 2 · 2 · 2, x vale 2. Es positiva y distinta de 1, así que sirve como base.</p>
+              <p class="ejercicio-formula">2⁵ = 32 ⇒ log₂(32) = 5</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> La base es <b>x = 2</b>.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../logaritmos/index.html">Explora cómo cambia el logaritmo con la base</a></p>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

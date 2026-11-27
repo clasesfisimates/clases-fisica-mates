@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explora la atracción mutua, la tercera ley y el centro de masas.">
+  <title>Gravitación y acción–reacción · Dinámica</title>
+  <link rel="stylesheet" href="../../../assets/estilos.css">
+  <link rel="stylesheet" href="../../../assets/formula-interactiva.css">
+  <link rel="stylesheet" href="../estilos.css">
+  <link rel="stylesheet" href="../taller.css">
+  <script src="../../../assets/indice.js" defer></script>
+  <script src="../../../assets/formula-interactiva.js" defer></script>
+  <script src="../laboratorio.js" defer></script>
+  <script src="../modelos-taller.js" defer></script>
+  <script src="../taller.js" defer></script>
+  <script src="simulacion.js" defer></script>
+</head>
+<body class="fisica">
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="../../../index.html"><span class="marca-icono" aria-hidden="true">∿</span> La cueva del conocimiento</a>
+    </div>
+  </header>
+  <div class="contenedor disposicion-sitio">
+    <aside class="columna-indice">
+      <button type="button" class="indice-menu" id="abrir-indice" aria-controls="indice-sitio" aria-expanded="false" hidden>
+        <span class="indice-icono-menu" aria-hidden="true"></span> Índice <span class="indice-flecha" aria-hidden="true"></span>
+      </button>
+      <nav class="indice-sitio" id="indice-sitio" aria-label="Índice del laboratorio">
+        <p class="indice-titulo">Índice</p>
+        <ul class="indice-lista" id="indice-lista">
+          <li><a class="indice-enlace" href="../../index.html">Física</a></li>
+          <li><a class="indice-enlace" href="../index.html">Dinámica</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="pagina-indice taller taller-gravedad" id="contenido" tabindex="-1">
+      <header class="cabecera-visual taller-hero">
+        <div class="cabecera-texto">
+          <nav class="ruta-tema" aria-label="Ruta del tema"><a href="../index.html">Dinámica</a></nav>
+          <h1>Gravitación y acción–reacción</h1>
+          <p class="introduccion">Suelta dos asteroides. Observa cómo se atraen y cuál se desplaza más antes de acercarse al centro de masas.</p>
+        </div>
+        <div class="arte-tema" aria-hidden="true"><div class="formula-tema">F = G m₁ m₂ / r²</div></div>
+      </header>
+      <nav class="taller-enlaces" aria-label="En esta página">
+        <a href="#teoria">Teoría</a>
+        <a href="#formulario">Formulario</a>
+        <a href="../ejercicios-resueltos/index.html#accion-reaccion">Ejercicio resuelto</a>
+      </nav>
+      <noscript><p>Activa JavaScript para mover el ensayo y explorar las fórmulas.</p></noscript>
+      <section aria-labelledby="titulo-ensayo">
+        <h2 id="titulo-ensayo">Simulación</h2>
+        <div class="taller-banco">
+          <div class="taller-escena">
+            <figure>
+              <canvas id="escena" role="img" aria-label="Dos asteroides se atraen a lo largo de la recta que une sus centros. Una marca señala el centro de masas."></canvas>
+              <figcaption>
+                <ul class="taller-leyenda">
+                  <li><i style="--muestra: #ffe2a4" aria-hidden="true"></i>Fuerzas de igual módulo</li>
+                  <li><i style="--muestra: #8df4df" aria-hidden="true"></i>Centro de masas</li>
+                </ul>
+                Las flechas actúan sobre cuerpos distintos. El centro de masas permanece fijo. El tamaño de los asteroides es esquemático.
+              </figcaption>
+            </figure>
+            <div class="taller-acciones">
+              <div class="taller-botones">
+                <button type="button" class="boton" id="reproducir">Iniciar</button>
+                <button type="button" class="boton secundario" id="reiniciar">Reiniciar</button>
+                <label class="taller-ritmo">Ritmo <select id="ritmo"><option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+              </div>
+              <div class="taller-cursor">
+                <label for="recorrido">Recorrer el ensayo</label>
+                <output id="tiempo-ensayo" for="recorrido"></output>
+                <input id="recorrido" type="range" min="0" max="1000" step="1" value="0">
+              </div>
+              <p class="taller-estado" id="estado" role="status"></p>
+            </div>
+          </div>
+          <aside class="taller-panel" aria-labelledby="titulo-ajustes">
+            <h2 id="titulo-ajustes">Ajustes</h2>
+            <div id="controles">
+              <div class="taller-campo">
+                <label for="m1">Masa izquierda (m₁)</label>
+                <output id="m1-valor" for="m1"></output>
+                <input id="m1" type="range" min="2" max="10" step="0.5" value="4" data-unidad=" × 10¹² kg">
+              </div>
+              <div class="taller-campo">
+                <label for="m2">Masa derecha (m₂)</label>
+                <output id="m2-valor" for="m2"></output>
+                <input id="m2" type="range" min="2" max="10" step="0.5" value="8" data-unidad=" × 10¹² kg">
+              </div>
+              <div class="taller-campo">
+                <label for="distancia">Separación inicial</label>
+                <output id="distancia-valor" for="distancia"></output>
+                <input id="distancia" type="range" min="2" max="4" step="0.05" value="3" data-unidad=" km">
+              </div>
+            </div>
+            <label class="taller-capa"><input id="capa" type="checkbox" checked> Ver fuerzas gravitatorias</label>
+            <div class="taller-botones taller-preajustes" role="group" aria-label="Situaciones de partida">
+              <button type="button" class="boton secundario" data-preajuste='{"m1":6,"m2":6,"distancia":3}'>Masas iguales</button>
+              <button type="button" class="boton secundario" data-preajuste='{"m1":2,"m2":10,"distancia":3}'>Una masa mayor</button>
+              <button type="button" class="boton secundario" data-preajuste='{"m1":4,"m2":8,"distancia":2}'>Más cerca</button>
+            </div>
+          </aside>
+        </div>
+        <dl class="taller-medidas">
+          <div><dt>Separación entre centros</dt><dd data-medida="r"></dd></div>
+          <div><dt>Fuerza en cada cuerpo</dt><dd data-medida="F"></dd></div>
+          <div><dt>Aceleración izquierda</dt><dd data-medida="a1"></dd></div>
+          <div><dt>Aceleración derecha</dt><dd data-medida="a2"></dd></div>
+        </dl>
+      </section>
+      <section class="taller-bloque" id="teoria" aria-labelledby="titulo-teoria">
+        <h2 id="titulo-teoria">Teoría</h2>
+        <div class="taller-teoria">
+          <article><h3>Distancia entre centros</h3><p>La fuerza gravitatoria apunta hacia el otro cuerpo. Si duplicas la distancia entre centros con las masas fijas, la fuerza se reduce a la cuarta parte.</p></article>
+          <article><h3>Igual fuerza, distinta aceleración</h3><p>Por la tercera ley, ambas fuerzas tienen igual módulo. Como a = F/m, la masa más ligera recibe la mayor aceleración y recorre más camino hacia el centro de masas.</p></article>
+          <article><h3>De los asteroides a la Tierra</h3><p>En el ejercicio de la bola, 19,62 N producen 9,81 m/s² en la bola y apenas 3,29 · 10⁻²⁴ m/s² en la Tierra. Usamos asteroides de masas más parecidas para que puedas ver ambos desplazamientos.</p></article>
+        </div>
+      </section>
+      <section class="taller-bloque" id="formulario" aria-labelledby="titulo-formulario">
+        <h2 id="titulo-formulario">Formulario interactivo</h2>
+        <div class="taller-formulas">
+          <article class="taller-formula">
+            <h3>Gravitación universal</h3>
+            <span class="taller-ecuacion">F = G m₁ m₂ / r²</span>
+            <p>En unidades SI, G = 6,6743 · 10⁻¹¹ N·m²/kg². El simulador muestra la fuerza en GN.</p>
+            <button type="button" class="boton secundario" id="formula-gravedad">Explorar gravitación universal</button>
+          </article>
+          <article class="taller-formula">
+            <h3>Aceleración de cada cuerpo</h3>
+            <span class="taller-ecuacion">a = F / m</span>
+            <p>Usa la misma fuerza en las dos masas para comparar sus aceleraciones.</p>
+            <button type="button" class="boton secundario" id="formula-aceleracion">Explorar aceleración de cada cuerpo</button>
+          </article>
+        </div>
+      </section>
+      <section class="taller-reto" aria-labelledby="titulo-reto">
+        <h2 id="titulo-reto">Ponlo a prueba</h2>
+        <p>Prueba el caso «Una masa mayor». Pausa a mitad del ensayo. Compara las dos flechas y calcula cuántas veces mayor es la aceleración de la masa izquierda.</p>
+        <details><summary>Ver la predicción</summary><p>Es cinco veces mayor, porque una masa vale 2 y la otra 10 en las mismas unidades.</p></details>
+        <a href="../ejercicios-resueltos/index.html#accion-reaccion">La Tierra también acelera hacia la bola · ejercicio 15</a>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

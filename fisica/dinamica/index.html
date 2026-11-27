@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Experimentos de dinámica para Física.">
+  <title>Dinámica · La cueva del conocimiento</title>
+  <link rel="stylesheet" href="../../assets/estilos.css">
+  <script src="../../assets/indice.js" defer></script>
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="taller.css">
+</head>
+<body class="fisica">
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="../../index.html"><span class="marca-icono" aria-hidden="true">∿</span> La cueva del conocimiento</a>
+    </div>
+  </header>
+  <div class="contenedor disposicion-sitio">
+    <aside class="columna-indice">
+      <button type="button" class="indice-menu" id="abrir-indice" aria-controls="indice-sitio" aria-expanded="false" hidden>
+        <span class="indice-icono-menu" aria-hidden="true"></span> Índice <span class="indice-flecha" aria-hidden="true"></span>
+      </button>
+      <nav class="indice-sitio" id="indice-sitio" aria-label="Índice del laboratorio">
+        <p class="indice-titulo">Índice</p>
+        <ul class="indice-lista" id="indice-lista">
+          <li><a class="indice-enlace" href="../../index.html">Inicio</a></li>
+          <li class="fisica"><a class="indice-enlace" href="../../fisica/index.html">Física</a></li>
+          <li class="fisica"><a class="indice-enlace" href="../../fisica/dinamica/index.html" aria-current="page">Dinámica</a></li>
+          <li class="matematicas"><a class="indice-enlace" href="../../matematicas/index.html">Matemáticas</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="tema" id="contenido" tabindex="-1">
+      <header class="cabecera-visual cabecera-tema">
+        <div class="cabecera-texto">
+          <h1>Dinámica</h1>
+          <p class="introduccion">¿Qué hace que un objeto arranque, siga quieto o cambie su velocidad?</p>
+        </div>
+        <div class="arte-tema">
+          <div class="formula-tema" role="img" aria-label="Fuerza resultante igual a masa por aceleración">ΣF = m · a</div>
+        </div>
+      </header>
+      <section aria-labelledby="experimentos">
+        <h2 id="experimentos">Experimentos</h2>
+        <div class="experimentos">
+          <a class="experimento peso" href="masa-y-peso/index.html">
+            <div class="motivo" aria-hidden="true"><span class="planeta planeta-tierra"></span><span class="planeta planeta-luna"></span><span class="planeta planeta-propio"></span></div>
+            <div class="experimento-texto"><h3>Masa y peso</h3><p>Suelta cápsulas de distinta masa en la Tierra, la Luna y un planeta que puedes ajustar.</p></div>
+          </a>
+          <a class="experimento inclinado" href="movimiento-sobre-planos/index.html">
+            <div class="motivo" aria-hidden="true"><span class="dibujo-rampa"></span><span class="dibujo-bloque"></span></div>
+            <div class="experimento-texto"><h3>Movimiento sobre planos</h3><p>Del plano horizontal a la rampa: descompón y compensa las fuerzas antes de ver el movimiento.</p></div>
+          </a>
+          <a class="experimento" href="poleas/index.html">
+            <div class="motivo motivo-taller taller taller-poleas" aria-hidden="true"><span>T − P₁ = m₁ a</span></div>
+            <div class="experimento-texto"><h3>Poleas y tensión</h3><p>Compara las masas, la aceleración y la tensión en una polea ideal.</p></div>
+          </a>
+          <a class="experimento" href="muelles/index.html">
+            <div class="motivo motivo-taller taller taller-muelles" aria-hidden="true"><span>F = k · ΔL</span></div>
+            <div class="experimento-texto"><h3>Muelles y ley de Hooke</h3><p>Alarga un muelle y mide la pendiente de su gráfica de fuerza.</p></div>
+          </a>
+          <a class="experimento" href="gravedad/index.html">
+            <div class="motivo motivo-taller taller taller-gravedad" aria-hidden="true"><span>F = G m₁ m₂ / r²</span></div>
+            <div class="experimento-texto"><h3>Gravitación y acción–reacción</h3><p>Explora la atracción mutua, la tercera ley y el centro de masas.</p></div>
+          </a>
+          <a class="experimento" href="curva/index.html">
+            <div class="motivo motivo-taller taller taller-curva" aria-hidden="true"><span>F = m · v² / r</span></div>
+            <div class="experimento-texto"><h3>Fuerza centrípeta y curvas</h3><p>Prueba cuándo se mantiene un coche en una curva horizontal.</p></div>
+          </a>
+          <a class="experimento" href="rebote/index.html">
+            <div class="motivo motivo-taller taller taller-rebote" aria-hidden="true"><span>J = Δp = Fₘ · Δt</span></div>
+            <div class="experimento-texto"><h3>Impulso y rebote</h3><p>Sigue el cambio de velocidad y explora el impulso durante un rebote.</p></div>
+          </a>
+        </div>
+      </section>
+      <section class="dinamica-ejercicios" aria-labelledby="ejercicios">
+        <h2 id="ejercicios">Ejercicios resueltos</h2>
+        <a class="tarjeta tarjeta-ejercicios" href="ejercicios-resueltos/index.html">
+          <span class="icono-asignatura" aria-hidden="true">✓</span>
+          <div><h3>Problemas de Dinámica</h3><p>Del diagrama de fuerzas a las ecuaciones de peso, rozamiento, rampas y poleas.</p></div>
+        </a>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

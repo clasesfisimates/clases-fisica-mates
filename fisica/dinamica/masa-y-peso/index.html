@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Compara masa y peso en distintos planetas y descubre cómo la fuerza normal del suelo sostiene un objeto.">
+  <title>Masa y peso · La cueva del conocimiento</title>
+  <link rel="stylesheet" href="../../../assets/estilos.css">
+  <script src="../../../assets/indice.js" defer></script>
+  <link rel="stylesheet" href="../../../assets/formula-interactiva.css">
+  <link rel="stylesheet" href="../estilos.css">
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="normal.css">
+  <script src="../laboratorio.js" defer></script>
+  <script src="simulacion.js" defer></script>
+  <script src="../../../assets/formula-interactiva.js" defer></script>
+  <script src="formula-peso.js" defer></script>
+  <script src="normal-modelo.js" defer></script>
+  <script src="normal.js" defer></script>
+</head>
+<body class="fisica">
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="../../../index.html"><span class="marca-icono" aria-hidden="true">∿</span> La cueva del conocimiento</a>
+    </div>
+  </header>
+  <div class="contenedor disposicion-sitio">
+    <aside class="columna-indice">
+      <button type="button" class="indice-menu" id="abrir-indice" aria-controls="indice-sitio" aria-expanded="false" hidden>
+        <span class="indice-icono-menu" aria-hidden="true"></span> Índice <span class="indice-flecha" aria-hidden="true"></span>
+      </button>
+      <nav class="indice-sitio" id="indice-sitio" aria-label="Índice del laboratorio">
+        <p class="indice-titulo">Índice</p>
+        <ul class="indice-lista" id="indice-lista">
+          <li><a class="indice-enlace" href="../../../index.html">Inicio</a></li>
+          <li class="fisica"><a class="indice-enlace" href="../../../fisica/index.html">Física</a></li>
+          <li class="fisica"><a class="indice-enlace" href="../../../fisica/dinamica/index.html">Dinámica</a></li>
+          <li class="matematicas"><a class="indice-enlace" href="../../../matematicas/index.html">Matemáticas</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="tema" id="contenido" tabindex="-1">
+      <header class="cabecera-visual cabecera-espacial portada-peso">
+        <div class="cabecera-texto">
+          <h1>Masa y peso</h1>
+          <p class="introduccion">¿Pesar más hace que una cápsula caiga antes?</p>
+        </div>
+        <div class="portada-planetas" aria-hidden="true">
+          <span class="orbita"></span>
+          <span class="orbita orbita-amplia"></span>
+          <span class="esfera esfera-tierra"></span>
+          <span class="esfera esfera-luna"></span>
+          <span class="esfera esfera-propia"></span>
+        </div>
+      </header>
+      <noscript><p class="estado-vacio">Activa JavaScript para usar la simulación.</p></noscript>
+      <div class="banco-peso">
+        <div class="experiencia-peso">
+          <section class="controles" id="controles" aria-labelledby="mandos">
+            <div class="cabecera-controles">
+              <h2 id="mandos">Controles</h2>
+              <label class="casilla"><input type="checkbox" id="comparar" aria-controls="campo-masa-b" checked> Comparar dos cápsulas</label>
+            </div>
+            <div class="ajustes-peso">
+              <div class="campo ajuste-a">
+                <div class="control-rango"><label for="masa">Masa de A</label><output id="masa-valor" for="masa">60 kg</output></div>
+                <input type="range" id="masa" min="10" max="100" value="60" data-unidad=" kg">
+              </div>
+              <div class="campo ajuste-b" id="campo-masa-b" data-comparacion>
+                <div class="control-rango"><label for="masa-b">Masa de B</label><output id="masa-b-valor" for="masa-b">30 kg</output></div>
+                <input type="range" id="masa-b" min="10" max="100" value="30" data-unidad=" kg">
+              </div>
+              <div class="campo ajuste-gravedad">
+                <div class="control-rango"><label for="gravedad">Gravedad del planeta</label><output id="gravedad-valor" for="gravedad">5 m/s²</output></div>
+                <input type="range" id="gravedad" min="0.5" max="20" step="0.1" value="5" data-unidad=" m/s²">
+              </div>
+            </div>
+          </section>
+          <section class="visor-peso" aria-label="Caída en los tres mundos">
+            <div class="transporte-peso">
+              <div class="acciones">
+                <button type="button" class="boton" id="reproducir">Soltar</button>
+                <button type="button" class="boton secundario" id="reiniciar">Reiniciar</button>
+              </div>
+              <div class="ritmo-peso">
+                <label for="ritmo">Velocidad de reproducción</label>
+                <input type="range" id="ritmo" min="0.5" max="2" step="0.25" value="0.5">
+                <output id="ritmo-valor" for="ritmo">0,5×</output>
+              </div>
+            </div>
+            <div class="comparacion mundos">
+              <article class="mundo mundo-tierra">
+                <header class="mundo-titulo">
+                  <span class="astro" aria-hidden="true"></span>
+                  <div><h2>Tierra</h2><p><abbr title="Gravedad">g</abbr> 9,8 m/s²</p></div>
+                </header>
+                <div class="escena-mundo"><canvas class="lienzo" id="tierra" aria-hidden="true"></canvas></div>
+                <dl class="valores-planeta">
+                  <div class="medida-a"><dt>Peso de A</dt><dd id="peso-tierra"></dd></div>
+                  <div class="medida-b" data-comparacion><dt>Peso de B</dt><dd id="peso-b-tierra"></dd></div>
+                  <div><dt>Altura</dt><dd id="altura-tierra"></dd></div>
+                  <div><dt>Tiempo de caída</dt><dd id="tiempo-tierra"></dd></div>
+                </dl>
+              </article>
+              <article class="mundo mundo-luna">
+                <header class="mundo-titulo">
+                  <span class="astro" aria-hidden="true"></span>
+                  <div><h2>Luna</h2><p><abbr title="Gravedad">g</abbr> 1,6 m/s²</p></div>
+                </header>
+                <div class="escena-mundo"><canvas class="lienzo" id="luna" aria-hidden="true"></canvas></div>
+                <dl class="valores-planeta">
+                  <div class="medida-a"><dt>Peso de A</dt><dd id="peso-luna"></dd></div>
+                  <div class="medida-b" data-comparacion><dt>Peso de B</dt><dd id="peso-b-luna"></dd></div>
+                  <div><dt>Altura</dt><dd id="altura-luna"></dd></div>
+                  <div><dt>Tiempo de caída</dt><dd id="tiempo-luna"></dd></div>
+                </dl>
+              </article>
+              <article class="mundo mundo-propio">
+                <header class="mundo-titulo">
+                  <span class="astro" aria-hidden="true"></span>
+                  <div><h2>Planeta propio</h2><p><abbr title="Gravedad">g</abbr> <span id="gravedad-personalizado"></span></p></div>
+                </header>
+                <div class="escena-mundo"><canvas class="lienzo" id="personalizado" aria-hidden="true"></canvas></div>
+                <dl class="valores-planeta">
+                  <div class="medida-a"><dt>Peso de A</dt><dd id="peso-personalizado"></dd></div>
+                  <div class="medida-b" data-comparacion><dt>Peso de B</dt><dd id="peso-b-personalizado"></dd></div>
+                  <div><dt>Altura</dt><dd id="altura-personalizado"></dd></div>
+                  <div><dt>Tiempo de caída</dt><dd id="tiempo-personalizado"></dd></div>
+                </dl>
+              </article>
+            </div>
+            <p class="estado" id="estado" role="status"></p>
+            <p class="modelo-caida">Caída ideal desde 10 m, sin aire y con gravedad constante. El tamaño de las cápsulas supone igual densidad. Las flechas naranjas muestran el peso en la misma escala.</p>
+          </section>
+        </div>
+        <div class="apoyo-peso">
+          <aside class="formulario" aria-labelledby="titulo-formulario">
+            <h2 id="titulo-formulario">Formulario</h2>
+            <button type="button" class="ecuacion-peso" id="explorar-formula-peso" aria-haspopup="dialog">
+              P = m · g
+              <span>Explorar fórmula</span>
+            </button>
+            <dl>
+              <div><dt>P</dt><dd>Peso, en N</dd></div>
+              <div><dt>m</dt><dd>Masa, en kg</dd></div>
+              <div><dt>g</dt><dd>Gravedad, en m/s²</dd></div>
+            </dl>
+          </aside>
+          <aside class="reto reto-peso">
+            <h2>Reto</h2>
+            <p>Prueba con 60 kg en A y 30 kg en B. Antes de soltarlas juntas, predice cuál pesa más y cuál llega antes al suelo.</p>
+            <details>
+              <summary>Ver explicación</summary>
+              <p>En cada mundo, A pesa el doble que B. Las dos cápsulas llegan juntas porque caen con la misma aceleración desde la misma altura.</p>
+            </details>
+          </aside>
+        </div>
+      </div>
+      <section class="laboratorio-normal" id="fuerza-normal" aria-labelledby="titulo-normal">
+        <header class="normal-cabecera">
+          <p class="normal-antetitulo">Del peso al contacto</p>
+          <h2 id="titulo-normal">¿Por qué no nos hundimos en el suelo?</h2>
+          <p>La <strong>fuerza normal</strong> es el empuje que una superficie ejerce sobre un objeto en contacto con ella. Siempre es <strong>perpendicular a la superficie</strong>: en un suelo horizontal, apunta hacia arriba.</p>
+        </header>
+        <div class="normal-laboratorio">
+          <div class="normal-experimento">
+            <div class="normal-transporte">
+              <div class="acciones">
+                <button type="button" class="boton" id="normal-reproducir">Ver animación</button>
+                <button type="button" class="boton secundario" id="normal-reiniciar">Reiniciar</button>
+              </div>
+              <span class="normal-entorno">Tierra · g = 9,8 m/s²</span>
+            </div>
+            <div class="normal-escena">
+              <span class="normal-insignia" id="normal-insignia">En equilibrio</span>
+              <canvas id="normal-lienzo" role="img" aria-label="Un bloque apoyado en el suelo. La normal hacia arriba equilibra el peso hacia abajo."></canvas>
+              <div class="normal-leyenda" aria-label="Fuerzas sobre el objeto">
+                <span class="normal-color-peso">P · Tierra sobre objeto</span>
+                <span class="normal-color-normal">N · Suelo sobre objeto</span>
+              </div>
+            </div>
+            <dl class="normal-medidas">
+              <div class="normal-medida-peso"><dt>Peso ↓</dt><dd id="normal-peso">58,8 N</dd></div>
+              <div class="normal-medida-normal"><dt>Normal ↑</dt><dd id="normal-fuerza">58,8 N</dd></div>
+              <div><dt>Resultante vertical</dt><dd id="normal-resultante">0 N</dd></div>
+            </dl>
+            <div class="normal-ajustes">
+              <div class="campo">
+                <div class="control-rango"><label for="normal-masa">Masa del objeto</label><output id="normal-masa-valor" for="normal-masa">6 kg</output></div>
+                <input type="range" id="normal-masa" min="2" max="10" step="1" value="6">
+              </div>
+              <button type="button" class="boton secundario" id="normal-suelo" aria-pressed="false">Quitar el suelo</button>
+            </div>
+            <p class="normal-modelo">Secuencia a cámara lenta con un suelo elástico idealizado. Desplazamientos y deformación ampliados para ver el contacto. Las flechas mantienen la misma escala de fuerza.</p>
+          </div>
+          <div class="normal-guia">
+            <p class="normal-guia-titulo">Sigue las fuerzas, paso a paso</p>
+            <div class="normal-pasos" role="group" aria-label="Momentos de la animación">
+              <button type="button" class="normal-paso" data-normal-paso="0" aria-controls="normal-lienzo normal-relato">
+                <span class="normal-paso-numero" aria-hidden="true">1</span>
+                <span><strong>La Tierra tira hacia abajo</strong><span>El peso actúa incluso sin tocar el suelo.</span></span>
+              </button>
+              <button type="button" class="normal-paso" data-normal-paso="1" aria-controls="normal-lienzo normal-relato">
+                <span class="normal-paso-numero" aria-hidden="true">2</span>
+                <span><strong>El suelo responde al contacto</strong><span>Se deforma ligeramente y empuja hacia arriba.</span></span>
+              </button>
+              <button type="button" class="normal-paso" data-normal-paso="2" aria-current="step" aria-controls="normal-lienzo normal-relato">
+                <span class="normal-paso-numero" aria-hidden="true">3</span>
+                <span><strong>Las fuerzas se equilibran</strong><span>El objeto queda en reposo: N = P.</span></span>
+              </button>
+            </div>
+            <div class="normal-relato" id="normal-relato" role="status" aria-atomic="true">
+              <h3 id="normal-relato-titulo">La normal evita que siga hundiéndose</h3>
+              <p id="normal-relato-texto">Una vez en reposo, el suelo ejerce tanta fuerza hacia arriba como el peso hacia abajo. La resultante es cero y el objeto permanece apoyado.</p>
+            </div>
+            <div class="normal-origen">
+              <h3>¿De dónde sale ese empuje?</h3>
+              <p>El objeto y el suelo se deforman un poco al tocarse, aunque no lo veamos. Las interacciones electromagnéticas entre sus átomos se oponen a que se atraviesen. Ese empuje de la superficie sobre el objeto es la normal.</p>
+            </div>
+          </div>
+        </div>
+        <div class="normal-equilibrio">
+          <p class="normal-ecuacion"><span>N</span> − <span>P</span> = 0 <span class="normal-implica">⇒</span> N = P = m · g</p>
+          <p><strong>El peso no desaparece: se anula la resultante.</strong> Esta igualdad vale para un objeto apoyado en un suelo horizontal, sin aceleración vertical y sin otras fuerzas verticales. En una rampa, la normal sigue siendo perpendicular al plano y, en general, no iguala al peso.</p>
+        </div>
+        <details class="normal-tercera-ley">
+          <summary>¿La normal y el peso son acción y reacción?</summary>
+          <p>No: ambas actúan sobre el mismo objeto. La pareja de la normal es la fuerza que el objeto ejerce sobre el suelo. La pareja del peso es la atracción que el objeto ejerce sobre la Tierra.</p>
+        </details>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

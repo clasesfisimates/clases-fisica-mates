@@ -1,0 +1,203 @@
+.portada-peso { margin-bottom: 1.25rem; }
+.portada-peso h1 { font-size: clamp(2.6rem, 6vw, 4.75rem); }
+
+.banco-peso {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(13rem, 21vw, 16.5rem);
+  align-items: start;
+  gap: 1.15rem;
+}
+
+.banco-peso [hidden] { display: none; }
+.experiencia-peso, .apoyo-peso { display: grid; gap: 1rem; min-width: 0; }
+
+.banco-peso .controles, .visor-peso, .formulario, .banco-peso .reto-peso {
+  min-width: 0;
+  margin: 0;
+  border-radius: 1.1rem;
+  border: 1px solid #d5def2;
+  box-shadow: 0 0.42rem 1.35rem #233d7b0e;
+}
+
+.banco-peso .controles { background: #fff; }
+.cabecera-controles { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
+.cabecera-controles h2 { margin: 0; }
+.banco-peso .casilla { align-items: center; margin: 0; padding: 0.34rem 0.65rem; border-radius: 0.6rem; background: #e9f0ff; color: #203d76; font-weight: 650; }
+.banco-peso .casilla input { accent-color: #305bd0; }
+
+.ajustes-peso { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.62rem; }
+.ajustes-peso:has(#campo-masa-b[hidden]) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.banco-peso .campo {
+  margin: 0;
+  padding: 0.58rem 0.72rem 0.25rem;
+  border: 1px solid var(--borde-ajuste);
+  border-radius: 0.65rem;
+  background: var(--fondo-ajuste);
+}
+
+.ajuste-a { --fondo-ajuste: #edf4ff; --borde-ajuste: #d4e3ff; --color-ajuste: #254bb2; }
+.ajuste-b { --fondo-ajuste: #e9faf4; --borde-ajuste: #cbefe3; --color-ajuste: #146451; }
+.ajuste-gravedad { --fondo-ajuste: #f4edff; --borde-ajuste: #e9d8ff; --color-ajuste: #6434a2; }
+.banco-peso .control-rango { align-items: baseline; flex-wrap: wrap; }
+.banco-peso .control-rango label { font-size: 0.92rem; }
+.banco-peso .control-rango output { color: var(--color-ajuste); font-size: 0.94rem; }
+.banco-peso .control-rango + input { margin: 0.15rem 0; accent-color: var(--color-ajuste); cursor: pointer; }
+
+.visor-peso { padding: clamp(0.6rem, 1.55vw, 1.05rem); background: #f9fbff; }
+.transporte-peso { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.58rem 1rem; margin-bottom: 0.8rem; }
+.transporte-peso .boton { min-height: 2.65rem; padding-inline: 0.95rem; font-weight: 750; transition: background 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
+.transporte-peso .boton:not(.secundario) { background: linear-gradient(125deg, #1f50b9, #5534b5); border-color: #2546a4; box-shadow: 0 0.32rem 0.72rem #4939bc3b; }
+.transporte-peso .boton:not(.secundario):hover { background: linear-gradient(125deg, #17469e, #492a9c); box-shadow: 0 0.5rem 0.9rem #4939bc59; }
+.transporte-peso .boton:active { transform: translateY(1px); }
+.transporte-peso .boton.secundario { border-color: #b7c9f3; }
+
+.ritmo-peso {
+  display: grid;
+  grid-template-columns: auto minmax(3rem, 6.5rem) auto;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+  padding: 0.34rem 0.55rem;
+  border-radius: 0.6rem;
+  background: #edf1ff;
+  color: #304673;
+  font-size: 0.88rem;
+}
+
+.ritmo-peso label { font-weight: 650; }
+.ritmo-peso input { width: 100%; min-height: 1.5rem; margin: 0; accent-color: #4b45b9; cursor: pointer; }
+.ritmo-peso output { min-width: 2.4rem; color: #352c95; font-weight: 750; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+.mundos { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(0.35rem, 1.2vw, 0.9rem); }
+.mundos .mundo {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  border-color: var(--borde-mundo);
+  border-radius: 0.88rem;
+  background: #fff;
+  transition: border-color 240ms ease, box-shadow 240ms ease;
+}
+
+.mundo-tierra { --tinte: #e4f7ff; --borde-mundo: #bce9fc; --acento-mundo: #126281; --luz-mundo: #81f1ff; --orb-claro: #83fbe4; --orb-oscuro: #2174d5; }
+.mundo-luna { --tinte: #fff3e4; --borde-mundo: #f5dcb6; --acento-mundo: #76471b; --luz-mundo: #ffdcab; --orb-claro: #fff0c0; --orb-oscuro: #9775a7; }
+.mundo-propio { --tinte: #f4eaff; --borde-mundo: #e4c8fc; --acento-mundo: #7136a1; --luz-mundo: #f6aaff; --orb-claro: #ffb3f8; --orb-oscuro: #8640c9; }
+.mundo[data-estado="suelo"] { border-color: var(--acento-mundo); box-shadow: 0 0 0 2px var(--tinte); }
+
+.mundo-titulo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.66rem 0.7rem;
+  background: linear-gradient(115deg, var(--tinte), #fff);
+}
+
+.astro { display: block; flex: 0 0 auto; width: 1.75rem; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 28% 25%, var(--orb-claro), var(--orb-oscuro) 85%); box-shadow: 0 0 0 0.2rem var(--tinte); }
+.mundos h2 { margin: 0; padding: 0; color: #142343; line-height: 1.17; font-size: clamp(0.98rem, 2vw, 1.26rem); }
+.mundo-titulo p { margin-top: 0.18rem; color: var(--acento-mundo); font-weight: 680; font-size: 0.88rem; font-variant-numeric: tabular-nums; }
+.mundo-titulo abbr { text-decoration: none; }
+
+.escena-mundo { position: relative; overflow: hidden; }
+.mundos .lienzo { height: clamp(10.2rem, 19vw, 17.2rem); }
+.mundo[data-estado="suelo"] .escena-mundo::after {
+  position: absolute;
+  inset: calc(62% - 0.55rem) 0 auto;
+  height: 1.1rem;
+  background: radial-gradient(ellipse, var(--luz-mundo), transparent 72%);
+  content: "";
+  pointer-events: none;
+  animation: peso-impacto 560ms ease-out both;
+}
+
+.mundos .valores-planeta { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.35rem; padding: 0.52rem; }
+.mundos .valores-planeta div { min-width: 0; padding: 0.3rem 0.44rem; background: var(--tinte); }
+.mundos .valores-planeta .medida-a { background: #edf4ff; }
+.mundos .valores-planeta .medida-b { background: #e9faf4; }
+.mundos .valores-planeta dt { font-size: 0.83rem; line-height: 1.22; }
+.mundos .valores-planeta dd { margin-top: 0.16rem; color: #17294a; font-size: 1rem; line-height: 1.25; }
+.mundos .valores-planeta .medida-a dd { color: #2448a4; }
+.mundos .valores-planeta .medida-b dd { color: #145f50; }
+
+.visor-peso .estado {
+  display: flex;
+  align-items: baseline;
+  gap: 0.54rem;
+  margin: 0.72rem 0 0;
+  padding: 0.44rem 0.64rem;
+  border-radius: 0.53rem;
+  background: #e9efff;
+  color: #273b71;
+  font-weight: 650;
+}
+
+.visor-peso .estado::before { flex: 0 0 auto; width: 0.46rem; height: 0.46rem; border-radius: 50%; background: #4b48b5; content: ""; }
+.modelo-caida { margin: 0.45rem 0.1rem 0; color: #445679; font-size: 0.9rem; }
+
+.formulario { padding: 1.12rem; background: linear-gradient(145deg, #f5eeff, #f4f8ff 86%); }
+.formulario h2 { margin-bottom: 0.65rem; font-size: 1.17rem; }
+.ecuacion-peso {
+  width: 100%;
+  padding: 0.8rem 0.42rem;
+  border: 1px solid #7252c1;
+  border-radius: 0.72rem;
+  background: linear-gradient(135deg, #26347c, #6336b0);
+  color: #fff;
+  box-shadow: 0 0.36rem 0.75rem #4530a236;
+  text-align: center;
+  cursor: pointer;
+  font: 750 clamp(1.08rem, 2vw, 1.36rem)/1.35 ui-monospace, monospace;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.ecuacion-peso:hover { transform: translateY(-2px); filter: brightness(1.13); box-shadow: 0 0.54rem 1rem #4530a255; }
+.ecuacion-peso:active { transform: translateY(0); }
+.ecuacion-peso span { display: block; margin-top: 0.35rem; color: #eee8ff; font: 650 0.85rem/1.25 system-ui, sans-serif; }
+.formulario dl { display: grid; gap: 0.42rem; margin: 0.82rem 0 0; font-size: 0.92rem; }
+.formulario dl div { display: grid; grid-template-columns: 1.35rem 1fr; align-items: baseline; gap: 0.38rem; }
+.formulario dt { border-radius: 0.3rem; background: #e8dbff; color: #4d288a; font-weight: 790; text-align: center; }
+.formulario dd { margin: 0; }
+.banco-peso .reto-peso { border-color: #efdbb1; background: linear-gradient(150deg, #fff2d7, #fffbf3); }
+.reto-peso h2 { color: #714415; }
+.reto-peso details summary { color: #784517; }
+.reto-peso details[open] p { animation: peso-entrada 210ms ease-out both; }
+
+@keyframes peso-entrada {
+  from { opacity: 0; transform: translateY(0.35rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes peso-impacto {
+  from { opacity: 0.9; transform: scaleX(0.22); }
+  to { opacity: 0; transform: scaleX(1); }
+}
+
+@container contenido (max-width: 63rem) {
+  .banco-peso { grid-template-columns: minmax(0, 1fr); }
+  .apoyo-peso { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@container contenido (max-width: 43rem) {
+  .ajustes-peso { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ajuste-gravedad { grid-column: 1 / -1; }
+  .ajustes-peso:has(#campo-masa-b[hidden]) .ajuste-a { grid-column: 1 / -1; }
+  .mundo-titulo { min-height: 5.2rem; }
+  .mundos .valores-planeta { grid-template-columns: minmax(0, 1fr); padding: 0.3rem; }
+  .mundos .valores-planeta div { padding-inline: 0.31rem; }
+  .mundos .valores-planeta dd { font-size: 0.9rem; }
+}
+
+@container contenido (max-width: 31rem) {
+  .apoyo-peso { grid-template-columns: minmax(0, 1fr); }
+  .banco-peso .controles { padding: 0.75rem; }
+  .mundo-titulo { display: block; min-height: 0; padding: 0.48rem 0.38rem; }
+  .mundo-titulo .astro { width: 1.02rem; margin-bottom: 0.4rem; }
+  .mundos h2 { min-height: 2.34em; }
+  .mundo-titulo p { font-size: 0.78rem; }
+  .ritmo-peso { width: 100%; grid-template-columns: auto minmax(2rem, 1fr) auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mundo[data-estado="suelo"] .escena-mundo::after, .reto-peso details[open] p { animation: none; }
+  .mundo, .ecuacion-peso, .transporte-peso .boton { transition: none; }
+  .mundo[data-estado="suelo"] .escena-mundo::after { display: none; }
+  .ecuacion-peso:hover, .transporte-peso .boton:active { transform: none; }
+}

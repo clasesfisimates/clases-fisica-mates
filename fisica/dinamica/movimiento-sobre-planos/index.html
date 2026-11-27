@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Descubre cómo se suman las fuerzas en un plano horizontal o inclinado. Compensa los vectores antes de poner el bloque en movimiento.">
+  <title>Movimiento sobre planos · La cueva del conocimiento</title>
+  <link rel="stylesheet" href="../../../assets/estilos.css">
+  <link rel="stylesheet" href="../../../assets/formula-interactiva.css">
+  <link rel="stylesheet" href="../estilos.css">
+  <link rel="stylesheet" href="estilos.css">
+  <script src="../../../assets/indice.js" defer></script>
+  <script src="../laboratorio.js" defer></script>
+  <script src="modelo.js" defer></script>
+  <script src="escena.js" defer></script>
+  <script src="simulacion.js" defer></script>
+  <script src="../../../assets/formula-interactiva.js" defer></script>
+  <script src="formulas.js" defer></script>
+  <link rel="stylesheet" href="descomposicion.css">
+  <script src="descomposicion.js" defer></script>
+  <link rel="stylesheet" href="formulario-visual.css">
+  <script src="formulario-visual-modelo.js" defer></script>
+  <script src="formulario-visual.js" defer></script>
+  <script src="normal-visual.js" defer></script>
+  <script src="rozamiento-visual.js" defer></script>
+  <script src="sumatorio-visual.js" defer></script>
+</head>
+<body class="fisica">
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera"><div class="contenedor barra">
+    <a class="marca" href="../../../index.html"><span class="marca-icono" aria-hidden="true">∿</span> La cueva del conocimiento</a>
+  </div></header>
+  <div class="contenedor disposicion-sitio">
+    <aside class="columna-indice">
+      <button type="button" class="indice-menu" id="abrir-indice" aria-controls="indice-sitio" aria-expanded="false" hidden><span class="indice-icono-menu" aria-hidden="true"></span> Índice <span class="indice-flecha" aria-hidden="true"></span></button>
+      <nav class="indice-sitio" id="indice-sitio" aria-label="Índice del laboratorio">
+        <p class="indice-titulo">Índice</p>
+        <ul class="indice-lista" id="indice-lista">
+          <li><a class="indice-enlace" href="../../../index.html">Inicio</a></li>
+          <li><a class="indice-enlace" href="../index.html">Dinámica</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="tema planos" id="contenido" tabindex="-1">
+      <header class="cabecera-visual cabecera-experimento">
+        <div class="cabecera-texto">
+          <p class="sobre-titulo">Dinámica · Laboratorio de fuerzas</p>
+          <h1>Movimiento sobre planos</h1>
+          <p class="introduccion">Primero suma las fuerzas. Después, descubre cómo se mueve el bloque.</p>
+        </div>
+        <div class="sello-planos" aria-hidden="true">ΣF = m · a<span>Un mismo modelo, cualquier inclinación</span></div>
+      </header>
+      <noscript><p class="estado-vacio">Activa JavaScript para usar la simulación.</p></noscript>
+      <div class="casos" role="group" aria-label="Ejemplos para explorar">
+        <span>Prueba un caso</span>
+        <button type="button" data-caso="horizontal">Empujar en horizontal</button>
+        <button type="button" data-caso="equilibrio">¿Por qué no arranca?</button>
+        <button type="button" data-caso="rampa">Dejarlo en una rampa</button>
+        <button type="button" data-caso="subida">Tirar cuesta arriba</button>
+      </div>
+      <div class="banco banco-planos">
+        <section class="controles" id="controles" aria-labelledby="mandos">
+          <h2 id="mandos">Prepara el ensayo</h2>
+          <p class="ayuda-controles">El bloque parte del reposo. Cambiar un ajuste prepara un ensayo nuevo.</p>
+          <div class="campo">
+            <div class="control-rango"><label for="angulo">Inclinación del plano · θ</label><output id="angulo-valor" for="angulo invertir-pendiente">0°</output></div>
+            <input type="range" id="angulo" min="0" max="60" value="0">
+            <label class="invertir-pendiente"><input type="checkbox" id="invertir-pendiente"> Invertir la pendiente</label>
+            <small>Con θ = 0° tienes un plano horizontal.</small>
+          </div>
+          <div class="campo">
+            <div class="control-rango"><label for="masa">Masa · m</label><output id="masa-valor" for="masa">5 kg</output></div>
+            <input type="range" id="masa" min="1" max="10" value="5" data-unidad=" kg">
+          </div>
+          <div class="campo">
+            <div class="control-rango"><label for="fuerza">Fuerza aplicada · F</label><output id="fuerza-valor" for="fuerza">30 N</output></div>
+            <input type="range" id="fuerza" min="0" max="70" value="30" data-unidad=" N">
+          </div>
+          <div class="campo">
+            <label for="superficie">Superficie</label>
+            <select id="superficie" aria-describedby="coeficientes">
+              <option value="ninguna">Sin rozamiento</option><option value="suave">Suave</option>
+              <option value="rugosa" selected>Rugosa</option><option value="muyRugosa">Muy rugosa</option>
+            </select>
+            <small id="coeficientes"></small>
+          </div>
+          <details class="ajustes-empuje">
+            <summary>Dirección y ángulo del empuje</summary>
+            <div class="campo"><label for="sentido">Sentido a lo largo del plano</label>
+              <select id="sentido"><option value="1">Derecha</option><option value="-1">Izquierda</option></select>
+            </div>
+            <div class="campo">
+              <div class="control-rango"><label for="beta">Ángulo con el plano · β</label><output id="beta-valor" for="beta">0°</output></div>
+              <input type="range" id="beta" min="-45" max="45" value="0" data-unidad="°" aria-describedby="ayuda-beta">
+              <small id="ayuda-beta">0°: paralelo. Positivo: tira hacia fuera del plano. Negativo: presiona contra él.</small>
+            </div>
+          </details>
+          <label class="casilla"><input type="checkbox" id="componentes" checked> Ver componentes al preparar</label>
+          <p class="modelo-nota">g = 9,8 m/s². Plano fijo, sin aire. El modelo requiere que el bloque siga en contacto con el plano.</p>
+          <p id="aviso-contacto" class="aviso-contacto" role="status" hidden></p>
+        </section>
+        <section class="visor visor-planos" aria-label="Composición de fuerzas y movimiento">
+          <div class="transporte-planos">
+            <div class="acciones">
+              <button type="button" class="boton" id="reproducir">Iniciar</button>
+              <button type="button" class="boton secundario" id="reiniciar">Reiniciar</button>
+              <button type="button" class="boton secundario" id="siguiente">Siguiente paso</button>
+            </div>
+            <label class="ritmo-planos" for="ritmo">Ritmo <select id="ritmo"><option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+          </div>
+          <nav class="pasos-fuerzas" aria-label="Pasos de la suma de fuerzas">
+            <button type="button" data-paso="0" aria-current="step">Fuerzas</button>
+            <button type="button" data-paso="1">Componentes</button>
+            <button type="button" data-paso="2">Perpendiculares</button>
+            <button type="button" data-paso="3">Paralelas</button>
+            <button type="button" data-paso="4">Rozamiento</button>
+            <button type="button" data-paso="5">Resultante</button>
+          </nav>
+          <canvas class="lienzo" id="escena" aria-hidden="true"></canvas>
+          <div class="relato-paso" aria-live="polite" aria-atomic="true">
+            <h2 id="titulo-paso">Las fuerzas que actúan</h2>
+            <p id="texto-paso"></p>
+            <p class="cuenta-paso" id="cuenta-paso"></p>
+          </div>
+          <div class="lectura">
+            <ul class="leyenda" aria-label="Colores de los vectores">
+              <li><span class="muestra peso-vector"></span>Peso · P</li><li><span class="muestra normal-vector"></span>Normal · N</li>
+              <li><span class="muestra aplicada-vector"></span>Aplicada · F</li><li><span class="muestra roce-vector"></span>Rozamiento · f</li>
+              <li><span class="muestra resultante-vector"></span>Resultante · ΣF</li>
+            </ul>
+            <dl class="medidas">
+              <div><dt>Peso</dt><dd id="peso"></dd></div><div><dt>Normal</dt><dd id="normal"></dd></div>
+              <div><dt>Rozamiento real</dt><dd id="rozamiento"></dd></div><div><dt>Máximo estático</dt><dd id="limite"></dd></div>
+              <div class="medida-resultante"><dt>Resultante paralela</dt><dd id="resultante"></dd></div><div><dt>Aceleración</dt><dd id="aceleracion"></dd></div>
+              <div><dt>Velocidad</dt><dd id="velocidad"></dd></div><div><dt>Desplazamiento</dt><dd id="distancia"></dd></div><div><dt>Tiempo de movimiento</dt><dd id="tiempo"></dd></div>
+            </dl>
+            <p class="convencion">En el eje paralelo, + apunta a la derecha y − a la izquierda. En el perpendicular, + apunta hacia fuera del plano. Las componentes se dibujan desde el centro y sustituyen a la fuerza original en la suma.</p>
+            <p class="estado" id="estado" role="status"></p>
+            <p class="convencion">El reloj solo mide el movimiento. Para observarlo mejor, se reproduce a cámara lenta: 0,5× cuando el ritmo está en 1×.</p>
+          </div>
+        </section>
+      </div>
+      <section class="formulario-planos" id="formulario" aria-labelledby="titulo-formulario">
+        <div class="titulo-formulario"><div><p class="sobre-titulo">Del dibujo a la fórmula</p><h2 id="titulo-formulario">Entiende las fórmulas</h2></div><p>Una componente cuenta cuánto de una fuerza actúa en una dirección. El triángulo nos ayuda a calcularlo.</p></div>
+        <section class="taller-componentes" aria-labelledby="titulo-triangulo">
+          <div class="triangulo-introduccion">
+            <h3 id="titulo-triangulo">Una fuerza, dos direcciones</h3>
+            <p>La <strong>paralela ∥</strong> va a lo largo del plano. La <strong>perpendicular ⊥</strong> apunta hacia él o hacia fuera. Juntas producen el mismo efecto que la fuerza original: <strong>son otra forma de representarla</strong>.</p>
+          </div>
+          <div class="triangulo-herramientas">
+            <div class="triangulo-selector" role="group" aria-label="Fuerza que quieres descomponer">
+              <button type="button" data-triangulo-tipo="peso" aria-pressed="true">Peso · P</button>
+              <button type="button" data-triangulo-tipo="aplicada" aria-pressed="false">Fuerza aplicada · F</button>
+            </div>
+            <button type="button" class="boton secundario" id="triangulo-traer">Traer valores del ensayo</button>
+          </div>
+          <div class="triangulo-controles">
+            <div class="campo"><div class="control-rango"><label for="triangulo-angulo" id="triangulo-label-angulo">Inclinación del plano · θ (theta)</label><output id="triangulo-angulo-valor" for="triangulo-angulo">30°</output></div>
+              <input type="range" id="triangulo-angulo" min="0" max="90" step="1" value="30">
+              <div class="triangulo-atajos" role="group" aria-label="Ángulos para comparar"><button type="button" data-triangulo-angulo="0">0°</button><button type="button" data-triangulo-angulo="30">30°</button><button type="button" data-triangulo-angulo="45">45°</button><button type="button" data-triangulo-angulo="60">60°</button><button type="button" data-triangulo-angulo="90">90°</button></div>
+            </div>
+            <div class="campo"><div class="control-rango"><label for="triangulo-magnitud" id="triangulo-label-magnitud">Valor del peso · P</label><output id="triangulo-magnitud-valor" for="triangulo-magnitud">100 N</output></div><input type="range" id="triangulo-magnitud" min="0" max="100" step="0.1" value="100"></div>
+          </div>
+          <p class="triangulo-fuente" id="triangulo-fuente">Ajusta este ejemplo o trae los valores del ensayo de arriba. Aquí estudiamos longitudes positivas; después añadiremos los sentidos.</p>
+          <div class="triangulo-construccion">
+            <button type="button" class="boton" id="triangulo-animar">Ver construcción</button>
+            <div class="triangulo-pasos" role="group" aria-label="Pasos de la construcción del triángulo"><button type="button" data-triangulo-paso="0">La fuerza</button><button type="button" data-triangulo-paso="1">Las componentes</button><button type="button" data-triangulo-paso="2" aria-current="step">El triángulo</button></div>
+          </div>
+          <div class="triangulo-dibujos">
+            <figure><figcaption id="triangulo-contexto-titulo">En la rampa</figcaption><canvas id="triangulo-contexto" role="img" aria-label="El peso y sus componentes en un plano inclinado."></canvas><p id="triangulo-contexto-nota">El peso es vertical. Fíjate en el ángulo entre el peso y la dirección perpendicular al plano.</p></figure>
+            <figure><figcaption>El mismo triángulo, colocado recto</figcaption><canvas id="triangulo-recto" role="img" aria-label="Triángulo rectángulo de las componentes del peso."></canvas><p>Para cerrar el triángulo trasladamos una componente. No añadimos otra fuerza. El lado más largo, la <strong>hipotenusa</strong>, representa la fuerza completa.</p></figure>
+          </div>
+          <p class="triangulo-clave" id="triangulo-clave" role="status">El plano y su perpendicular giran el mismo ángulo θ. Por eso θ también aparece entre el peso y la perpendicular al plano.</p>
+          <div class="triangulo-regla">
+            <h4>La regla se ve en el triángulo</h4>
+            <p><strong>Coseno:</strong> cateto junto al ángulo ÷ hipotenusa. <strong>Seno:</strong> cateto enfrente del ángulo ÷ hipotenusa.</p>
+            <p>Multiplica la fuerza completa por esa proporción para obtener cada componente.</p>
+          </div>
+          <div class="triangulo-cuentas">
+            <article class="triangulo-adyacente"><h4 id="triangulo-adyacente-titulo">Perpendicular · junto al ángulo</h4><p class="triangulo-lado" id="triangulo-adyacente-lado">Cateto adyacente: toca el ángulo θ</p><p class="triangulo-formula" id="triangulo-adyacente-formula">P · cos θ</p><p class="triangulo-sustitucion" id="triangulo-adyacente-cuenta">100 × cos 30° = 86,6 N</p><p id="triangulo-adyacente-explicacion">Esta parte del peso presiona contra el plano.</p></article>
+            <article class="triangulo-opuesto"><h4 id="triangulo-opuesto-titulo">Paralela · enfrente del ángulo</h4><p class="triangulo-lado" id="triangulo-opuesto-lado">Cateto opuesto: no toca el ángulo θ</p><p class="triangulo-formula" id="triangulo-opuesto-formula">P · sen θ</p><p class="triangulo-sustitucion" id="triangulo-opuesto-cuenta">100 × sen 30° = 50 N</p><p id="triangulo-opuesto-explicacion">Esta parte del peso tira cuesta abajo.</p></article>
+          </div>
+          <p class="triangulo-comprueba" id="triangulo-comprueba">Comprueba: 86,6² + 50² ≈ 100². Las componentes forman un triángulo rectángulo; no se suman sus longitudes como si fueran dos flechas en la misma dirección.</p>
+          <p class="triangulo-reto" id="triangulo-reto">Prueba 0° y 90°. ¿Qué componente desaparece en cada caso?</p>
+        </section>
+        <div class="formulario-puente"><h3>Ahora aplica las fórmulas al ensayo</h3><p>Estos ejemplos numéricos siguen los controles de arriba. ∥ significa «paralela al plano» y ⊥, «perpendicular al plano».</p></div>
+        <div class="formulas-planos">
+          <article><h3>Peso: cuánto tira la Tierra</h3>
+            <button type="button" class="formula-explorable" id="formula-peso" aria-haspopup="dialog">P = m · g <span>Explorar fórmula</span></button>
+            <p><strong>m</strong> es la masa del objeto, en kg. <strong>g</strong> indica la gravedad: en la Tierra usamos 9,8 m/s². El peso se mide en newtons y apunta verticalmente hacia abajo.</p>
+            <p class="formulario-ejemplo" id="formulario-ejemplo-peso"></p>
+            <p>En una rampa, una parte del peso tira cuesta abajo y otra presiona contra el plano. Son las dos componentes que acabas de construir.</p>
+          </article>
+          <article><h3>Normal: cuánto empuja el plano</h3><button type="button" class="formula-explorable" id="formula-normal" aria-haspopup="dialog">N = P · cos θ − F⊥<span>Ver el esquema y cambiar las fuerzas</span></button>
+            <p>El plano compensa lo que empuja al bloque contra él. <strong>Tirar hacia fuera reduce la normal; empujar hacia dentro la aumenta.</strong> Si no hay empuje perpendicular, N = P · cos θ.</p>
+            <p class="formulario-ejemplo" id="formulario-ejemplo-normal"></p>
+            <p>Esta cuenta exige mantener el contacto. Si diera una normal negativa, el bloque se separaría: el plano no puede tirar de él para sujetarlo.</p>
+          </article>
+          <article><h3>Rozamiento: primero decide si arranca</h3><button type="button" class="formula-explorable" id="formula-limite" aria-haspopup="dialog">f<sub>s,máx</sub> = μ<sub>s</sub> · N<span>Explorar el límite con una caja y una cuerda</span></button>
+            <p><strong>Mientras está quieto:</strong> el rozamiento estático se ajusta a lo necesario para impedir que arranque, hasta ese límite. El máximo no es una fuerza que siempre se aplique entera.</p>
+            <p><strong>Si supera el límite y desliza:</strong> usamos el rozamiento cinético, de longitud μ<sub>k</sub> · N, en sentido contrario al movimiento.</p>
+            <p class="formulario-ejemplo" id="formulario-ejemplo-roce"></p>
+            <p>μ (mu) describe la pareja de superficies. μ<sub>s</sub> es el coeficiente estático y μ<sub>k</sub>, el cinético; ninguno tiene unidades.</p>
+          </article>
+          <article><h3>Resultante: lo que queda al sumar</h3><button type="button" class="formula-explorable" id="formula-suma" aria-haspopup="dialog">ΣF∥ = F∥ + P∥ + f<span>Descomponer, compensar y ver la resultante</span></button>
+            <p><strong>Σ significa «suma».</strong> Suma las componentes paralelas con sus signos y añade el rozamiento. Las flechas opuestas se compensan.</p>
+            <button type="button" class="formula-explorable" id="formula-newton" aria-haspopup="dialog">ΣF∥ = m · a <span>Explorar fórmula</span></button>
+            <p>Divide lo que queda entre la masa: <strong>a = ΣF∥ / m</strong>. Si la resultante es cero y parte del reposo, el bloque sigue quieto.</p>
+            <p class="formulario-ejemplo" id="formulario-ejemplo-resultante"></p>
+            <details><summary>Cuando ya se mueve</summary><p class="ecuacion">v = a · t<br>Δx = ½ · a · t²</p><p>v es la velocidad; Δx, el desplazamiento, y t, el tiempo desde que comienza el movimiento. Estas dos fórmulas suponen reposo inicial y aceleración constante.</p></details>
+          </article>
+        </div>
+        <details class="formulario-signos"><summary>Del triángulo a las cuentas: ¿cuándo pongo + y cuándo −?</summary>
+          <p>El triángulo nos da <strong>longitudes positivas</strong>. Para sumar, también importa el sentido: en el eje paralelo, derecha es + e izquierda es −; en el perpendicular, hacia fuera es + y hacia el plano es −. Un signo negativo indica dirección, no una fuerza más débil.</p>
+          <div class="formulario-signos-columnas"><div><h4>Para el peso</h4><p class="ecuacion">P∥ = −P · sen θ<br>P⊥ = −P · cos θ</p><p>θ es positivo si el plano sube hacia la derecha y negativo si baja. El peso siempre tira cuesta abajo y hacia el plano.</p></div><div><h4>Para la fuerza aplicada</h4><p class="ecuacion">F∥ = s · F · cos β<br>F⊥ = F · sen β</p><p>s = +1 si empujas a la derecha y −1 si empujas a la izquierda. β se mide desde el plano: positivo hacia fuera, negativo hacia dentro.</p></div></div>
+          <p class="ecuacion">ΣF⊥ = N + F⊥ + P⊥ = 0</p><p>Mientras el bloque sigue apoyado, las fuerzas perpendiculares se equilibran.</p>
+        </details>
+        <p class="unidades-formulario">Fuerzas P, N, F y f: newtons (N). Masa m: kg. Aceleración a y gravedad g: m/s². Velocidad v: m/s. Tiempo t: s. Desplazamiento Δx: m.</p>
+      </section>
+      <aside class="reto"><h2>Un límite que puedes encontrar</h2><p>Con 5 kg, plano horizontal, empuje paralelo y superficie rugosa, prueba 14 N y después 15 N. Antes de iniciar, predice si habrá movimiento.</p>
+        <details><summary>Ver explicación</summary><p>La normal vale 49 N y el máximo estático, 14,7 N. Con 14 N, el rozamiento real es 14 N y la resultante es cero. Con 15 N se supera el máximo: el bloque arranca, el rozamiento cinético vale 9,8 N y quedan 5,2 N hacia la derecha.</p><p>Después prueba una rampa sin fuerza aplicada. ¿Qué componente del peso intenta mover el bloque? ¿Hacia dónde apunta ahora el rozamiento?</p></details>
+      </aside>
+      <dialog class="dialogo-reposo" id="dialogo-reposo" aria-labelledby="titulo-reposo" aria-describedby="texto-reposo">
+        <span class="icono-equilibrio" aria-hidden="true">ΣF = 0</span>
+        <h2 id="titulo-reposo">El rozamiento no empuja hacia atrás</h2>
+        <p id="texto-reposo"></p>
+        <p>El rozamiento estático puede actuar aunque el bloque esté quieto: impide que empiece a deslizar. Su valor máximo es un límite, no una fuerza que siempre se aplique entera.</p>
+        <form method="dialog"><button class="boton" autofocus>Entendido</button></form>
+      </dialog>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sigue el cambio de velocidad y explora el impulso durante un rebote.">
+  <title>Impulso y rebote · Dinámica</title>
+  <link rel="stylesheet" href="../../../assets/estilos.css">
+  <link rel="stylesheet" href="../../../assets/formula-interactiva.css">
+  <link rel="stylesheet" href="../estilos.css">
+  <link rel="stylesheet" href="../taller.css">
+  <script src="../../../assets/indice.js" defer></script>
+  <script src="../../../assets/formula-interactiva.js" defer></script>
+  <script src="../laboratorio.js" defer></script>
+  <script src="../modelos-taller.js" defer></script>
+  <script src="../taller.js" defer></script>
+  <script src="simulacion.js" defer></script>
+</head>
+<body class="fisica">
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="../../../index.html"><span class="marca-icono" aria-hidden="true">∿</span> La cueva del conocimiento</a>
+    </div>
+  </header>
+  <div class="contenedor disposicion-sitio">
+    <aside class="columna-indice">
+      <button type="button" class="indice-menu" id="abrir-indice" aria-controls="indice-sitio" aria-expanded="false" hidden>
+        <span class="indice-icono-menu" aria-hidden="true"></span> Índice <span class="indice-flecha" aria-hidden="true"></span>
+      </button>
+      <nav class="indice-sitio" id="indice-sitio" aria-label="Índice del laboratorio">
+        <p class="indice-titulo">Índice</p>
+        <ul class="indice-lista" id="indice-lista">
+          <li><a class="indice-enlace" href="../../index.html">Física</a></li>
+          <li><a class="indice-enlace" href="../index.html">Dinámica</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="pagina-indice taller taller-rebote" id="contenido" tabindex="-1">
+      <header class="cabecera-visual taller-hero">
+        <div class="cabecera-texto">
+          <nav class="ruta-tema" aria-label="Ruta del tema"><a href="../index.html">Dinámica</a></nav>
+          <h1>Impulso y rebote</h1>
+          <p class="introduccion">Ve el choque a cámara lenta. Cambia las velocidades o el tiempo de contacto y observa qué ocurre con la fuerza media.</p>
+        </div>
+        <div class="arte-tema" aria-hidden="true"><div class="formula-tema">J = Δp = Fₘ · Δt</div></div>
+      </header>
+      <nav class="taller-enlaces" aria-label="En esta página">
+        <a href="#teoria">Teoría</a>
+        <a href="#formulario">Formulario</a>
+        <a href="../ejercicios-resueltos/index.html#impulso">Ejercicio resuelto</a>
+      </nav>
+      <noscript><p>Activa JavaScript para mover el ensayo y explorar las fórmulas.</p></noscript>
+      <section aria-labelledby="titulo-ensayo">
+        <h2 id="titulo-ensayo">Simulación</h2>
+        <div class="taller-banco">
+          <div class="taller-escena">
+            <figure>
+              <canvas id="escena" role="img" aria-label="Pelota que se acerca a una pared y sale en sentido contrario. El gráfico inferior marca la fuerza media durante el contacto."></canvas>
+              <figcaption>
+                <ul class="taller-leyenda">
+                  <li><i style="--muestra: #a5ecff" aria-hidden="true"></i>Velocidad con signo</li>
+                  <li><i style="--muestra: #ffaccc" aria-hidden="true"></i>Fuerza de la pared</li>
+                </ul>
+                El sentido positivo apunta hacia la pared. El dibujo amplía el contacto y esquematiza la deformación de la pelota.
+              </figcaption>
+            </figure>
+            <div class="taller-acciones">
+              <div class="taller-botones">
+                <button type="button" class="boton" id="reproducir">Iniciar</button>
+                <button type="button" class="boton secundario" id="reiniciar">Reiniciar</button>
+                <label class="taller-ritmo">Ritmo <select id="ritmo"><option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+              </div>
+              <div class="taller-botones taller-pasos" role="group" aria-label="Fases del choque">
+                <button type="button" class="boton secundario" data-instante="0.16">Antes</button>
+                <button type="button" class="boton secundario" data-instante="0.47">Contacto</button>
+                <button type="button" class="boton secundario" data-instante="0.85">Después</button>
+              </div>
+              <div class="taller-cursor">
+                <label for="recorrido">Recorrer el ensayo</label>
+                <output id="tiempo-ensayo" for="recorrido"></output>
+                <input id="recorrido" type="range" min="0" max="1000" step="1" value="0">
+              </div>
+              <p class="taller-estado" id="estado" role="status"></p>
+            </div>
+          </div>
+          <aside class="taller-panel" aria-labelledby="titulo-ajustes">
+            <h2 id="titulo-ajustes">Ajustes</h2>
+            <div id="controles">
+              <div class="taller-campo">
+                <label for="masa">Masa de la pelota</label>
+                <output id="masa-valor" for="masa"></output>
+                <input id="masa" type="range" min="0.1" max="0.6" step="0.01" value="0.3" data-unidad=" kg">
+              </div>
+              <div class="taller-campo">
+                <label for="entrada">Rapidez de llegada</label>
+                <output id="entrada-valor" for="entrada"></output>
+                <input id="entrada" type="range" min="3" max="20" step="0.5" value="15" data-unidad=" m/s">
+              </div>
+              <div class="taller-campo">
+                <label for="salida">Rapidez de salida</label>
+                <output id="salida-valor" for="salida"></output>
+                <input id="salida" type="range" min="0" max="15" step="0.5" value="10" data-unidad=" m/s">
+              </div>
+              <div class="taller-campo">
+                <label for="contacto">Tiempo de contacto</label>
+                <output id="contacto-valor" for="contacto"></output>
+                <input id="contacto" type="range" min="0.02" max="0.18" step="0.01" value="0.05" data-unidad=" s">
+              </div>
+            </div>
+            <label class="taller-capa"><input id="capa" type="checkbox" checked> Ver vectores durante el choque</label>
+            <div class="taller-botones taller-preajustes" role="group" aria-label="Situaciones de partida">
+              <button type="button" class="boton secundario" data-preajuste='{"masa":0.3,"entrada":15,"salida":10,"contacto":0.05}'>Frontón · ej. 39</button>
+              <button type="button" class="boton secundario" data-preajuste='{"masa":0.3,"entrada":15,"salida":10,"contacto":0.1}'>Contacto más largo</button>
+              <button type="button" class="boton secundario" data-preajuste='{"masa":0.3,"entrada":15,"salida":0,"contacto":0.05}'>Se queda en la pared</button>
+            </div>
+          </aside>
+        </div>
+        <dl class="taller-medidas">
+          <div><dt>Fase</dt><dd data-medida="fase"></dd></div>
+          <div><dt>Velocidad con signo</dt><dd data-medida="v"></dd></div>
+          <div><dt>Impulso total</dt><dd data-medida="j"></dd></div>
+          <div><dt>Fuerza media</dt><dd data-medida="f"></dd></div>
+        </dl>
+      </section>
+      <section class="taller-bloque" id="teoria" aria-labelledby="titulo-teoria">
+        <h2 id="titulo-teoria">Teoría</h2>
+        <div class="taller-teoria">
+          <article><h3>El signo cuenta</h3><p>Si tomamos hacia la pared como positivo, la velocidad de llegada es positiva y la de vuelta es negativa. Cambiar de sentido implica un cambio de cantidad de movimiento mayor que detenerse.</p></article>
+          <article><h3>Impulso en el choque</h3><p>El impulso total es Δp = m(vf − vi). La pared empuja en sentido negativo durante el contacto. El área con signo bajo la gráfica fuerza–tiempo representa el impulso.</p></article>
+          <article><h3>Qué significa fuerza media</h3><p>El dibujo representa una fuerza constante equivalente durante el contacto. En un choque real, la fuerza cambia mientras la pelota se deforma y recupera su forma.</p></article>
+        </div>
+      </section>
+      <section class="taller-bloque" id="formulario" aria-labelledby="titulo-formulario">
+        <h2 id="titulo-formulario">Formulario interactivo</h2>
+        <div class="taller-formulas">
+          <article class="taller-formula">
+            <h3>Cambio de cantidad de movimiento</h3>
+            <span class="taller-ecuacion">J = m · (v_f − v_i)</span>
+            <p>Con nuestro eje, hay que escribir la velocidad de vuelta con signo negativo.</p>
+            <button type="button" class="boton secundario" id="formula-impulso">Explorar cambio de cantidad de movimiento</button>
+          </article>
+          <article class="taller-formula">
+            <h3>Fuerza media de contacto</h3>
+            <span class="taller-ecuacion">Fₘ = J / Δt</span>
+            <p>Si el impulso se conserva, al doblar el contacto la fuerza media se reduce a la mitad.</p>
+            <button type="button" class="boton secundario" id="formula-fuerza">Explorar fuerza media de contacto</button>
+          </article>
+        </div>
+      </section>
+      <section class="taller-reto" aria-labelledby="titulo-reto">
+        <h2 id="titulo-reto">Ponlo a prueba</h2>
+        <p>Compara «Frontón» y «Contacto más largo». Antes de abrir el formulario, predice qué cambia entre impulso y fuerza media.</p>
+        <details><summary>Ver la predicción</summary><p>En ambos casos el impulso es −7,5 N·s. Con 0,10 s de contacto, la fuerza media pasa de −150 N a −75 N.</p></details>
+        <a href="../ejercicios-resueltos/index.html#impulso">Una pelota rebota en la pared · ejercicio 39</a>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

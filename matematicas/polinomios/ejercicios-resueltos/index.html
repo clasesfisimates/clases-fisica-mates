@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Problemas de Polinomios y fracciones algebraicas con esquemas y soluciones paso a paso.">
+  <title>Ejercicios resueltos · Polinomios y fracciones algebraicas</title>
+  <link rel="stylesheet" href="../../../assets/estilos.css">
+  <link rel="stylesheet" href="../../../assets/ejercicios.css">
+  <script src="../../../assets/indice.js" defer></script>
+</head>
+<body class="matematicas">
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="../../../index.html"><span class="marca-icono" aria-hidden="true">∿</span> La cueva del conocimiento</a>
+    </div>
+  </header>
+  <div class="contenedor disposicion-sitio">
+    <aside class="columna-indice">
+      <button type="button" class="indice-menu" id="abrir-indice" aria-controls="indice-sitio" aria-expanded="false" hidden>
+        <span class="indice-icono-menu" aria-hidden="true"></span> Índice <span class="indice-flecha" aria-hidden="true"></span>
+      </button>
+      <nav class="indice-sitio" id="indice-sitio" aria-label="Índice del laboratorio">
+        <p class="indice-titulo">Índice</p>
+        <ul class="indice-lista" id="indice-lista">
+          <li><a class="indice-enlace" href="../../index.html">Matemáticas</a></li>
+          <li><a class="indice-enlace" href="../index.html">Polinomios y fracciones algebraicas</a></li>
+          <li><a class="indice-enlace" href="index.html" aria-current="page">Ejercicios resueltos</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="pagina-indice" id="contenido" tabindex="-1">
+      <header class="cabecera-visual cabecera-ejercicios">
+        <nav class="ruta-tema" aria-label="Ruta del tema"><a href="../index.html">Polinomios y fracciones algebraicas</a></nav>
+        <h1>Ejercicios resueltos</h1>
+        <p class="introduccion">Ordena por grados, reconoce factores y comprueba el resultado.</p>
+      </header>
+      <nav aria-label="Tipos de ejercicios">
+        <ul class="ejercicios-indice">
+          <li><a href="#identidades">Identidades notables</a></li>
+          <li><a href="#division">División de polinomios</a></li>
+          <li><a href="#factorizacion">Raíces y factorización</a></li>
+          <li><a href="#fracciones">Fracciones algebraicas</a></li>
+        </ul>
+      </nav>
+      <article class="ejercicio" id="identidades" aria-labelledby="titulo-identidades">
+        <h2 id="titulo-identidades">Reconocer un cuadrado perfecto</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Escribe 4x² + 4x + 1 como una identidad notable.</p>
+            <div class="ejercicio-datos"><span>4x² = (2x)²</span><span>1 = 1²</span></div>
+            <p class="ejercicio-fuente">Ficha de identidades notables y factorización · ejercicio 2</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-cuadrado" role="img" aria-label="Cuadrado dividido en cuatro piezas. Un cuadrado de lado 2x, dos rectángulos de lados 2x y 1, y un cuadrado de lado 1."><span>4x²</span><span>2x</span><span>2x</span><span>1</span></div>
+              <figcaption>Si x es positivo, las cuatro piezas forman un cuadrado de lado 2x + 1. La igualdad algebraica vale para cualquier x.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Identifica las dos piezas cuadradas</h3>
+              <p>Los extremos se pueden escribir como cuadrados de 2x y de 1.</p>
+              <p class="ejercicio-formula">4x² = (2x)², 1 = 1²</p>
+            </li>
+            <li>
+              <h3>Comprueba el doble producto</h3>
+              <p>Los dos rectángulos tienen la misma área. En la identidad, suman el término central.</p>
+              <p class="ejercicio-formula">2 · (2x) · 1 = 4x</p>
+            </li>
+            <li>
+              <h3>Aplica el cuadrado de una suma</h3>
+              <p>Sustituye a por 2x y b por 1.</p>
+              <p class="ejercicio-formula">a² + 2ab + b² = (a + b)² ⇒ 4x² + 4x + 1 = (2x + 1)²</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> La identidad es <b>(2x + 1)²</b>.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../identidades/index.html">Construye la identidad con áreas</a></p>
+      </article>
+      <article class="ejercicio" id="division" aria-labelledby="titulo-division">
+        <h2 id="titulo-division">Dividir un cúbico entre un polinomio de grado dos</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Divide x³ + 6x² + 8x + 7 entre x² + x + 1. Escribe el cociente y el resto.</p>
+            <div class="ejercicio-datos"><span>Grado del dividendo: 3</span><span>Grado del divisor: 2</span></div>
+            <p class="ejercicio-fuente">Ficha de identidades notables y factorización · ejemplo de la pizarra de división</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <table aria-label="Alineación de los términos por grado">
+                <thead><tr><td></td><th scope="col">x³</th><th scope="col">x²</th><th scope="col">x</th><th scope="col">1</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Dividendo</th><td class="marcada">1</td><td>6</td><td>8</td><td>7</td></tr>
+                  <tr><th scope="row">Divisor</th><td>0</td><td class="marcada">1</td><td>1</td><td>1</td></tr>
+                </tbody>
+              </table>
+              <figcaption>Cada columna corresponde a una potencia de x. En el primer paso dividimos los términos de mayor grado.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Obtén el primer término del cociente</h3>
+              <p>Divide x³ entre x². Luego multiplica el divisor entero por x y resta el producto.</p>
+              <p class="ejercicio-formula">x³ / x² = x</p>
+              <p class="ejercicio-formula">(x³ + 6x² + 8x + 7) − (x³ + x² + x) = 5x² + 7x + 7</p>
+            </li>
+            <li>
+              <h3>Obtén el segundo término</h3>
+              <p>Divide 5x² entre x². Multiplica el divisor por 5 y vuelve a restar.</p>
+              <p class="ejercicio-formula">5x² / x² = 5</p>
+              <p class="ejercicio-formula">(5x² + 7x + 7) − (5x² + 5x + 5) = 2x + 2</p>
+            </li>
+            <li>
+              <h3>Detente y comprueba</h3>
+              <p>El resto tiene grado 1, menor que el grado del divisor. Puedes reconstruir el dividendo multiplicando y sumando.</p>
+              <p class="ejercicio-formula">(x² + x + 1)(x + 5) + (2x + 2) = x³ + 6x² + 8x + 7</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> Cociente <b>x + 5</b> y resto <b>2x + 2</b>.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../division/index.html">Reproduce esta división en la pizarra</a></p>
+      </article>
+      <article class="ejercicio" id="factorizacion" aria-labelledby="titulo-factorizacion">
+        <h2 id="titulo-factorizacion">Sacar factor común y localizar una raíz doble</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Factoriza 2x³ + 8x² + 8x y encuentra sus raíces y sus multiplicidades.</p>
+            <div class="ejercicio-datos"><span>Factor común: 2x</span></div>
+            <p class="ejercicio-fuente">Ficha de identidades notables y factorización · ejercicio 4, apartado f</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-fichas"><span class="marcada">2x</span><span>×</span><span class="marcada">(x + 2)</span><span>×</span><span class="marcada">(x + 2)</span></div>
+              <figcaption>El factor x aparece una vez y el factor x + 2 aparece dos veces.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Extrae el factor común</h3>
+              <p>Los tres términos se pueden dividir entre 2x.</p>
+              <p class="ejercicio-formula">2x³ + 8x² + 8x = 2x(x² + 4x + 4)</p>
+            </li>
+            <li>
+              <h3>Reconoce la identidad dentro del paréntesis</h3>
+              <p>Los cuadrados son x² y 2². El doble producto es 4x.</p>
+              <p class="ejercicio-formula">x² + 4x + 4 = (x + 2)²</p>
+            </li>
+            <li>
+              <h3>Iguala a cero cada factor</h3>
+              <p>Un producto se anula cuando alguno de sus factores vale cero.</p>
+              <p class="ejercicio-formula">2x = 0 ⇒ x = 0</p>
+              <p class="ejercicio-formula">(x + 2)² = 0 ⇒ x = −2</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> La factorización es <b>2x(x + 2)²</b>. Las raíces son <b>0</b> (simple) y <b>−2</b> (doble).</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../raices/index.html">Introduce el polinomio y localiza sus raíces en la gráfica</a></p>
+      </article>
+      <article class="ejercicio" id="fracciones" aria-labelledby="titulo-fracciones">
+        <h2 id="titulo-fracciones">Sumar fracciones con denominadores distintos</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Simplifica 1 / (x − 3) + 2 / (x² − 9). Indica los valores de x que quedan fuera del dominio.</p>
+            <div class="ejercicio-datos"><span>x² − 9 = (x − 3)(x + 3)</span></div>
+            <p class="ejercicio-fuente">Variante del ejemplo guiado de fracciones algebraicas</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-cancelacion"><div><b>Denominador 1</b><div class="ejercicio-fichas"><span class="marcada">x − 3</span></div></div><div><b>Denominador 2</b><div class="ejercicio-fichas"><span class="marcada">x − 3</span><span>×</span><span>x + 3</span></div></div></div>
+              <figcaption>Al primer denominador le falta el factor x + 3 para coincidir con el segundo.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Factoriza y escribe las restricciones</h3>
+              <p>El segundo denominador es una diferencia de cuadrados. Antes de operar, excluye los valores que anulan cualquiera de los denominadores originales.</p>
+              <p class="ejercicio-formula">x² − 9 = (x − 3)(x + 3) ⇒ x ≠ 3 y x ≠ −3</p>
+            </li>
+            <li>
+              <h3>Usa un denominador común</h3>
+              <p>Multiplica el numerador y el denominador de la primera fracción por x + 3.</p>
+              <p class="ejercicio-formula">(x + 3) / [(x − 3)(x + 3)] + 2 / [(x − 3)(x + 3)]</p>
+            </li>
+            <li>
+              <h3>Suma los numeradores</h3>
+              <p>El denominador común se conserva. Comprueba si el numerador comparte algún factor con él.</p>
+              <p class="ejercicio-formula">[(x + 3) + 2] / [(x − 3)(x + 3)] = (x + 5) / (x² − 9)</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> La suma es <b>(x + 5) / (x² − 9)</b>, con <b>x ≠ −3</b> y <b>x ≠ 3</b>.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../fracciones/index.html">Practica con otras operaciones entre fracciones</a></p>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

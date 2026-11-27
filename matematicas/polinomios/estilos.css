@@ -1,0 +1,118 @@
+.matematicas[data-tema="polinomios"] {
+  --poli-a: #ffc2ca;
+  --poli-ab: #ffda86;
+  --poli-b: #a8d9ed;
+}
+.mate-columnas { grid-template-columns: minmax(0, 1fr); }
+.mate-leccion { min-width: 0; }
+.mate-formulario { position: static; max-height: none; }
+.mate-formula-lista { grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); }
+.poli-termino, .poli-anadido, .poli-denominador { display: inline-block; padding: .12rem .3rem; border-radius: .25rem; color: #371b2a; }
+.poli-color-a { background: var(--poli-a); }
+.poli-color-ab, .poli-anadido { background: var(--poli-ab); }
+.poli-color-b, .poli-denominador { background: var(--poli-b); }
+.poli-ayuda { color: var(--texto-secundario); font-size: .875rem; margin: .4rem 0 .8rem; }
+.poli-ayuda-oscura { color: var(--claro-mate); font-size: .875rem; margin-block: .8rem .5rem; }
+.poli-identidad-figuras { max-width: 31rem; margin-inline: auto; }
+.poli-identidad-comparacion { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: 1rem; }
+.poli-identidad-algebra, .poli-identidad-geometria { min-width: 0; }
+.poli-identidad-comparacion[data-identidad="diferencia"] { grid-template-columns: minmax(0, 1fr); }
+.poli-identidad-comparacion[data-identidad="diferencia"] .poli-identidad-figuras { max-width: 50rem; }
+.poli-identidad-comparacion[data-identidad="diferencia"] .poli-desarrollo { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.poli-area-svg { display: block; width: 100%; max-height: 27rem; overflow: visible; }
+.poli-area-svg text { fill: #fff0eb; text-anchor: middle; dominant-baseline: middle; font: 650 15px system-ui, sans-serif; }
+.poli-area-svg .poli-area-texto { fill: #371b2a; font: 750 19px system-ui, sans-serif; }
+.poli-area-svg .poli-area-pequena { font-size: 14px; }
+.poli-rect-a { fill: var(--poli-a); stroke: #421a2b; stroke-width: 2; }
+.poli-rect-ab { fill: var(--poli-ab); stroke: #421a2b; stroke-width: 2; }
+.poli-rect-b { fill: var(--poli-b); stroke: #421a2b; stroke-width: 2; }
+.poli-tira { fill: #e7a562; fill-opacity: .7; stroke: #ffe1b5; stroke-dasharray: 5 4; }
+.poli-area-contorno, .poli-cota { fill: none; stroke: #ffeae4; stroke-width: 1.5; }
+.poli-area-retirada { opacity: .6; stroke: #fff; stroke-dasharray: 5 4; }
+.poli-identidad-par { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.poli-identidad-par p { text-align: center; font-size: .875rem; color: var(--claro-mate); }
+.poli-identidad-clave { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; font: 700 1rem ui-monospace, monospace; }
+.poli-desarrollo { display: grid; gap: .45rem; list-style: none; padding: 0; }
+.poli-desarrollo button { display: grid; gap: .35rem; width: 100%; padding: .65rem .8rem; text-align: left; color: #fff0eb; border: 1px solid #ffe0d34d; border-radius: .55rem; background: #32132685; cursor: pointer; }
+.poli-desarrollo button > span:first-child { font: 650 .875rem/1.4 system-ui, sans-serif; }
+.poli-desarrollo button[aria-current="step"] { border-color: #ffda86; box-shadow: inset .25rem 0 #ffda86; background: #643448; }
+.poli-identidad-navegacion { margin: .65rem 0 0; align-items: center; }
+.poli-identidad-navegacion [data-id-progreso] { font-size: .875rem; }
+.poli-identidad-calculo { padding-top: .55rem; border-top: 1px solid #ffe0d346; }
+
+.poli-video-cabecera { display: flex; justify-content: space-between; gap: .6rem; margin-bottom: .6rem; font-size: .875rem; color: var(--claro-mate); }
+[data-div-titulo] { min-height: 1.7rem; }
+.poli-division-escena { position: relative; margin-block: .65rem; }
+.poli-division-caja { display: grid; grid-template-columns: minmax(0, 1fr) minmax(11rem, .45fr); gap: 1rem; }
+.poli-div-grados, .poli-div-columnas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: center; text-align: center; gap: .25rem; }
+.poli-div-grados { color: #ddbdc9; border-bottom: 1px solid #ffe0d346; padding-block: .3rem; font: 650 .875rem ui-monospace, monospace; }
+.poli-div-cuenta { display: grid; grid-template-rows: 1.7rem repeat(5, 3.1rem); }
+.poli-div-fila { margin-top: .16rem; }
+.poli-div-etiqueta { display: block; font-size: .875rem; color: #ead0da; margin-bottom: .08rem; }
+.poli-div-termino { position: relative; display: inline-block; padding: .12rem .15rem; border: 1px solid transparent; border-radius: .35rem; font: 700 clamp(.9rem, 2cqw, 1.12rem)/1.3 ui-monospace, monospace; white-space: nowrap; }
+.poli-div-restar .poli-div-columnas { border-bottom: 1px solid #fbc9b8a8; padding-bottom: .3rem; }
+.poli-div-restar .poli-div-termino { color: #ffabb6; }
+.poli-div-reserva { height: 3.1rem; }
+.poli-division-lado { border-left: 2px solid #ffe4d0; padding-left: .65rem; }
+.poli-divisor { display: flex; flex-wrap: wrap; gap: .15rem; border-bottom: 2px solid #ffe4d0; padding-bottom: .5rem; margin-bottom: .55rem; }
+.poli-div-resultado { display: flex; flex-wrap: wrap; gap: .3rem; min-height: 3rem; }
+.poli-div-cociente { background: var(--poli-ab); color: #371b2a; }
+.poli-div-elegido, .poli-div-mira-d [data-ficha="d0"], .poli-div-mira-r [data-ficha="r1"] { border-color: #ffda86; background: #875338; }
+.poli-div-final .poli-div-columnas { border: 1px solid #ffda86; border-radius: .45rem; background: #6a394c; }
+.poli-div-operacion { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .3rem; min-height: 3.5rem; padding: .6rem; margin-top: .65rem; border-radius: .6rem; background: #2e1124b3; font: 650 1.05rem/1.6 ui-monospace, monospace; overflow-wrap: anywhere; }
+.poli-video-controles { padding: .75rem 0 .2rem; }
+.poli-video-controles .mate-controles { gap: .4rem; }
+.poli-video-velocidad { flex: 0 1 8rem; margin-left: auto; }
+
+.poli-editor-form { display: flex; flex-wrap: wrap; align-items: end; gap: .6rem; }
+.poli-editor-form .mate-control { flex-basis: 18rem; }
+.mate-control input[type="number"], .mate-control input[type="text"] { width: 100%; min-width: 0; min-height: 2.6rem; padding: .45rem .6rem; border: 1px solid var(--borde); border-radius: .5rem; background: #fffdfb; color: var(--tinta-mate); font: 650 1rem/1.3 ui-monospace, monospace; }
+.poli-grado-controles { max-width: 28rem; }
+.poli-coeficientes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); gap: .6rem; padding: .7rem; border-radius: .65rem; background: #fff1e9; max-height: 23rem; overflow: auto; }
+.poli-coeficientes .mate-control > span { justify-content: start; gap: 0; }
+.poli-editor-estado { margin-block: .55rem .8rem; font-size: .875rem; color: var(--acento); }
+.poli-ventana .mate-control { flex: 1 1 6rem; }
+.poli-ventana { max-width: 48rem; }
+.poli-polinomio-actual { padding-bottom: .6rem; }
+.poli-factor { display: inline-block; }
+[data-raices-resultados] .mate-resultados { display: grid; grid-template-columns: minmax(0, 1fr); }
+
+.poli-fracciones-camino { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr); align-items: stretch; gap: .55rem; }
+.poli-fraccion-etapa { min-width: 0; padding: .7rem; border: 1px solid #ffe0d34d; border-radius: .65rem; background: #32132685; }
+.poli-fraccion-etapa h3 { font-size: 1rem; min-height: 2.6rem; }
+.poli-fraccion-etapa p { font-size: .875rem; color: var(--claro-mate); margin-top: .6rem; }
+.poli-fraccion-expresion { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; justify-content: center; min-height: 8rem; font-size: 1rem; }
+.poli-fraccion-expresion .mate-pieza { font-size: .875rem; white-space: nowrap; padding-inline: .22rem; }
+.poli-fraccion-final { display: block; width: 100%; text-align: center; }
+.poli-paso-flecha { align-self: center; color: var(--poli-ab); font-size: 1.7rem; }
+.poli-operacion-pasos { display: grid; gap: .6rem; padding: 0; margin-top: .7rem; list-style: none; }
+.poli-operacion-pasos li { min-width: 0; padding: .75rem; border: 1px solid #ffe0d34d; border-radius: .6rem; background: #32132685; }
+.poli-operacion-pasos h4 { font-size: .94rem; color: #fff0eb; }
+.poli-operacion-pasos p, .poli-operacion-clave { font-size: .875rem; color: var(--claro-mate); }
+.poli-operacion-pasos .mate-linea { gap: .65rem; }
+.poli-operacion-pasos .mate-fraccion { max-width: 100%; }
+.poli-operacion-pasos .mate-fraccion > span { overflow-wrap: anywhere; }
+
+@container contenido (max-width: 42rem) {
+  .poli-identidad-comparacion { grid-template-columns: minmax(0, 1fr); }
+  .poli-division-caja { grid-template-columns: minmax(0, 1fr); }
+  .poli-division-lado { display: grid; grid-template-columns: 1fr 1fr; order: -1; border-left: 0; border-bottom: 1px solid #ffe4d080; padding: 0 0 .35rem; }
+  .poli-divisor { border: 0; margin: 0; padding: 0; }
+  .poli-fracciones-camino { gap: .3rem; }
+  .poli-fraccion-etapa { padding: .45rem; }
+  .poli-fraccion-expresion .mate-fraccion > span { padding-inline: .1rem; }
+}
+@container contenido (max-width: 32rem) {
+  .poli-identidad-comparacion[data-identidad="diferencia"] .poli-desarrollo { grid-template-columns: minmax(0, 1fr); }
+  .poli-fracciones-camino { grid-template-columns: minmax(0, 1fr); }
+  .poli-paso-flecha { justify-self: center; transform: rotate(90deg); }
+  .poli-fraccion-etapa h3 { min-height: 0; }
+  .poli-fraccion-expresion { min-height: 6rem; }
+  .poli-identidad-par { grid-template-columns: minmax(0, 1fr); }
+  .poli-identidad-par .poli-area-svg { max-height: 20rem; }
+  .poli-video-velocidad { margin-left: 0; }
+  .poli-operacion-pasos .mate-ecuacion { font-size: .9rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .poli-div-termino { animation: none; transition: none; }
+}

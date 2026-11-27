@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Alarga un muelle y mide la pendiente de su gráfica de fuerza.">
+  <title>Muelles y ley de Hooke · Dinámica</title>
+  <link rel="stylesheet" href="../../../assets/estilos.css">
+  <link rel="stylesheet" href="../../../assets/formula-interactiva.css">
+  <link rel="stylesheet" href="../estilos.css">
+  <link rel="stylesheet" href="../taller.css">
+  <script src="../../../assets/indice.js" defer></script>
+  <script src="../../../assets/formula-interactiva.js" defer></script>
+  <script src="../laboratorio.js" defer></script>
+  <script src="../modelos-taller.js" defer></script>
+  <script src="../taller.js" defer></script>
+  <script src="simulacion.js" defer></script>
+</head>
+<body class="fisica">
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="../../../index.html"><span class="marca-icono" aria-hidden="true">∿</span> La cueva del conocimiento</a>
+    </div>
+  </header>
+  <div class="contenedor disposicion-sitio">
+    <aside class="columna-indice">
+      <button type="button" class="indice-menu" id="abrir-indice" aria-controls="indice-sitio" aria-expanded="false" hidden>
+        <span class="indice-icono-menu" aria-hidden="true"></span> Índice <span class="indice-flecha" aria-hidden="true"></span>
+      </button>
+      <nav class="indice-sitio" id="indice-sitio" aria-label="Índice del laboratorio">
+        <p class="indice-titulo">Índice</p>
+        <ul class="indice-lista" id="indice-lista">
+          <li><a class="indice-enlace" href="../../index.html">Física</a></li>
+          <li><a class="indice-enlace" href="../index.html">Dinámica</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="pagina-indice taller taller-muelles" id="contenido" tabindex="-1">
+      <header class="cabecera-visual taller-hero">
+        <div class="cabecera-texto">
+          <nav class="ruta-tema" aria-label="Ruta del tema"><a href="../index.html">Dinámica</a></nav>
+          <h1>Muelles y ley de Hooke</h1>
+          <p class="introduccion">Estira un muelle y lee en la gráfica cuánto cuesta alargarlo. Cambia la rigidez para comparar pendientes.</p>
+        </div>
+        <div class="arte-tema" aria-hidden="true"><div class="formula-tema">F = k · ΔL</div></div>
+      </header>
+      <nav class="taller-enlaces" aria-label="En esta página">
+        <a href="#teoria">Teoría</a>
+        <a href="#formulario">Formulario</a>
+        <a href="../ejercicios-resueltos/index.html#muelle">Ejercicio resuelto</a>
+      </nav>
+      <noscript><p>Activa JavaScript para mover el ensayo y explorar las fórmulas.</p></noscript>
+      <section aria-labelledby="titulo-ensayo">
+        <h2 id="titulo-ensayo">Simulación</h2>
+        <div class="taller-banco">
+          <div class="taller-escena">
+            <figure>
+              <canvas id="escena" role="img" aria-label="Muelle horizontal unido a una pared. Debajo aparece una gráfica de fuerza aplicada frente a alargamiento."></canvas>
+              <figcaption>
+                <ul class="taller-leyenda">
+                  <li><i style="--muestra: #95f4c9" aria-hidden="true"></i>Fuerza aplicada</li>
+                  <li><i style="--muestra: #ffc781" aria-hidden="true"></i>Fuerza elástica</li>
+                  <li><i style="--muestra: #e2ddff" aria-hidden="true"></i>Objetivo</li>
+                </ul>
+                La recta muestra los estados de equilibrio del muelle. El punto hueco marca la fuerza elegida.
+              </figcaption>
+            </figure>
+            <div class="taller-acciones">
+              <div class="taller-botones">
+                <button type="button" class="boton" id="reproducir">Iniciar</button>
+                <button type="button" class="boton secundario" id="reiniciar">Reiniciar</button>
+                <label class="taller-ritmo">Ritmo <select id="ritmo"><option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+              </div>
+              <div class="taller-cursor">
+                <label for="recorrido">Recorrer el ensayo</label>
+                <output id="tiempo-ensayo" for="recorrido"></output>
+                <input id="recorrido" type="range" min="0" max="1000" step="1" value="0">
+              </div>
+              <p class="taller-estado" id="estado" role="status"></p>
+            </div>
+          </div>
+          <aside class="taller-panel" aria-labelledby="titulo-ajustes">
+            <h2 id="titulo-ajustes">Ajustes</h2>
+            <div id="controles">
+              <div class="taller-campo">
+                <label for="k">Rigidez (k)</label>
+                <output id="k-valor" for="k"></output>
+                <input id="k" type="range" min="4" max="30" step="0.5" value="6" data-unidad=" N/m">
+              </div>
+              <div class="taller-campo">
+                <label for="fuerza">Fuerza objetivo</label>
+                <output id="fuerza-valor" for="fuerza"></output>
+                <input id="fuerza" type="range" min="0" max="2" step="0.01" value="0.28" data-unidad=" N">
+              </div>
+            </div>
+            <label class="taller-capa"><input id="capa" type="checkbox" checked> Ver el par de fuerzas sobre el extremo</label>
+            <div class="taller-botones taller-preajustes" role="group" aria-label="Situaciones de partida">
+              <button type="button" class="boton secundario" data-preajuste='{"k":6,"fuerza":0.28}'>0,28 N</button>
+              <button type="button" class="boton secundario" data-preajuste='{"k":6,"fuerza":1.2}'>Doble de longitud</button>
+              <button type="button" class="boton secundario" data-preajuste='{"k":18,"fuerza":0.28}'>Muelle más rígido</button>
+            </div>
+          </aside>
+        </div>
+        <dl class="taller-medidas">
+          <div><dt>Fuerza instantánea</dt><dd data-medida="f"></dd></div>
+          <div><dt>Alargamiento</dt><dd data-medida="x"></dd></div>
+          <div><dt>Longitud total</dt><dd data-medida="l"></dd></div>
+          <div><dt>Alargamiento previsto</dt><dd data-medida="objetivo"></dd></div>
+        </dl>
+      </section>
+      <section class="taller-bloque" id="teoria" aria-labelledby="titulo-teoria">
+        <h2 id="titulo-teoria">Teoría</h2>
+        <div class="taller-teoria">
+          <article><h3>Se mide desde la longitud natural</h3><p>El muelle mide 20 cm sin carga. ΔL es el cambio respecto a esa longitud. Si se estira 5 cm, mide 25 cm.</p></article>
+          <article><h3>La recta de Hooke</h3><p>Dentro del régimen elástico ideal, la fuerza necesaria para sostener cada alargamiento es proporcional a ΔL. La pendiente de la gráfica F frente a ΔL es k.</p></article>
+          <article><h3>Tira despacio</h3><p>El ensayo pasa por estados de equilibrio. La fuerza elástica apunta hacia el soporte y compensa el tirón. Una carga brusca puede hacer oscilar el muelle.</p></article>
+        </div>
+      </section>
+      <section class="taller-bloque" id="formulario" aria-labelledby="titulo-formulario">
+        <h2 id="titulo-formulario">Formulario interactivo</h2>
+        <div class="taller-formulas">
+          <article class="taller-formula">
+            <h3>Ley de Hooke</h3>
+            <span class="taller-ecuacion">F = k · ΔL</span>
+            <p>Usa metros para el alargamiento cuando k se expresa en N/m.</p>
+            <button type="button" class="boton secundario" id="formula-hooke">Explorar ley de hooke</button>
+          </article>
+        </div>
+      </section>
+      <section class="taller-reto" aria-labelledby="titulo-reto">
+        <h2 id="titulo-reto">Ponlo a prueba</h2>
+        <p>Carga 0,28 N y lleva el cursor al final. Predice qué ocurrirá con el alargamiento al triplicar k con la misma fuerza.</p>
+        <details><summary>Ver la predicción</summary><p>El alargamiento baja a una tercera parte. La pendiente de la gráfica se triplica.</p></details>
+        <a href="../ejercicios-resueltos/index.html#muelle">Alargar un muelle · ejercicio 30</a>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

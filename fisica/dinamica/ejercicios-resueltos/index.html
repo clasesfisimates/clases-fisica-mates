@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Problemas de Dinámica con esquemas y soluciones paso a paso.">
+  <title>Ejercicios resueltos · Dinámica</title>
+  <link rel="stylesheet" href="../../../assets/estilos.css">
+  <link rel="stylesheet" href="../../../assets/ejercicios.css">
+  <script src="../../../assets/indice.js" defer></script>
+</head>
+<body class="fisica">
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="../../../index.html"><span class="marca-icono" aria-hidden="true">∿</span> La cueva del conocimiento</a>
+    </div>
+  </header>
+  <div class="contenedor disposicion-sitio">
+    <aside class="columna-indice">
+      <button type="button" class="indice-menu" id="abrir-indice" aria-controls="indice-sitio" aria-expanded="false" hidden>
+        <span class="indice-icono-menu" aria-hidden="true"></span> Índice <span class="indice-flecha" aria-hidden="true"></span>
+      </button>
+      <nav class="indice-sitio" id="indice-sitio" aria-label="Índice del laboratorio">
+        <p class="indice-titulo">Índice</p>
+        <ul class="indice-lista" id="indice-lista">
+          <li><a class="indice-enlace" href="../../index.html">Física</a></li>
+          <li><a class="indice-enlace" href="../index.html">Dinámica</a></li>
+          <li><a class="indice-enlace" href="index.html" aria-current="page">Ejercicios resueltos</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="pagina-indice" id="contenido" tabindex="-1">
+      <header class="cabecera-visual cabecera-ejercicios">
+        <nav class="ruta-tema" aria-label="Ruta del tema"><a href="../index.html">Dinámica</a></nav>
+        <h1>Ejercicios resueltos</h1>
+        <p class="introduccion">Dibuja las fuerzas, elige los ejes y sigue las ecuaciones hasta el resultado.</p>
+      </header>
+      <nav aria-label="Tipos de ejercicios">
+        <ul class="ejercicios-indice">
+          <li><a href="#peso">Peso</a></li>
+          <li><a href="#horizontal">Plano horizontal</a></li>
+          <li><a href="#estatico">Rozamiento estático</a></li>
+          <li><a href="#rampa">Plano inclinado</a></li>
+          <li><a href="#polea">Cuerpos enlazados</a></li>
+          <li><a href="#muelle">Ley de Hooke</a></li>
+          <li><a href="#accion-reaccion">Acción y reacción</a></li>
+          <li><a href="#circular">Fuerza centrípeta</a></li>
+          <li><a href="#impulso">Impulso</a></li>
+        </ul>
+      </nav>
+      <article class="ejercicio" id="peso" aria-labelledby="titulo-peso">
+        <h2 id="titulo-peso">Masa y peso en dos planetas</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Un objeto pesa 800 N en la Tierra. ¿Cuál es su masa y cuánto pesaría en la superficie de Júpiter?</p>
+            <div class="ejercicio-datos"><span>P<sub>T</sub> = 800 N</span><span>g<sub>T</sub> = 9,81 m/s²</span><span>g<sub>J</sub> = 25,1 m/s²</span></div>
+            <p class="ejercicio-fuente">Prob_dinamica.pdf · ejercicio 7</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-planetas">
+                <div class="ejercicio-planeta"><i aria-hidden="true"></i><b>Tierra</b><span>g = 9,81 m/s²</span><span>↓ P = 800 N</span></div>
+                <div class="ejercicio-planeta"><i aria-hidden="true"></i><b>Júpiter</b><span>g = 25,1 m/s²</span><span>↓ P = ?</span></div>
+              </div>
+              <figcaption>La masa es la misma en los dos planetas. Cada flecha indica el peso hacia su centro.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Despeja la masa</h3>
+              <p>El peso es el producto de la masa por la gravedad local.</p>
+              <p class="ejercicio-formula">P = m · g ⇒ m = P<sub>T</sub> / g<sub>T</sub> = 800 / 9,81 ≈ 81,55 kg</p>
+            </li>
+            <li>
+              <h3>Cambia la gravedad</h3>
+              <p>Mantén la masa del objeto y multiplica por la gravedad de Júpiter. Conserva los decimales hasta el final.</p>
+              <p class="ejercicio-formula">P<sub>J</sub> = (800 / 9,81) · 25,1 ≈ 2 047 N</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> La masa es aproximadamente <b>81,55 kg</b> y el peso en Júpiter es de <b>2 047 N</b>.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../masa-y-peso/index.html">Prueba el laboratorio de masa y peso</a></p>
+      </article>
+      <article class="ejercicio" id="horizontal" aria-labelledby="titulo-horizontal">
+        <h2 id="titulo-horizontal">Arrastrar un bloque con rozamiento</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Arrastramos un bloque de 36 kg sobre una mesa horizontal con una fuerza de 100 N paralela a la mesa. El coeficiente cinético es 0,20. ¿Con qué aceleración desliza? Si el movimiento empieza en reposo, ¿cuánto tarda en alcanzar 1,3 m/s?</p>
+            <div class="ejercicio-datos"><span>m = 36 kg</span><span>F = 100 N</span><span>μ<sub>c</sub> = 0,20</span></div>
+            <p class="ejercicio-fuente">Prob_dinamica.pdf · ejercicio 23</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-fuerzas" role="img" aria-label="El bloque recibe su peso hacia abajo, la normal hacia arriba, el tirón hacia la derecha y el rozamiento hacia la izquierda.">
+                <span class="fuerzas-superficie"></span>
+                <span class="fuerzas-cuerpo" style="--x: 50%; --y: 49%; --giro: 0deg"></span>
+                <span class="fuerzas-vector normal" style="--angulo: -90deg; --x: 50%; --y: 49%; --largo: 3.18rem"><b>N</b></span>
+                <span class="fuerzas-vector " style="--angulo: 90deg; --x: 50%; --y: 49%; --largo: 3.18rem"><b>P</b></span>
+                <span class="fuerzas-vector aplicada" style="--angulo: 0deg; --x: 50%; --y: 49%; --largo: 4.3rem"><b>F</b></span>
+                <span class="fuerzas-vector rozamiento" style="--angulo: 180deg; --x: 50%; --y: 49%; --largo: 3.3rem"><b>F<sub>r</sub></b></span>
+                <span class="fuerzas-nota" style="--x: 78%; --y: 10%">+x →</span>
+              </div>
+              <figcaption>Tomamos como positivo el sentido del tirón. Las flechas representan fuerzas.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Equilibra las fuerzas verticales</h3>
+              <p>El tirón es horizontal. Como el bloque sigue apoyado en la mesa, la normal y el peso se compensan.</p>
+              <p class="ejercicio-formula">N = mg = 36 · 9,81 = 353,16 N</p>
+            </li>
+            <li>
+              <h3>Resta el rozamiento</h3>
+              <p>Durante el deslizamiento, el rozamiento cinético va en sentido contrario al movimiento.</p>
+              <p class="ejercicio-formula">F<sub>r</sub> = μ<sub>c</sub>N = 70,632 N</p>
+              <p class="ejercicio-formula">a = (100 − 70,632) / 36 ≈ 0,816 m/s²</p>
+            </li>
+            <li>
+              <h3>Calcula el tiempo</h3>
+              <p>La aceleración es constante durante el deslizamiento, así que puedes despejar el tiempo de la ecuación de la velocidad.</p>
+              <p class="ejercicio-formula">v = v₀ + at ⇒ t = (1,3 − 0) / a ≈ 1,59 s</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> El bloque acelera a <b>0,816 m/s²</b> en el sentido del tirón y tarda <b>1,59 s</b>.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../movimiento-sobre-planos/index.html">Prueba el simulador de movimiento sobre planos</a></p>
+      </article>
+      <article class="ejercicio" id="estatico" aria-labelledby="titulo-estatico">
+        <h2 id="titulo-estatico">Tirar de una caja que aún está quieta</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Una cuerda tira de una caja de 40 kg formando 30° con el suelo. Con una tensión de 100 N, la caja sigue en reposo. ¿Cuánto vale el rozamiento? Si empieza a moverse al llegar a 148 N, ¿cuál es el coeficiente de rozamiento estático?</p>
+            <div class="ejercicio-datos"><span>m = 40 kg</span><span>θ = 30°</span><span>g = 9,8 m/s²</span></div>
+            <p class="ejercicio-fuente">Ejercicios dinámica.pdf · ejercicio 6</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-fuerzas" role="img" aria-label="La cuerda tira hacia arriba y a la derecha formando 30 grados. El rozamiento va a la izquierda, la normal hacia arriba y el peso hacia abajo.">
+                <span class="fuerzas-superficie"></span>
+                <span class="fuerzas-cuerpo" style="--x: 50%; --y: 49%; --giro: 0deg"></span>
+                <span class="fuerzas-vector normal" style="--angulo: -90deg; --x: 50%; --y: 49%; --largo: 3.18rem"><b>N</b></span>
+                <span class="fuerzas-vector " style="--angulo: 90deg; --x: 50%; --y: 49%; --largo: 3.18rem"><b>P</b></span>
+                <span class="fuerzas-vector aplicada" style="--angulo: -30deg; --x: 50%; --y: 49%; --largo: 4.7rem"><b>T</b></span>
+                <span class="fuerzas-vector rozamiento" style="--angulo: 180deg; --x: 50%; --y: 49%; --largo: 3.8rem"><b>F<sub>r</sub></b></span>
+                <span class="fuerzas-nota" style="--x: 79%; --y: 37%">30°</span>
+              </div>
+              <figcaption>La cuerda ayuda a sostener el bloque. Por eso la normal vale menos que su peso.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Equilibra las fuerzas en horizontal</h3>
+              <p>Mientras la caja sigue quieta, el rozamiento toma la magnitud necesaria para compensar la componente horizontal de la tensión.</p>
+              <p class="ejercicio-formula">F<sub>r</sub> = 100 · cos 30° ≈ 86,6 N</p>
+            </li>
+            <li>
+              <h3>Calcula la normal en el umbral</h3>
+              <p>Con la tensión de 148 N, la componente vertical de la cuerda aporta 74 N hacia arriba.</p>
+              <p class="ejercicio-formula">N = mg − 148 · sen 30° = 392 − 74 = 318 N</p>
+            </li>
+            <li>
+              <h3>Usa el límite del rozamiento estático</h3>
+              <p>Justo antes de deslizar, el rozamiento estático llega a su máximo. En ese instante todavía equilibra la componente horizontal.</p>
+              <p class="ejercicio-formula">μ<sub>e</sub>N = 148 · cos 30° ⇒ μ<sub>e</sub> ≈ 0,403</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> Con 100 N de tensión, el rozamiento vale <b>86,6 N</b>. El coeficiente estático es <b>0,403</b>.</p>
+        </details>
+      </article>
+      <article class="ejercicio" id="rampa" aria-labelledby="titulo-rampa">
+        <h2 id="titulo-rampa">Subir una rampa y volver a la base</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Lanzamos cuesta arriba un objeto de 10 kg desde la base de una rampa de 30°, a 10 m/s. El coeficiente cinético es 0,20. Calcula su aceleración al subir, el tiempo hasta pararse, la altura máxima y la rapidez al volver a la base.</p>
+            <div class="ejercicio-datos"><span>θ = 30°</span><span>v₀ = 10 m/s</span><span>μ<sub>c</sub> = 0,20</span><span>g = 9,8 m/s²</span></div>
+            <p class="ejercicio-fuente">Ejercicios dinámica.pdf · ejercicio 9</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-fuerzas" role="img" aria-label="Rampa de 30 grados con un bloque. El peso vertical se descompone en una componente cuesta abajo y otra hacia la rampa. La normal sale perpendicular a la rampa.">
+                <span class="fuerzas-superficie rampa"></span>
+                <span class="fuerzas-cuerpo" style="--x: 48%; --y: 43%; --giro: -30deg"></span>
+                <span class="fuerzas-vector " style="--angulo: 90deg; --x: 48%; --y: 43%; --largo: 4.2rem"><b>P</b></span>
+                <span class="fuerzas-vector normal" style="--angulo: -120deg; --x: 48%; --y: 43%; --largo: 3.9rem"><b>N</b></span>
+                <span class="fuerzas-vector componente" style="--angulo: 150deg; --x: 48%; --y: 43%; --largo: 2.9rem"><b>P<sub>∥</sub></b></span>
+                <span class="fuerzas-vector componente" style="--angulo: 60deg; --x: 48%; --y: 43%; --largo: 3.65rem"><b>P<sub>⊥</sub></b></span>
+                <span class="fuerzas-nota" style="--x: 51%; --y: 3%">+x cuesta arriba ↗</span>
+                <span class="fuerzas-nota" style="--x: 79%; --y: 44%">30°</span>
+              </div>
+              <figcaption>Durante la subida, el rozamiento apunta cuesta abajo, como P∥. Durante la bajada apunta cuesta arriba.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Proyecta el peso</h3>
+              <p>Usa ejes paralelo y perpendicular a la rampa. El bloque permanece en contacto con ella.</p>
+              <p class="ejercicio-formula">P<sub>∥</sub> = mg sen 30° = 49 N cuesta abajo</p>
+              <p class="ejercicio-formula">N = P<sub>⊥</sub> = mg cos 30° ≈ 84,87 N ⇒ F<sub>r</sub> ≈ 16,97 N</p>
+            </li>
+            <li>
+              <h3>Calcula el frenado y la altura</h3>
+              <p>Tomamos positivo cuesta arriba. Durante la subida, la componente paralela del peso y el rozamiento frenan juntos.</p>
+              <p class="ejercicio-formula">a = (−49 − 16,97) / 10 ≈ −6,60 m/s²</p>
+              <p class="ejercicio-formula">t = (0 − 10) / a ≈ 1,52 s</p>
+              <p class="ejercicio-formula">0 = v₀² + 2as ⇒ s ≈ 7,58 m ⇒ h = s · sen 30° ≈ 3,79 m</p>
+            </li>
+            <li>
+              <h3>Invierte el sentido del rozamiento</h3>
+              <p>Para la bajada, suponemos que el reposo en el punto alto es momentáneo, como plantea el enunciado. El rozamiento pasa a apuntar cuesta arriba. Usamos magnitudes en el sentido de bajada.</p>
+              <p class="ejercicio-formula">a<sub>bajada</sub> = (49 − 16,97) / 10 ≈ 3,20 m/s²</p>
+              <p class="ejercicio-formula">v = √(2 · a<sub>bajada</sub> · s) ≈ 6,97 m/s</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> Al subir, <b>a ≈ −6,60 m/s²</b>, <b>t ≈ 1,52 s</b> y <b>h ≈ 3,79 m</b>. Regresa a <b>6,97 m/s</b>.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../movimiento-sobre-planos/index.html">Explora las fuerzas sobre un plano inclinado</a></p>
+      </article>
+      <article class="ejercicio" id="polea" aria-labelledby="titulo-polea">
+        <h2 id="titulo-polea">Dos masas unidas por una polea</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Cuelgan dos masas de 2 kg y 5 kg de una cuerda inextensible que pasa por una polea ideal. Calcula la aceleración de las masas y la tensión en la cuerda.</p>
+            <div class="ejercicio-datos"><span>m₁ = 2 kg</span><span>m₂ = 5 kg</span><span>g = 9,8 m/s²</span></div>
+            <p class="ejercicio-fuente">Prob_dinamica.pdf · ejercicio 44</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-fuerzas" role="img" aria-label="Polea ideal con una masa de 2 kg a la izquierda y otra de 5 kg a la derecha. La tensión tira de ambas hacia arriba y el peso tira hacia abajo.">
+                <span class="fuerzas-cuerda"></span>
+                <span class="fuerzas-polea"></span>
+                <span class="fuerzas-cuerpo" style="--x: 36%; --y: 45%"></span>
+                <span class="fuerzas-cuerpo" style="--x: 64%; --y: 51%"></span>
+                <span class="fuerzas-vector aplicada" style="--angulo: -90deg; --x: 36%; --y: 45%; --largo: 2.1rem"><b>T</b></span>
+                <span class="fuerzas-vector aplicada" style="--angulo: -90deg; --x: 64%; --y: 51%; --largo: 2.1rem"><b>T</b></span>
+                <span class="fuerzas-vector" style="--angulo: 90deg; --x: 36%; --y: 45%; --largo: 2.05rem"><b>P₁</b></span>
+                <span class="fuerzas-vector" style="--angulo: 90deg; --x: 64%; --y: 51%; --largo: 3.45rem"><b>P₂</b></span>
+                <span class="fuerzas-nota" style="--x: 8%; --y: 42%">2 kg ↑</span>
+                <span class="fuerzas-nota" style="--x: 78%; --y: 49%">5 kg ↓</span>
+              </div>
+              <figcaption>Al tirar la cuerda de los dos cuerpos, uno sube lo mismo que baja el otro.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Escribe una ecuación para cada masa</h3>
+              <p>La masa de 2 kg sube y la de 5 kg baja. Toma como positivo el sentido del movimiento de cada masa. Ambas aceleraciones tienen el mismo módulo.</p>
+              <p class="ejercicio-formula">T − m₁g = m₁a</p>
+              <p class="ejercicio-formula">m₂g − T = m₂a</p>
+            </li>
+            <li>
+              <h3>Suma las dos ecuaciones</h3>
+              <p>Al sumarlas, la tensión desaparece. La diferencia de pesos acelera al conjunto.</p>
+              <p class="ejercicio-formula">a = (m₂ − m₁)g / (m₁ + m₂) = (5 − 2) · 9,8 / 7 = 4,2 m/s²</p>
+            </li>
+            <li>
+              <h3>Recupera la tensión</h3>
+              <p>Sustituye la aceleración en la ecuación del cuerpo que sube.</p>
+              <p class="ejercicio-formula">T = m₁(g + a) = 2 · (9,8 + 4,2) = 28 N</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> La masa de 5 kg baja y la de 2 kg sube con <b>4,2 m/s²</b>. La tensión vale <b>28 N</b>.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../poleas/index.html">Prueba el laboratorio de poleas y tensión</a></p>
+      </article>
+      <article class="ejercicio" id="muelle" aria-labelledby="titulo-muelle">
+        <h2 id="titulo-muelle">Alargar un muelle</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Un muelle mide 20 cm sin carga y su constante elástica es 6 N/m. ¿Qué fuerza lo alarga otros 20 cm? ¿Cuánto se alarga con 0,28 N y qué longitud alcanza?</p>
+            <div class="ejercicio-datos"><span>L₀ = 20 cm</span><span>k = 6 N/m</span></div>
+            <p class="ejercicio-fuente">Prob_dinamica.pdf · ejercicio 30</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-muelle"><div><b>Sin carga</b><span><i></i></span><small>L₀</small></div><div><b>Con carga</b><span><i></i></span><small>L₀ + ΔL →</small></div></div>
+              <figcaption>La ley de Hooke relaciona la fuerza aplicada con el alargamiento ΔL.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Convierte el alargamiento a metros</h3>
+              <p>Con la constante en N/m, expresa la distancia en metros.</p>
+              <p class="ejercicio-formula">F = k · ΔL = 6 · 0,20 = 1,20 N</p>
+            </li>
+            <li>
+              <h3>Despeja el alargamiento para la segunda fuerza</h3>
+              <p>Despeja ΔL y vuelve a centímetros al final.</p>
+              <p class="ejercicio-formula">ΔL = F / k = 0,28 / 6 ≈ 0,0467 m = 4,67 cm</p>
+            </li>
+            <li>
+              <h3>Suma la longitud original</h3>
+              <p>La longitud final incluye los 20 cm iniciales.</p>
+              <p class="ejercicio-formula">L = L₀ + ΔL ≈ 20 + 4,67 = 24,67 cm</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> Se necesitan <b>1,20 N</b> para alargarlo 20 cm. Con <b>0,28 N</b>, el muelle se alarga <b>4,67 cm</b> y mide <b>24,67 cm</b>.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../muelles/index.html">Prueba el laboratorio de muelles</a></p>
+      </article>
+      <article class="ejercicio" id="accion-reaccion" aria-labelledby="titulo-accion-reaccion">
+        <h2 id="titulo-accion-reaccion">La Tierra también acelera hacia la bola</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>La Tierra atrae con 19,62 N a una bola de 2 kg. Si la masa terrestre es 5,97 · 10²⁴ kg, ¿cuánto acelera cada cuerpo debido a esa interacción?</p>
+            <div class="ejercicio-datos"><span>m<sub>bola</sub> = 2 kg</span><span>M<sub>Tierra</sub> = 5,97 · 10²⁴ kg</span></div>
+            <p class="ejercicio-fuente">Prob_dinamica.pdf · ejercicio 15</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-interaccion"><div><b>Bola</b><i aria-hidden="true"></i><span>↓ 19,62 N</span></div><div><span>↑ 19,62 N</span><i aria-hidden="true"></i><b>Tierra</b></div></div>
+              <figcaption>Las fuerzas tienen igual intensidad y sentidos contrarios. Cada una actúa sobre un cuerpo distinto.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Calcula la aceleración de la bola</h3>
+              <p>Usa la fuerza gravitatoria que la Tierra ejerce sobre la bola.</p>
+              <p class="ejercicio-formula">a<sub>bola</sub> = 19,62 / 2 = 9,81 m/s²</p>
+            </li>
+            <li>
+              <h3>Aplica la tercera ley a la Tierra</h3>
+              <p>La bola atrae a la Tierra con la misma fuerza. La gran diferencia de masas explica la diferencia de aceleraciones.</p>
+              <p class="ejercicio-formula">a<sub>Tierra</sub> = 19,62 / (5,97 · 10²⁴) ≈ 3,29 · 10⁻²⁴ m/s²</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> La bola acelera a <b>9,81 m/s²</b> hacia la Tierra. La Tierra acelera a <b>3,29 · 10⁻²⁴ m/s²</b> hacia la bola.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../gravedad/index.html">Prueba el laboratorio de gravitación</a></p>
+      </article>
+      <article class="ejercicio" id="circular" aria-labelledby="titulo-circular">
+        <h2 id="titulo-circular">Un coche toma una curva</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Un coche de 500 kg toma una curva circular de 80 m de radio a 120 km/h. ¿Qué aceleración lleva, qué fuerza necesita para seguir la curva y quién ejerce esa fuerza en una calzada horizontal?</p>
+            <div class="ejercicio-datos"><span>m = 500 kg</span><span>v = 120 km/h</span><span>r = 80 m</span></div>
+            <p class="ejercicio-fuente">Prob_dinamica.pdf · ejercicio 9</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-fuerzas" role="img" aria-label="Vista superior de una curva circular. La velocidad es tangente a la trayectoria y la fuerza va hacia el centro.">
+                <span class="fuerzas-curva"></span>
+                <span class="fuerzas-cuerpo" style="--x: 72%; --y: 49%; --giro: 90deg"></span>
+                <span class="fuerzas-vector aplicada" style="--angulo: -90deg; --x: 72%; --y: 49%; --largo: 3.5rem"><b>v</b></span>
+                <span class="fuerzas-vector normal" style="--angulo: 180deg; --x: 72%; --y: 49%; --largo: 3.28rem"><b>F<sub>c</sub></b></span>
+                <span class="fuerzas-nota" style="--x: 37%; --y: 55%">Centro</span>
+              </div>
+              <figcaption>La rapidez es constante, pero la dirección de la velocidad cambia.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Pasa la rapidez al SI</h3>
+              <p>Divide los kilómetros por hora entre 3,6.</p>
+              <p class="ejercicio-formula">v = 120 / 3,6 ≈ 33,33 m/s</p>
+            </li>
+            <li>
+              <h3>Calcula la aceleración y la fuerza</h3>
+              <p>La aceleración es centrípeta. La segunda ley da la fuerza resultante horizontal necesaria.</p>
+              <p class="ejercicio-formula">a<sub>c</sub> = v² / r ≈ 13,89 m/s²</p>
+              <p class="ejercicio-formula">F<sub>c</sub> = ma<sub>c</sub> ≈ 6 944 N</p>
+            </li>
+            <li>
+              <h3>Identifica qué fuerza gira el coche</h3>
+              <p>En una calzada horizontal, el rozamiento estático del suelo sobre los neumáticos aporta la fuerza centrípeta mientras las ruedas conservan el agarre.</p>
+
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> La aceleración es de <b>13,89 m/s²</b> hacia el centro y el suelo ejerce unos <b>6,94 kN</b> en esa dirección.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../curva/index.html">Prueba el laboratorio de fuerza centrípeta</a></p>
+      </article>
+      <article class="ejercicio" id="impulso" aria-labelledby="titulo-impulso">
+        <h2 id="titulo-impulso">Una pelota rebota en la pared</h2>
+        <div class="ejercicio-planteamiento">
+          <div>
+            <p>Una pelota de 300 g llega perpendicularmente a una pared a 15 m/s. Rebota en la misma recta a 10 m/s. Si la fuerza media de la pared vale 150 N, ¿cuánto dura el contacto?</p>
+            <div class="ejercicio-datos"><span>m = 0,300 kg</span><span>|F<sub>media</sub>| = 150 N</span></div>
+            <p class="ejercicio-fuente">Prob_dinamica.pdf · ejercicio 39</p>
+          </div>
+          <figure class="ejercicio-esquema">
+              <div class="ejercicio-rebote"><span>Antes&nbsp; ● → 15 m/s</span><span>Después&nbsp; ● ← 10 m/s</span></div>
+              <figcaption>Si tomas como positivo el sentido hacia la pared, la velocidad de vuelta es negativa.</figcaption>
+            </figure>
+        </div>
+        <details class="ejercicio-solucion">
+          <summary>Ver resolución paso a paso</summary>
+          <ol class="ejercicio-pasos">
+            <li>
+              <h3>Pon signo a cada velocidad</h3>
+              <p>Medimos en el eje perpendicular a la pared con sentido positivo hacia ella.</p>
+              <p class="ejercicio-formula">v<sub>i</sub> = +15 m/s, v<sub>f</sub> = −10 m/s</p>
+            </li>
+            <li>
+              <h3>Calcula el cambio de cantidad de movimiento</h3>
+              <p>El cambio es negativo porque la pared empuja en sentido contrario al de llegada.</p>
+              <p class="ejercicio-formula">Δp = m(v<sub>f</sub> − v<sub>i</sub>) = 0,300 · (−10 − 15) = −7,50 kg·m/s</p>
+            </li>
+            <li>
+              <h3>Iguala impulso y cambio de cantidad de movimiento</h3>
+              <p>La fuerza media tiene signo negativo en el mismo eje.</p>
+              <p class="ejercicio-formula">Δt = Δp / F<sub>media</sub> = (−7,50) / (−150) = 0,050 s</p>
+            </li>
+          </ol>
+          <p class="ejercicio-respuesta"><strong>Resultado.</strong> El contacto dura <b>0,050 s</b>, es decir, <b>50 ms</b>.</p>
+        </details>
+        <p class="ejercicio-actividad"><a href="../rebote/index.html">Prueba el laboratorio de impulso y rebote</a></p>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

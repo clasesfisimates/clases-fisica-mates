@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Temas de Física en La cueva del conocimiento.">
+  <title>Física · La cueva del conocimiento</title>
+  <link rel="stylesheet" href="../assets/estilos.css">
+  <script src="../assets/indice.js" defer></script>
+</head>
+<body class="fisica">
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="../index.html">
+        <span class="marca-icono" aria-hidden="true">∿</span>
+        La cueva del conocimiento
+      </a>
+    </div>
+  </header>
+
+  <div class="contenedor disposicion-sitio">
+    <aside class="columna-indice">
+      <button type="button" class="indice-menu" id="abrir-indice" aria-controls="indice-sitio" aria-expanded="false" hidden>
+        <span class="indice-icono-menu" aria-hidden="true"></span> Índice <span class="indice-flecha" aria-hidden="true"></span>
+      </button>
+      <nav class="indice-sitio" id="indice-sitio" aria-label="Índice del laboratorio">
+        <p class="indice-titulo">Índice</p>
+        <ul class="indice-lista" id="indice-lista">
+          <li><a class="indice-enlace" href="../index.html">Inicio</a></li>
+          <li class="fisica"><a class="indice-enlace" href="../fisica/index.html" aria-current="page">Física</a></li>
+          <li class="fisica"><a class="indice-enlace" href="../fisica/dinamica/index.html">Dinámica</a></li>
+          <li class="matematicas"><a class="indice-enlace" href="../matematicas/index.html">Matemáticas</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="pagina-indice" id="contenido" tabindex="-1">
+      <header class="cabecera-visual portada-asignatura">
+        <img class="lamina-fondo" src="../assets/ilustraciones/saturno.webp" srcset="../assets/ilustraciones/saturno-720.webp 720w, ../assets/ilustraciones/saturno.webp 1280w" sizes="(max-width: 43rem) 100vw, 80vw" width="1280" height="427" alt="">
+        <div class="cabecera-texto">
+          <p class="rotulo-portada">Asignatura</p>
+          <h1>Física</h1>
+          <p class="introduccion">Observa fenómenos físicos y explora qué pasa al cambiar las condiciones.</p>
+        </div>
+      </header>
+
+      <section aria-labelledby="temas">
+        <h2 id="temas">Temas</h2>
+        <div class="rejilla-asignaturas">
+          <a class="tarjeta" href="dinamica/index.html">
+            <span class="icono-asignatura" aria-hidden="true">ΣF</span>
+            <div>
+              <h3>Dinámica</h3>
+              <p>Fuerzas y movimiento en planos, poleas, muelles, gravedad, curvas y choques.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

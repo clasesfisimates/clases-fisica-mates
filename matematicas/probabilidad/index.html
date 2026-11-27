@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Del espacio muestral a la probabilidad de un origen. Selecciona sucesos y sigue cada caso hasta el resultado.">
+  <title>Probabilidad · Matemáticas</title>
+  <link rel="stylesheet" href="../../assets/estilos.css">
+  <link rel="stylesheet" href="../laboratorio.css">
+  <link rel="stylesheet" href="estilos.css">
+  <script src="../../assets/indice.js" defer></script>
+  <script src="../laboratorio.js" defer></script>
+  <script src="../formulas.js" defer></script>
+</head>
+<body class="matematicas mate-laboratorio" data-tema="probabilidad">
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <div class="contenedor barra"><a class="marca" href="../../index.html"><span class="marca-icono" aria-hidden="true">∿</span>La cueva del conocimiento</a></div>
+  </header>
+  <div class="contenedor disposicion-sitio">
+    <aside class="columna-indice">
+      <button type="button" class="indice-menu" id="abrir-indice" aria-controls="indice-sitio" aria-expanded="false" hidden><span class="indice-icono-menu" aria-hidden="true"></span> Índice <span class="indice-flecha" aria-hidden="true"></span></button>
+      <nav class="indice-sitio" id="indice-sitio" aria-label="Índice del laboratorio">
+        <p class="indice-titulo">Índice</p>
+        <ul class="indice-lista" id="indice-lista"><li><a class="indice-enlace" href="../index.html">Matemáticas</a></li></ul>
+      </nav>
+    </aside>
+    <main class="pagina-indice" id="contenido" tabindex="-1">
+      <header class="cabecera-visual cabecera-analitica mate-hero">
+        <div class="cabecera-texto">
+          <a class="mate-ruta" href="../index.html">Matemáticas</a>
+          <h1>Probabilidad</h1>
+          <p class="introduccion">Del espacio muestral a la probabilidad de un origen. Selecciona sucesos y sigue cada caso hasta el resultado.</p>
+        </div>
+        <div class="mate-mini mate-mini-venn" aria-hidden="true"><i></i><i></i><span>A ∩ B</span></div>
+      </header>
+      <nav class="mate-secciones" aria-label="Recursos de Probabilidad">
+        <a class="mate-acceso-formulas" href="#formulario">Formulario</a>
+        <a href="arbol/index.html#ejemplo" data-seccion-anterior="ejemplo">Ejemplo guiado</a>
+      </nav>
+      <noscript><p class="mate-aviso">Activa JavaScript para usar los controles y abrir las fórmulas.</p></noscript>
+      <div class="mate-columnas">
+        <section aria-labelledby="subsecciones">
+          <h2 id="subsecciones">Subsecciones</h2>
+          <div class="rejilla-subsecciones">
+            <a class="tarjeta" href="sucesos/index.html" data-seccion-anterior="sucesos">
+              <span class="icono-asignatura" aria-hidden="true">Ω</span>
+              <div><h3>Sucesos y regla de Laplace</h3><p>Cuenta resultados favorables y combina sucesos.</p></div>
+            </a>
+            <a class="tarjeta" href="condicionada/index.html" data-seccion-anterior="condicionada">
+              <span class="icono-asignatura" aria-hidden="true">P(A|B)</span>
+              <div><h3>Condicionada e independencia</h3><p>Compara una probabilidad con y sin información previa.</p></div>
+            </a>
+            <a class="tarjeta" href="arbol/index.html" data-seccion-anterior="arbol">
+              <span class="icono-asignatura" aria-hidden="true">↳</span>
+              <div><h3>Árbol, probabilidad total y Bayes</h3><p>Multiplica las ramas de un camino y suma los caminos que llegan al mismo resultado.</p></div>
+            </a>
+            <a class="tarjeta" href="urna/index.html" data-seccion-anterior="urna">
+              <span class="icono-asignatura" aria-hidden="true">●●</span>
+              <div><h3>Extracciones con y sin reposición</h3><p>Observa cómo cambian las probabilidades al devolver una bola o dejarla fuera.</p></div>
+            </a>
+            <a class="tarjeta tarjeta-ejercicios" href="ejercicios-resueltos/index.html">
+              <span class="icono-asignatura" aria-hidden="true">✓</span>
+              <div><h3>Ejercicios resueltos</h3><p>Resuelve cada tipo de problema con un esquema y operaciones paso a paso.</p></div>
+            </a>
+          </div>
+        </section>
+        <aside class="mate-formulario" id="formulario" aria-labelledby="titulo-formulario">
+          <h2 id="titulo-formulario">Formulario</h2>
+          <p>Abre una fórmula para ver qué significa cada término y probar valores.</p>
+          <div data-formulario></div>
+          <a class="mate-volver" href="#contenido">Volver al inicio del tema</a>
+        </aside>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

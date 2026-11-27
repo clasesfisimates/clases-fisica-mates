@@ -1,0 +1,497 @@
+:root {
+  color-scheme: light;
+  font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  color: #183437;
+  background: #f7f7f0;
+  --titular: "Baskervville", Georgia, "Times New Roman", serif;
+  --texto-secundario: #4c6261;
+  --borde: #cfd9d2;
+  --foco: #08766d;
+  --acento: #245953;
+  --fondo-acento: #e5efe7;
+  --pagina: #f7f7f0;
+  --circulo: #648e83;
+  --marca-fondo: linear-gradient(135deg, #14383a, #366a61);
+  --hero: linear-gradient(110deg, #122e33, #24514d);
+  --borde-hero: #274946;
+  --texto-hero: #ecf4ea;
+  --sombra: 0 4px 16px -8px #123d392b;
+  --curva: cubic-bezier(.2,.72,.25,1);
+  --ancho-indice: clamp(12.4rem, 16vw, 14rem);
+  --separacion-indice: clamp(1rem, 2.2vw, 2.25rem);
+}
+
+.fisica {
+  --acento: #1c6261;
+  --foco: #097b77;
+  --fondo-acento: #e1efea;
+  --borde: #cbd9d3;
+  --circulo: #5d998a;
+  --marca-fondo: linear-gradient(145deg, #153f42, #337568);
+  --hero: linear-gradient(108deg, #14343c, #20504e 70%, #33655c);
+  --borde-hero: #274d4e;
+}
+
+.matematicas {
+  --acento: #934325;
+  --foco: #a84827;
+  --fondo-acento: #f8eadd;
+  --borde: #dfd2c3;
+  --circulo: #bc8060;
+  --marca-fondo: linear-gradient(140deg, #813e2b, #a45b38);
+  --hero: linear-gradient(108deg, #542b25, #773922 65%, #995630);
+  --borde-hero: #78452d;
+  --texto-hero: #fff2e2;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  line-height: 1.55;
+  position: relative;
+  isolation: isolate;
+  background: radial-gradient(#6e837225 .7px, transparent .9px) 0 0 / 13px 13px, var(--pagina);
+}
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .27;
+  background: url("ilustraciones/relieve.svg") left -17rem top 23rem / 48rem auto no-repeat,
+              url("ilustraciones/relieve.svg") right -16rem top -7rem / 45rem auto no-repeat;
+}
+
+:focus-visible { outline: 3px solid var(--foco); outline-offset: 4px; }
+
+.salto {
+  position: absolute;
+  z-index: 2;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.6rem 1rem;
+  color: inherit;
+  background: white;
+  transform: translateY(calc(-100% - 2rem));
+}
+
+.salto:focus { transform: none; }
+.contenedor { width: min(91rem, 100% - clamp(2rem, 5vw, 5rem)); margin-inline: auto; }
+.cabecera { background: #fcfcf6; border-bottom: 1px solid #cfd8ce; }
+.barra, .marca { display: flex; align-items: center; }
+.barra { min-height: 4.4rem; justify-content: space-between; gap: 1rem; }
+.marca { gap: .75rem; color: #193c3b; text-decoration: none; font: 600 clamp(1.16rem, 2vw, 1.45rem)/1.15 var(--titular); letter-spacing: -.045em; }
+
+.marca-icono {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  background: url("ilustraciones/emblema.svg") center / contain no-repeat;
+  font-size: 0;
+}
+.enlaces-asignaturas { display: flex; align-items: center; gap: .45rem; }
+.enlaces-asignaturas a { display: inline-flex; align-items: center; gap: .45rem; padding: .36rem .75rem; border-radius: .4rem; color: var(--acento); text-decoration: none; font-size: .94rem; font-weight: 650; }
+.enlaces-asignaturas a:is(:hover, [aria-current]) { background-color: var(--fondo-acento); }
+.pictograma { width: 1.17rem; height: 1.17rem; flex: none; }
+
+.disposicion-sitio {
+  display: grid;
+  grid-template-columns: var(--ancho-indice) minmax(0, 1fr);
+  align-items: start;
+  gap: var(--separacion-indice);
+  padding-top: clamp(1.1rem, 2.25vw, 2.35rem);
+}
+
+.disposicion-sitio > main { min-width: 0; container: contenido / inline-size; }
+.columna-indice { position: sticky; top: 1rem; min-width: 0; }
+.columna-indice [hidden], .indice-menu { display: none; }
+
+.indice-sitio {
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  padding: 0.82rem 0.7rem 0.72rem;
+  border: 1px solid var(--borde);
+  border-radius: .8rem;
+  background: #fdfdf8;
+  box-shadow: var(--sombra);
+}
+
+.indice-titulo { display: flex; align-items: center; gap: .6rem; margin: .15rem .45rem .65rem; padding-bottom: .65rem; border-bottom: 1px solid var(--borde); color: #3d5a52; font: 700 .78rem/1.4 system-ui, sans-serif; text-transform: uppercase; letter-spacing: .12em; }
+.indice-lista, .indice-sublista { display: grid; gap: 0.18rem; margin: 0; padding: 0; list-style: none; }
+.indice-lista > li + li { margin-top: 0.2rem; }
+.indice-sublista { margin: 0.2rem 0 0.28rem 0.7rem; padding-left: 0.43rem; border-left: 1px solid var(--borde); }
+.indice-sublista .indice-sublista { margin-left: 0.48rem; padding-left: 0.3rem; }
+.indice-sublista:not([hidden]) { animation: indice-aparecer 190ms ease-out both; }
+.indice-fila { display: flex; align-items: center; gap: 0.16rem; }
+
+.indice-enlace {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 2.45rem;
+  gap: 0.48rem;
+  padding: 0.35rem 0.42rem;
+  border: 1px solid transparent;
+  border-radius: 0.56rem;
+  color: var(--texto-secundario);
+  font-size: 0.93rem;
+  line-height: 1.26;
+  font-weight: 680;
+  text-decoration: none;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+.indice-nombre { min-width: 0; overflow-wrap: anywhere; }
+.indice-fila[data-antecesor] .indice-enlace { color: var(--acento); }
+.indice-enlace:hover, .indice-enlace[aria-current="page"] { background-color: var(--fondo-acento); color: var(--acento); }
+.indice-enlace[aria-current="page"] { background: var(--acento); color: white; font-weight: 710; }
+.indice-enlace:focus-visible, .indice-desplegar:focus-visible { outline-offset: 1px; }
+
+.indice-icono {
+  display: grid;
+  place-items: center;
+  flex: 0 0 1.58rem;
+  height: 1.58rem;
+  border-radius: 0.43rem;
+  background: var(--fondo-acento);
+  color: var(--acento);
+  font: 730 0.88rem/1 system-ui, sans-serif;
+}
+
+.indice-sublista .indice-icono { flex-basis: 1.35rem; height: 1.35rem; color: var(--acento); background: var(--fondo-acento); font-size: 0.78rem; }
+.indice-sublista .indice-enlace { min-height: 2.18rem; gap: 0.38rem; padding: 0.34rem; font-size: 0.88rem; }
+.indice-punto { flex: 0 0 0.32rem; height: 0.32rem; border-radius: 50%; background: var(--circulo); }
+.indice-enlace[aria-current="page"] :is(.indice-icono, .indice-punto) { color: white; background-color: #ffffff29; }
+.indice-enlace[aria-current="page"] .indice-punto { background: white; }
+
+.indice-desplegar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 1.64rem;
+  height: 1.9rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0.45rem;
+  background: transparent;
+  color: var(--acento);
+  cursor: pointer;
+}
+
+.indice-desplegar:hover, .indice-desplegar[aria-expanded="true"] { background-color: var(--fondo-acento); }
+.indice-flecha { display: block; width: 0.46rem; height: 0.46rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); transition: transform 170ms ease; }
+[aria-expanded="true"] > .indice-flecha { transform: translateY(-0.1rem) rotate(45deg); }
+
+@keyframes indice-aparecer {
+  from { opacity: 0; transform: translateY(-0.25rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+h1, h2, h3, p { margin: 0; }
+h1 { font: 500 clamp(2.35rem, 6.6vw, 4.9rem)/1.02 var(--titular); letter-spacing: -.044em; overflow-wrap: anywhere; }
+h2 { margin-bottom: .85rem; font: 600 1.55rem/1.18 var(--titular); letter-spacing: -.032em; }
+.introduccion { max-width: 37rem; margin-top: 0.75rem; color: var(--texto-secundario); font-size: clamp(1.04rem, 1.75vw, 1.23rem); }
+.pagina-indice { padding-bottom: 3.5rem; }
+
+.cabecera-visual {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  align-items: center;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(1.1rem, 3vw, 2.8rem);
+  min-height: 11.6rem;
+  margin-bottom: clamp(1.15rem, 2.4vw, 1.85rem);
+  padding: clamp(1.35rem, 3vw, 2.65rem);
+  border: 1px solid var(--borde-hero);
+  border-radius: .95rem;
+  background: var(--hero);
+  color: #fff;
+  box-shadow: var(--sombra);
+}
+
+.cabecera-texto { position: relative; z-index: 1; }
+.cabecera-visual::after { position: absolute; z-index: -1; pointer-events: none; content: ""; inset: 0; background: url("ilustraciones/relieve.svg") right -7rem center / 33rem auto no-repeat; opacity: .43; mix-blend-mode: screen; }
+.cabecera-visual .introduccion { color: var(--texto-hero); }
+.cabecera-espacial { grid-template-columns: minmax(0, 1fr); }
+.cabecera-espacial .introduccion { max-width: min(32rem, 58%); }
+.arte-portada { display: contents; }
+.lamina-fondo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.cabecera-visual:is(.portada, .portada-asignatura) {
+  grid-template-columns: minmax(0, 1fr);
+  padding: clamp(1.5rem, 4.5cqw, 3.7rem);
+  min-height: clamp(19rem, 31cqw, 28rem);
+  border: 0;
+  background: #102e31;
+  color: #fffbed;
+}
+.cabecera-visual:is(.portada, .portada-asignatura)::after {
+  background: linear-gradient(90deg, #092527c9 0%, #0d2b2b93 31%, transparent 69%);
+  opacity: 1;
+  mix-blend-mode: normal;
+}
+.portada .cabecera-texto, .portada-asignatura .cabecera-texto { max-width: 53%; }
+.portada h1 { font-size: clamp(2.75rem, 6.5cqw, 5.55rem); letter-spacing: -.055em; line-height: .99; }
+.portada h1 em { color: #f5d6a1; font-weight: 400; }
+.rotulo-portada { display: flex; align-items: center; gap: .65rem; margin-bottom: 1rem; font: 650 .78rem/1.4 system-ui, sans-serif; text-transform: uppercase; letter-spacing: .13em; color: #f3ddb8; }
+.rotulo-portada::before { content: ""; width: 1.8rem; height: 1px; background: currentColor; }
+.portada .introduccion { max-width: 36ch; margin-top: 1.15rem; font-size: clamp(1rem, 1.6cqw, 1.24rem); color: #f4f3e9; text-wrap: pretty; }
+.cabecera-visual.portada-asignatura { min-height: clamp(15rem, 24cqw, 21rem); }
+.matematicas .portada-asignatura::after { background: linear-gradient(90deg, #472318e8, #4d261dbb 42%, transparent 76%); }
+.portada-asignatura .introduccion { max-width: 44ch; font-size: clamp(1rem, 1.65cqw, 1.25rem); }
+.luz-cueva { position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(circle at 80% 35%, #ffe1a046, transparent 22%); }
+
+.grafica-portada {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #fbf7ff3d;
+  border-radius: 0.95rem;
+  background: #111b41;
+  animation: aparecer-grafica 460ms ease-out both;
+}
+
+.matematicas .grafica-portada { background: #4e162c; }
+.cabecera-analitica::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image: linear-gradient(#ffe9da24 1px, transparent 1px), linear-gradient(90deg, #ffe9da24 1px, transparent 1px);
+  background-size: 1.8rem 1.8rem;
+  mask-image: linear-gradient(110deg, transparent 18%, #000 85%);
+  content: "";
+}
+
+.portada-planetas {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 48%;
+  opacity: var(--opacidad-planetas, 1);
+  pointer-events: none;
+  background: radial-gradient(circle, #c1e2ff9e 1px, transparent 1.4px) 0 0 / 2rem 2rem;
+  mask-image: linear-gradient(90deg, transparent, #000 16%);
+  animation: aparecer-estrellas 560ms ease-out both;
+}
+
+.orbita { position: absolute; inset: 18% 8% 15% 9%; border: 1px solid #b9d3ff75; border-radius: 50%; transform: rotate(-13deg); }
+.orbita-amplia { inset: 3% 3% 6% 5%; border-style: dashed; border-color: #b9d3ff53; }
+.esfera, .planeta { background: url("ilustraciones/mundos.svg") var(--mundo, 0%) center / 300% 100% no-repeat; }
+.esfera { display: block; position: absolute; width: var(--diametro); aspect-ratio: 1; border-radius: 50%; }
+.esfera-tierra {
+  --diametro: clamp(3.4rem, 10vw, 7.25rem);
+  top: 17%; left: 36%;
+}
+
+.esfera-luna {
+  --diametro: clamp(1.35rem, 4vw, 3.15rem);
+  top: 54%; left: 11%;
+  --mundo: 50%;
+}
+
+.esfera-propia {
+  --diametro: clamp(2rem, 6.4vw, 4.6rem);
+  top: 55%; left: 72%;
+  --mundo: 100%;
+}
+
+.rejilla-asignaturas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.05rem; }
+.asignaturas > h2, .accesos-taller > h2, .pagina-indice > section[aria-labelledby="temas"] > h2,
+.tema > section[aria-labelledby="experimentos"] > h2 { display: flex; align-items: center; gap: 1rem; margin: 0 0 1rem; font-size: clamp(1.7rem, 3cqw, 2.3rem); }
+.asignaturas > h2::after, .accesos-taller > h2::after, .pagina-indice > section[aria-labelledby="temas"] > h2::after,
+.tema > section[aria-labelledby="experimentos"] > h2::after { content: ""; height: 1px; flex: 1; background: var(--borde); }
+.ficha-asignatura {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid var(--borde);
+  border-radius: .82rem;
+  background: #fffefa;
+  box-shadow: var(--sombra);
+}
+.ficha-lamina { overflow: hidden; background: var(--acento); }
+.ficha-lamina img { display: block; width: 100%; height: auto; aspect-ratio: 3.45; object-fit: cover; }
+.ficha-texto { display: flex; flex-direction: column; align-items: start; flex: 1; padding: 1.05rem clamp(1.05rem, 2cqw, 1.65rem) 1.1rem; }
+.ficha-texto h3 { color: var(--acento); font: 500 clamp(1.65rem, 3.1cqw, 2.45rem)/1.1 var(--titular); letter-spacing: -.045em; }
+.ficha-texto p { margin: .48rem 0 .95rem; color: var(--texto-secundario); }
+.ficha-temas { width: 100%; margin-top: auto; padding-top: .58rem; border-top: 1px solid var(--borde); color: var(--acento); font-weight: 630; font-size: .88rem; }
+.ficha-asignatura:is(:hover,:focus-visible), .acceso:is(:hover,:focus-visible) { border-color: var(--circulo); box-shadow: 0 .65rem 1.5rem -.85rem color-mix(in srgb, var(--acento) 40%, transparent); }
+.accesos-taller { margin-top: clamp(1.7rem, 3cqw, 2.45rem); }
+.rejilla-accesos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: .75rem; }
+.acceso { display: flex; gap: .8rem; align-items: center; min-width: 0; padding: .75rem; border: 1px solid var(--borde); border-radius: .65rem; background: #fdfdf8; color: inherit; text-decoration: none; font-weight: 650; line-height: 1.28; }
+.acceso small { display: block; margin-bottom: .2rem; color: var(--acento); font-size: .8rem; font-weight: 600; }
+.miniatura-acceso { flex: 0 0 3rem; height: 3rem; border-radius: .45rem; background: var(--fondo-acento) url("ilustraciones/actividades.svg") left center / 400% 100% no-repeat; }
+.miniatura-arbol { background-position: 33.333% center; }
+.miniatura-raices { background-position: 66.666% center; }
+.tarjeta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(0.8rem, 2vw, 1.25rem);
+  min-height: 7.7rem;
+  padding: clamp(1rem, 2.4vw, 1.6rem);
+  border: 1px solid var(--borde);
+  border-radius: .8rem;
+  background: linear-gradient(115deg, #fffefa 52%, var(--fondo-acento));
+  box-shadow: var(--sombra);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.tarjeta::before { position: absolute; z-index: -1; right: -1.6rem; bottom: -5.9rem; width: 12rem; aspect-ratio: 1; border: 1px solid color-mix(in srgb, var(--circulo) 28%, transparent); border-radius: 50%; box-shadow: 0 0 0 1.2rem color-mix(in srgb, var(--circulo) 9%, transparent); content: ""; }
+.tarjeta.matematicas::before { border-radius: 0.35rem; transform: rotate(24deg); }
+.tarjeta:hover, .tarjeta:focus-visible { border-color: var(--circulo); }
+.tarjeta:hover { transform: translateY(-3px); }
+.tarjeta:hover h3, .tarjeta:focus-visible h3 { text-decoration: underline; text-underline-offset: 0.18em; }
+.icono-asignatura {
+  display: grid;
+  place-items: center;
+  width: 3.45rem;
+  height: 3.45rem;
+  border-radius: 0.85rem;
+  background: var(--marca-fondo);
+  color: #fff;
+  box-shadow: 0 0.35rem 0.8rem color-mix(in srgb, var(--circulo) 37%, transparent);
+  font: 700 1.22rem/1 system-ui, sans-serif;
+}
+
+.tarjeta h3 { color: var(--acento); font: 600 clamp(1.4rem, 2.3vw, 1.8rem)/1.15 var(--titular); letter-spacing: -.028em; overflow-wrap: anywhere; }
+.tarjeta p { margin-top: 0.32rem; color: var(--texto-secundario); }
+.rejilla-subsecciones { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: 1rem; }
+.rejilla-subsecciones .tarjeta { min-height: 6.7rem; padding: clamp(.85rem, 1.7vw, 1.25rem); }
+.rejilla-subsecciones .tarjeta h3 { font-size: clamp(1.12rem, 1.65vw, 1.35rem); }
+.tarjeta-ejercicios { grid-column: 1 / -1; }
+.tarjeta .icono-asignatura { font-size: 1rem; }
+.ruta-tema { display: flex; flex-wrap: wrap; gap: 0.45rem 1.1rem; align-items: center; margin-bottom: 1rem; }
+.ruta-tema a { color: var(--acento); font-weight: 720; text-underline-offset: 0.2em; }
+.ruta-tema a:first-child::before { content: "‹"; margin-right: 0.38em; }
+.estado-vacio { padding: 1.15rem 1.35rem; border: 1px dashed var(--circulo); border-radius: 0.9rem; background: var(--fondo-acento); color: var(--acento); }
+
+@keyframes aparecer-grafica {
+  from { opacity: 0; transform: translateY(0.35rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes aparecer-estrellas {
+  from { opacity: 0; transform: translateX(0.6rem); }
+  to { opacity: var(--opacidad-planetas, 1); transform: translateX(0); }
+}
+
+@container contenido (max-width: 48rem) {
+  .cabecera-visual { grid-template-columns: minmax(0, 1fr); }
+  .portada { min-height: auto; }
+  .grafica-portada { max-width: 34rem; }
+}
+
+@container contenido (max-width: 43rem) {
+  .cabecera-visual { min-height: auto; }
+  .cabecera-espacial { min-height: 9.6rem; }
+  .cabecera-espacial .introduccion { max-width: 32rem; }
+  .portada-planetas { width: 47%; --opacidad-planetas: 0.42; }
+  .rejilla-asignaturas { grid-template-columns: minmax(0, 1fr); }
+  .portada .cabecera-texto, .portada-asignatura .cabecera-texto { max-width: 76%; }
+  .cabecera-visual:is(.portada, .portada-asignatura)::after { background: linear-gradient(90deg, #102b2cec, #102b2ca8 45%, #102b2c1a); }
+  .matematicas .portada-asignatura::after { background: linear-gradient(90deg, #472318f2, #472318b0 56%, #47231812); }
+  .ficha-texto { padding: 1rem 1.1rem; }
+}
+@container contenido (max-width: 27rem) {
+  .cabecera-visual:is(.portada, .portada-asignatura) { align-items: end; min-height: 22rem; padding: 1.25rem; }
+  .cabecera-visual.portada-asignatura { min-height: 19rem; }
+  .portada .lamina-fondo, .portada-asignatura .lamina-fondo { object-position: 74% center; }
+  .portada .cabecera-texto, .portada-asignatura .cabecera-texto { max-width: 100%; }
+  .cabecera-visual:is(.portada, .portada-asignatura)::after { background: linear-gradient(0deg, #0c282c 2%, #0c282cf0 23%, #0c282c9e 56%, transparent 85%); }
+  .matematicas .portada-asignatura::after { background: linear-gradient(0deg, #46251e 2%, #46251eea 30%, #46251e70 65%, transparent); }
+  .rotulo-portada { margin-bottom: .72rem; }
+  .portada .introduccion { margin-top: .85rem; }
+}
+
+@media (43rem < width <= 80rem) {
+  .indice-sublista .indice-icono { display: none; }
+  .indice-lista > :is(.fisica, .matematicas) > .indice-fila .indice-icono { display: none; }
+}
+
+@media (max-width: 43rem) {
+  .contenedor { width: calc(100% - 2rem); }
+  .barra { padding-inline-start: 0; }
+  .enlaces-asignaturas { display: none; }
+  .barra { min-height: 3.8rem; }
+  .marca-icono { width: 2.2rem; height: 2.2rem; }
+  .disposicion-sitio { grid-template-columns: minmax(0, 1fr); }
+  .columna-indice { position: static; }
+  .indice-sitio { max-height: none; }
+  .columna-indice[data-plegable] .indice-titulo { display: none; }
+  .indice-menu:not([hidden]) {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    min-height: 2.65rem;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid var(--borde);
+    border-radius: 0.65rem;
+    background: #fff;
+    color: var(--acento);
+    box-shadow: var(--sombra);
+    font: 740 0.95rem/1.25 system-ui, sans-serif;
+    cursor: pointer;
+  }
+  .indice-menu .indice-flecha { margin-left: auto; margin-right: 0.2rem; }
+  .indice-icono-menu { width: 0.9rem; height: 0.75rem; border-block: 2px solid; background: linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat; }
+  .indice-menu:not([hidden])[aria-expanded="false"] + .indice-sitio { display: none; }
+  .indice-menu[aria-expanded="true"] + .indice-sitio { margin-top: 0.45rem; animation: indice-aparecer 190ms ease-out both; }
+}
+
+@keyframes entrar-lamina {
+  from { transform: scale(1.025); }
+  to { transform: scale(1); }
+}
+@keyframes revelar-texto {
+  from { opacity: 0; transform: translateY(.55rem); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes luz-entrada {
+  0%, 100% { opacity: 0; }
+  45% { opacity: .8; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  .cabecera { view-transition-name: barra-sitio; }
+  .ficha-asignatura.fisica, .fisica .portada-asignatura { view-transition-name: lamina-fisica; }
+  .ficha-asignatura.matematicas, .matematicas .portada-asignatura { view-transition-name: lamina-matematicas; }
+  ::view-transition-group(root) { animation-duration: .19s; }
+  ::view-transition-group(lamina-fisica), ::view-transition-group(lamina-matematicas) {
+    animation-duration: .36s;
+    animation-timing-function: var(--curva);
+    overflow: clip;
+    border-radius: .85rem;
+  }
+  .lamina-fondo { animation: entrar-lamina 1.5s var(--curva) both; }
+  .cabecera-texto > :is(h1, .introduccion, .rotulo-portada) { animation: revelar-texto .55s var(--curva) backwards; }
+  .cabecera-texto > h1 { animation-delay: 45ms; }
+  .cabecera-texto > .introduccion { animation-delay: 100ms; }
+  .luz-cueva { animation: luz-entrada 3.4s ease-in-out .1s; }
+  .ficha-lamina img { transition: transform .55s var(--curva); }
+  .ficha-asignatura, .acceso { transition: transform .25s var(--curva), box-shadow .25s ease, border-color .25s ease; }
+  .ficha-asignatura:is(:hover,:focus-visible) img { transform: scale(1.045); }
+  .ficha-asignatura:is(:hover,:focus-visible), .acceso:is(:hover,:focus-visible) { transform: translateY(-3px); }
+  .enlaces-asignaturas a, .indice-desplegar { transition: background-color .18s ease, color .18s ease; }
+  :where(button, summary, .mate-secciones a, .ejercicios-indice a) { transition: background-color .18s ease, border-color .18s ease, box-shadow .18s ease; }
+  details[open] > :where(p, ol, ul, div) { animation: revelar-texto .24s var(--curva); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portada-planetas, .grafica-portada { animation: none; }
+  .tarjeta, .indice-enlace, .indice-flecha { transition: none; }
+  .indice-sublista:not([hidden]), .indice-menu[aria-expanded="true"] + .indice-sitio { animation: none; }
+  .tarjeta:hover { transform: none; }
+}

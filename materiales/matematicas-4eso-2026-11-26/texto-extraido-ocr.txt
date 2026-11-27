@@ -1,0 +1,1279 @@
+TEXTO EXTRAÍDO POR OCR LOCAL - MATEMÁTICAS 4.º ESO
+Fecha de análisis: 26/11/2026
+Origen: C:\Users\josea\Downloads\WhatsApp Unknown 2026-11-26 at 20.28.08
+Cobertura: 40 imágenes, ordenadas por fecha y sufijo numérico del nombre.
+Motor: Windows.Media.Ocr, español (es-ES).
+
+IMPORTANTE: extracción automática sin corrección integral. Las fórmulas, signos,
+exponentes, fracciones y anotaciones manuscritas contienen errores de reconocimiento.
+Este archivo sirve para localizar contenidos y reutilizar la extracción; los
+originales son la referencia para transcribir o resolver ejercicios.
+
+Se visualizaron directamente 5 imágenes: la prueba inicial (17.01.20), el examen
+de probabilidad (17.01.23 (4)), el examen de números reales (17.01.25 (3)), la
+ficha de identidades y división de polinomios (17.01.25 (4)) y la segunda parte
+del examen global de recuperación (17.01.25 (10)).
+
+CONTENIDOS IDENTIFICADOS
+1. Probabilidad: sucesos, operaciones, Laplace, probabilidad condicionada,
+   independencia, árboles, probabilidad total, Bayes y extracciones sin reposición.
+2. Números reales: potencias, radicales, racionalización y logaritmos.
+3. Polinomios y fracciones algebraicas: identidades notables, división,
+   raíces, factorización y operaciones combinadas con fracciones algebraicas.
+La prueba inicial incluye otros contenidos de repaso general.
+
+=== IMAGE 01 | WhatsApp Image 2026-11-26 at 17.01.20.jpeg | 946x2048 ===
+IES Ruiz de Alda
+Prueba inicial 4." ESO Opción B.
+Apellidos:
+N ombre:
+1. Calcula y simplifica:
+(23 •2S)2
+b)
+24
+c) vtiiS- + -2-1 E q
+2. Desarrolla las siguientes expresiones.
+a) (2x+1)
+3. Factoriza los siguientes polinomios.
+a) 5x3 —20x2=
+b) x2+ 3x (xe0(x.2)
+4. Resuelve la siguiente ecuación.
+3x-3x "-s
+5. Resuelve por el método que prefieras.
+g 2x + 3y 5
+6. Representa en una gráfica la función:
+Fecha:
+7. Calcula el área de un triángulo rectángulo cuya base mide 3 cm y
+tiene hipotenusa 5 cm.
+8. Los puntos obtenidos por Fernando Alonso en la primera mitad de
+la temporada 2007 fueron: 8, 10, 4, 6, 10, 2, 8, 2, 8, 10.
+a) Calcula la media, IOS cuartiles, la moda y el
+67
+Para Q» datos
+
+=== IMAGE 02 | WhatsApp Image 2026-11-26 at 17.01.21.jpeg | 946x2048 ===
+9
+X
+Ficha ejercicios pr...
+Ficha ejercicios probabilidad 1
+1. En una bolsa 8 bolas numeradas del 1 al 8. Extraemos una
+bola al azar y anotamos su número.
+a) Escribe el espacio muestral.
+b) Describe los stitvsos: A: "obtener número impar", B: "Obtener un número
+2. En una urna hay una bola roja, Otra azul, Otra negra, Otra amarilla
+y otra verde. Extraemos una bola al azar y anotamos su color.
+a) Escribe el muestral.
+b) Describe siguientes SII(VSOS: A: "sacar una bola que no sea verde", B:
+"no sacar ni roja ni azul" y C: "sacar roja o azul".
+3. Lanzamos un dado y anotamos la puntuación obtenida.
+a) Escribe el espacio muestral.
+b) Describe cada nno dc estos su«'SOS: A: "obtener número impar", B:
+"obtener un número menor que 2" y C "obtener un número compuesto
+(que uo sea primo)
+4. Elegimos al azar un día de la semana.
+a) Escribe el espacio muestral.
+b) Describe los siguientes sucesos: A: "obtener día da de semana",
+B = "obtener un día y jueves (ambos incluid'»' ' y C = "no
+obtener ni sábado ni domingo".
+
+=== IMAGE 03 | WhatsApp Image 2026-11-26 at 17.01.21 (1).jpeg | 946x2048 ===
+9
+X
+Ficha ejercicios pr...
+Ficha ejercicios probabilidad 2
+1. Lanzamos un dado de 12 caras numerado del 1 al 12. Sean IOS
+A = "Sacar un número par" y B = "Sacar más de 5".
+a) Describe, dando sus los suasos A. B, Á, É, A U B y A n B.
+b) Calcula las siguientes probabilidades: P(Ã), u B)
+2. Lanzamos un dado equilibrado. Sean los sucesos A = "Obtener un
+divisor de 6" y B = "Sacar más de 4".
+a) Describe, dando todexs sus casis, los suasos A, B, Á, É, A B y A n B.
+b) Calcula las siguientes probabilidad«s: P(Ã), "(A U B)
+3. Introducirnos en una bolsa las letras de la palabra CLASE.
+Sacamos una letra al azar. Consideramos los sucesos A: "Sacar una
+vocal" y B: "Sacar una letra anterior a la M en el abecedario"
+a) Describe, dando todos sus casos, los suasos A, B, Á, É. A B y A B.
+b) Calcula las probabilidad«s•. P(Ã). P(B), P(b), u B)
+4, en una bolsa 10 bolas numeradas del 1 al 10. Extraemos
+una al azar y observamos el número que tiene. Consideramos IOS
+sucesos: A: "obtener un número menor que 5" y B; "obtener un
+número mayor que 2"
+a) Describe, dando todos sOs los SIWYSOS A. B, Á. É, A B y A n B.
+b) Calcula las siguientes probabilidades: P(A), P(Ã), P(B), P(Ê), UB)
+
+=== IMAGE 04 | WhatsApp Image 2026-11-26 at 17.01.21 (2).jpeg | 946x2048 ===
+9
+X
+Ficha ejercicios pr...
+Ficha ejercicios probabilidad I
+1. En una bolsa hay S I S. una
+y anotamos s"
+a) FN:ribe eI espacio muestral.
+b) Describe A: "obtener número impar". B: "obtener un número
+(que primo) " y C -obtener que
+2. roja, Otra Otra
+y Otra Extraemos y s" color.
+b) [kNmibe los sucesos: A: "sacar una bola que no sea verde", B:
+ni roja ni azul" y C: "sacar roja o
+A'
+3. dado y la Obtenida.
+"Obtener un 2" y C "Obtener un
+4. ElegimtE al azar un día de la semana.
+a) muestral.
+b) Descrilw• los siguientes A: "obtener día del fin de seanana",
+un día y jueves y C
+
+=== IMAGE 05 | WhatsApp Image 2026-11-26 at 17.01.22.jpeg | 946x2048 ===
+8
+X
+Ficha ejercicios pr
+. En una determinada población, el '10% de IOS individuos lee
+diariamente la prensa y el ve diariamente las noticias en la
+televisión. Además, el de los individuos lee la prensa y ve las
+noticias la televisión diariamente.
+a) ¿Son inderx•ndicntcs "leer diariamente la prensa" y "ver
+diariamente las noticias en la televisión"?
+b) ¿Cuál es la probabilidad dc que un individuo lea la prensa diariamente
+no vea las noticias en la televisión?
+c) Si un individuo la prensa diariamente, ¿cuál es la probabilidad dc que
+también vea las noticias eu la televEiión?
+En una peña del Atlético de Madrid, CI de sus miembros profiero
+que Antoine Griezmann continúe jugando en el equipo durante la
+próxima temporada, el prefiere que Julián Álvarez continúe
+jugando el equipo la próxima temporada y el prefiere que
+ambos jugadores sigan jugando en CI equipo on la próxima temporada.
+Elegido al azar un miembro de la peña, se pide:
+a) ¿Cuál es la probabilidad de que prefiera que al alguno de los
+jugadores siga jugando en cl la próxima temy»rada?
+b) ¿Son preferir a un jugador respecto a otro?
+e) ¿Cuál es la probabilidad de que prefiera que ninguno de los dos jugadores
+siga jugando en el equilN' la próxima temwrada?
+d) es la probabilidad de que prefiera que solo Antoine Grieamann siga
+jugando CI equipo la próxima temvw•rada?
+Al 45 % do los socios de un club le gusta jugar a las cartas, al 40 %
+jugar al domino y al 23 % jugar a las cartas y al domino. Si elegimos
+al azar a un socio de este club, calcula las siguientes probabilidades:
+2.
+3.
+4.
+5.
+a) Que juegue a las Carnes o al domino.
+b) Que no juegue ni a las cartas ni al domino.
+c) Que juegue a las Carnes, sabiendo que juega al domirw».
+Sean A y B dos sucesos independientes, tales que P(A)
+0.6 y = 0,3:
+a) Calcular n B).
+— 0.3, P(BIA) —
+b) Calcular P(B). ¿Son SttCCS(F A y B indcv•ndientes?, razone SII reipuesta.
+c) Calcular U b).
+Realizada una encuesta entre los habitantes de Murcia, se ha llegado
+a la conclusión de que 01 70% de sus habitantes apoya habitualmente
+a Fernando Alonso, a Max Verstappen y el a ambos
+pilotos. Elegido un habitante azar, Se pide:
+a) ¿Cuál es la probabilidad de que apoye al a uno de pilotos?
+b) ¿Cuál la probabilidad de que no apoye a ninguno de pilotas?
+c) ¿Cuál es la probabilidad de que solo apo'V a Fernando Alonso?
+6.
+EI 60% de los habitantes de una población consume pan integral, el
+consume pan blanco y el 20% consume ambos tipos de pan.
+a) ¿Son independientes "consumir pan integral" y "consumir pan
+blanco"
+b) Sabiendo que habitante consume pan integral, ¿cuál es la probabilidad
+de que consuma pan blanco?
+c) Calcule el porcentaje de la población que no consume ninguno de dos
+tipts de pan.
+d) Sabiendo que un habitante no consume pan integral, la probabilidad
+de que consuma pan blanco?
+
+=== IMAGE 06 | WhatsApp Image 2026-11-26 at 17.01.22 (1).jpeg | 946x2048 ===
+5.
+Realizada una encuesta entre los habitantes de Murcia, se ha gado
+a la conclusión de que el 70% de sus habitantes apoya habitualmente
+a Fernando Alonso, el 35% a Max Verstappen y el 15% a ambos
+pilotos. Elegido un habitante al azar, se pide:
+8
+a) ¿Cuál es la probabilidad de que apoye al menos a uno de dos pilotos?
+b) ¿Cuál es la probabilidad de que no apoye a ninguno de los dos pilotos?
+c) ¿Cuál es la probabilidad de que solo apoye a Fernando Alonso?
+EI 60% de los habitantes de una población consume pan integral, el
+6.
+40% consume pan blanco y el 20% consume ambos tipos de pan.
+a) ¿Son independientes los sucesos "consumir pan integral" y "consumir pan
+blanco"?
+b) Sabiendo que un habitante consume pan integral, ¿cuál es la probabilidad
+de que consuma pan blanco?
+c) Calcule el porcentaje de la población que no consume ninguno de los dos
+tipos de pan.
+d) Sabiendo que un habitante no consume pan integral, i,cuál es la probabilidad
+de que consuma pan blanco?
+7.
+De los 200 estudiantes de segundo de Bachillerato de un instituto de
+Molina de Segura, 75 practican taekwondo, 100 hapkido y 50 ambas
+artes marciales coreanas. Si se elige un alumno al azar, calcular la
+probabilidad de que:
+a) Practique al menos algún arte marcial coreano.
+b) Practique únicamente hapkido.
+c) No practique ningún arte marcial coreano.
+d) Practique solo una de las dos artes marciales coreanas.
+e) Si el estudiante seleccionado no practica hapkido, calcule la probabilidad de
+que practique taekwondo.
+8. Para celebrar el fin de la PAU, Lorena, Ana y Sofía planean un
+interrail por Italia. En Roma dudan entre dos rutas en tren: Roma
+Trastévere--La Giustiniana (ruta 1) y La Giustiniana—Bracciano (ruta
+2). Para decidir qué ruta hacer consultan en www.interrail.eu los
+resultados de un estudio realizado a 2.000 jóvenes, de los cuales 800
+eligieron la ruta 1, 1.400 la ruta 2 y 300 hicieron ambas rutas.
+Seleccionando al azar a uno de estos jóvenes:
+a) Calcule la probabilidad de que el joven seleccionado haya realizado al menos
+una de las dos rutas.
+b) Calcule la probabilidad de que no haya hecho ninguna de las dos rutas.
+c) Calcule la probabilidad de que haya hecho únicamente la ruta l.
+d) Si el joven seleccionado no realizó la ruta l, calcule la probabilidad de que
+tampoco haya realizado la ruta 2.
+Sean A y B dos sucesos. Sabemos que P(A) = 0,5 y P(B) = 0,2. La
+9.
+probabilidad de la unión de estos dos sucesos vale 0,6. Calcular:
+a) La probabilidad de la intersección.
+b) La probabilidad de A U B.
+c) La probabilidad de que ocurra B, pero no A.
+
+=== IMAGE 07 | WhatsApp Image 2026-11-26 at 17.01.22 (2).jpeg | 946x2048 ===
+8
+X
+Ficha ejercicios di...
+2.
+3.
+4.
+Ficha ejercicios diagrama de árbol
+Una empresa fabrica componentes electrónicos en tres fábricas diferentes.
+EI 55 % de los componentes procede de Zaragoza, el 30 % de Sevilla y el
+resto de Se sabe que el 2 % de los componentes fabricados en
+Zaragoza son defectuosos, mientras que este porcentaje es del I % para
+Sevilla y del 3 % para Burgos. Se solocciona un componente al azar.
+a) Calcula la probabilidad de que el componente seleccionado no
+b) Calcula la probabilidad que el componente defectncwq).
+c) Sabiendo que el componente wleccionado es defecttnso, ¿cuál cs la probabilidad de
+que haya sido fabricado Sevilla?
+Una academia ofrece dos modalidades de preparación para sus estudiantes:
+clases presenciales y clases online. EI 60 % de sus alumnos asiste a clases
+presenciales, mientras que el 40 % restante utiliza la modalidad online. La
+probabilidad de aprobar un examen entre IOS estudiantes que asisten
+presencialmente es de 3/4, mientras que entre los estudiantes online es de
+1/2. Se selecciona un estudiante al azar.
+a) Sin conocer su modalidad de estudio, calcula la probabilidad de que apruelw el
+b) Si sabemos que el estudiante ha aprobado, ¿cuál es la probabilidad dc que
+asistido a elaws presenciales?
+En un instituto hay un grupo formado por 50 estudiantes, de los cuales 28
+son chicas y el resto son chicos. De estos estudiantes, 34 han aprobado
+Matemáticas. Sabemos que, entro los estudiantes que han aprobado, 15
+son chicos. Se selecciona un estudiante al azar.
+a) ¿Cuál es la probabilidad de que cl estudiante seleccü)nado no haya aprobach
+Mate máticas?
+b) ¿Cuál es la probabilidad de que chica y haya aprobado Matemáticxs?
+c) Sabiendo que el estudiante wlcccionado ha aprol•do Matemáticas, ¿cuál es la
+probabilidad dc que sca una chicag
+Una empresa utiliza una máquina industrial que puede trabajar en dos
+modalidades: automática y manual. La máquina funciona en modo
+automático CI 75 % de los días y en modo manual durante CI resto.
+Cuando funciona en modo automático, la probabilidad de que se produzca
+una avería es de 0,08. Cuando funciona en modo manual, esta
+probabilidad Cs de 0,03. Se selecciona un día de funcionamiento al azar.
+a) Calcula la probabilidad de que la máquina no haya sufrido ninguna avería.
+b) Sabiendo que la máquina ha sufrido una avería, calcula la probabilidad de que
+estuviera funcionando en modo manual.
+5. Un instituto organiza tres itinerarit>' académicos para sus estudiantes:
+Ciencias, Humanidades y Tecnología. EI 50 % de los estudiantes pertenece al
+itinerario de Ciencias, el 30 % al de Humanidades y el resto al de Tecnología.
+Además, el centro ofrece una actividad extraescolar de programación
+informática. Se sabe que se apuntan a ella:
+• EI 20 % de los est udiantes de Ci en cias.
+• EI 35 % de los est udiantes de Hum id ades.
+• EI 60 % de los est udiantes de Tec nología.
+Se selecciona un estudiante del instituto al azar.
+a) ¿Cuál es la probabilidad de que cl estudiante tdcccionado participe eu la actividad de
+p rogratnación?
+b) Sabiendo que tun estudiante está apuntado a programación, ¿cuál es la probabilidad de
+itinerario de
+
+=== IMAGE 08 | WhatsApp Image 2026-11-26 at 17.01.22 (3).jpeg | 946x2048 ===
+22:58
+8
+Un grupo investigadores la Universidad de Murcia
+encuesta la Se preguntó a personas Su opinión
+sobre establecer una edad legal para que IOS tengan teléfono
+móvil. Según resultados, 500 personas, de las que 390 eran
+mujeres, opinaron a favor de esta medida. De las 440 personas que
+opinaron contra, 280 eran Si Se selecciona persona
+azar:
+de que esté de
+b) probabilidad persona
+e) probabilidad de que la mujer o esté de esta
+d) Si persona seleccionada al azar es hombre, ¿cuál es la probabilidad de
+que a favor de
+un edificio A y B. EI de inquilinos
+del edificio el primero (A) y restantes el segundo EI
+de averias del A es del mientras que el
+se avería un 8 % de las veces que se utiliza. Cada vez que un
+ascensor sufre avería, éste se para y no funciona.
+a) la de elegido al Se' averíe.
+b) Si un inquilino queda atrapado un cierto dia en eI ascensor, ¿cuál es la
+de que sido el
+. En un Viaje de 52 de IOS Son De ellos
+35 % Son rubios, % de Si elegimos a
+a) la de sea rubio,
+b) Sabiendo NO rubio, Sea mujer?
+10. En encuesta realizada por Departamento de Orientación de
+a 100 estudiantes de segundo de bachillerato, se obtuvo
+que 30 de ellos quieren estudiar Veterinaria, 25 Economía, 20
+Química, 15 Biología y 10 Matemáticas. De ellos, 10, 12, 13. 8 y 6 son
+la orientadora centro ha
+informado que no posible SE de un grado.
+Si elige a del grupo
+b) es la de que un de este grupo.
+e) es probabilidad que grupo, azar.
+estudie o Veterinaria!
+«l) cs la que un este grupo, seleccionado
+no ni Biología ni
+e) de que un grupo, azar,
+que Se trata
+f) Si eI seleeeionado al azar e* ¿euál es la probabilidad de que
+la Murcia sobre "so protección por parte
+de IOS de eléctricos. EI estima que 60 %
+de de patinetes y, de estos, el
+usa eI casco; mientras que, entre las mujeres que usan este medio para
+desplazarse, son eI 40 % las que usan casco de protección. Si elegimos
+un usuario dc patinete eléctrico al azar.
+la que
+b) Sabiendo que patinete de
+12. Una urna contiene cinco negra,s, numeradas del I 5, y siete
+bolas blancas, I 7. Se Saca de la una
+azar. Calcule:
+a) prolwibilidad de que la bola blanca.
+b) La probabilidad de que la número par.
+e) de que la par.
+que una
+d) La probabilidad de que la bola sea y un
+e) de que bola que un
+número
+
+=== IMAGE 09 | WhatsApp Image 2026-11-26 at 17.01.23.jpeg | 946x2048 ===
+8
+X
+Ficha ejercicios pr...
+Ficha probabilidad 4
+Dos urnas A y B contienen bolas de colores con la siguiente
+1.
+composición: La urna A contiene 3 bolas verdes, 4 negras y 3 rojas, y
+la urna B contiene 6 bolas verdes y 4 bolas negras. Además, se tiene
+un dado que tiene 2 caras marcadas con la letra A y 4 caras marcadas
+con la letra B. Se lanza el dado y se saca una bola al azar de la urna
+que indica dado.
+a) ¿Cuál es la probabilidad de que esa bola sea verde?
+b) es la probabilidad de que bola sea roja?
+c) Si bola extraída verde, ¿cuál la probabilidad de que proceda de la urna
+B?
+2. EI de los coches de una marca se fabrican en su factoría de
+Valencia, el 25% en Madrid, y el resto en Lisboa. EI 1% de los coches
+fabricados en Valencia tiene algún defecto de fabricación, mientras
+que para los coches fabricados en Madrid y en Lisboa estos
+porcentajes son del y del respectivamente.
+a) Elegido al azar un coche de esa marca, calcule la probabilidad de que no sea
+defectuoso.
+b) Elegido al azar un coche de esa marca, calcule la probabilidad de que sí sea
+defectuoso.
+c) Sabiendo que es defectuoso, es la probabilidad de que el coche venga
+de Madrid?
+La probabilidad de que un determinado equipo de fútbol gane cuando
+3.
+juega en casa es y la probabilidad de que gane cuando juega fuera
+a) Sin saber dónde jugará el próximo partido, calcule la probabilidad de que
+gane.
+b) Si ganó el último partido del campeonato, es la probabilidad de que
+Jugara en casa?
+En una clase 40 estudiantes, de IOS cuales 25 son chicas y resto
+4.
+son chicos. Además, 30 estudiantes han aprobado las matemáticas, de
+los cuales 10 son chicos. Elegido un estudiante al azar, se pide:
+a) ¿Cuál es la probabilidad de que no haya aprobado las matemáticas?
+b) es la probabilidad de que sea chica y haya aprobado las matemáticas?
+c) Si se elige un estudiante que ha aprobado las matemáticas, ¿cuál es la
+probabilidad de que una chica?
+Una máquina funciona en modo automático de IOS días y
+5.
+resto de los días funciona en modo manual. La probabilidad de que
+tenga un fallo cuando funciona en modo automático es 0,15. La
+probabilidad de que tenga un fallo cuando funciona en modo manual
+es 0,05.
+a) Calcule la probabilidad de que no tenga ningún fallo.
+b) Si un día tiene un fallo, ¿cuál es la probabilidad de que haya funcionado en
+modo manual?
+6. En un colegio se imparten, corno primer idioma, inglés, alemán y
+francés. EI 65% de los alumnos estudian inglés, el alemán y el
+resto francés. La asignatura de robótica es optativa y la elige el 30%
+de los alumnos de inglés, el 50% de los que estudian alemán y el 70%
+de IOS que cursan francés. Se elige un alumno azar. es la
+probabilidad de que estudie robótica?
+
+=== IMAGE 10 | WhatsApp Image 2026-11-26 at 17.01.23 (1).jpeg | 946x2048 ===
+5.
+6.
+Un grupo de investigadores de la Universidad de Murcia realizó una
+encuesta en la que se preguntó a 1000 personas adultas su opinión
+sobre establecer una edad legal para que los niños tengan teléfono
+móvil. Según los resultados, 560 personas, de las que 390 eran
+mujeres, opinaron a favor de esta medida. De las 440 personas que
+opinaron en contra, 280 eran hombres. Si se selecciona una persona
+al azar: (2 puntos).
+a) ¿Cuá] es la probabilidad de que esté a favor de esta medida'? (0,5 p)
+b) ¿Cuál es la probabilidad de que la persona encuestada sea mujer? (0,5 p)
+c) ¿Cuál es la probabilidad de que la persona sea mujer o esté a favor de esta
+medida? (0,5 p)
+d) Si esa persona seleccionada al azar es hombre, ¿cuál es la probabilidad de
+que esté a favor de esta medida? (0,5 p)
+Una urna contiene 3 bolas rojas, 4 bolas azules y 5 bolas verdes. Se
+extrae 1 bola de la urna y sin reposición se extrae una segunda bola.
+Calcula: (2 puntos).
+a) La probabilidad de sacar dos bolas del mismo color. (0,75 p)
+b) Sabiendo que la primera bola ha salido azul, ¿cuál es la probabilidad de
+obtener una bola roja?. (0,5)
+c) La probabilidad de extraer bola roja en la primera extracción, sabiendo que
+la segunda bola ha sido verde. (0,75)
+
+=== IMAGE 11 | WhatsApp Image 2026-11-26 at 17.01.23 (2).jpeg | 946x2048 ===
+X
+Ficha ejercicios pr...
+Ficha ejercicios probabilidad 2
+I. Lanzamos un dado de 12 caras numerado del I al 12. Sean los
+a) Describe, dando casos, los succsos A. B _ Á. É, A U B y A n B.
+b) Calcula probabilidades; B)
+a) A 12).
+10
+2. un dado IOS A
+divisor de 6" y B "Sacar más de 4".
+= "Obtener un
+a) dando los A. B É, A B y A
+b) calcula siguientes probabilidades: P(A), P(À), P(B). P(b). u B)
+y P(AnB).
+0) 9,2, s 'l
+s
+b)
+3. letras de la palabra
+Sacamos una letra al azar. Consideramos los sucesos A: "Sacar una
+y B: letra a la M
+a) todos sus casos, los A, B , Á, b, A B y A n B.
+b) Calcula las probabilidades: P(A), P(Ã), P (B), P(Ê). PCA U B)
+b)
+A -.JAE}
+5
+4. Metemos en una bolsa 10 bolas numeradas del I al 10.
+una al azar y observamos el número que tiene. Consideramos los
+sucesos: A: "obtener un número menor que 5" y B: "obtener un
+a) todos c"sos, IOS A , B , , b , A B y A n B.
+b) Calcula l'Lság11ient«s probabilidades: P(A), P(À). P(B), P(b). "(A u B)
+y P(AnB).
+d. {4ZJ
+f4q5
+pcAuB) _
+
+=== IMAGE 12 | WhatsApp Image 2026-11-26 at 17.01.23 (3).jpeg | 946x2048 ===
+4. Metemos en una bolsa 10 bolas numeradas del 1 al 10. Extraemos
+una al azar y observamos el número que tiene. Consideramos los
+sucesos: A: "obtener un número menor que 5" y B: "obtener un
+número mayor que 2".
+a) Describe, dando todos sus casos, los sucesos A, B, Á, É, A B y A n B.
+b) Calcula las siguientes pix)babilidades: P(A), P P (B), P(Ê), P(A U B)
+y P(AnB).
+a)
+b)
+q
+z
+40
+40
+-s
+AUB:
+pcAOB)
+PCMB)
+5. Tomamos las 10 cartas de oros de una baraja española y elegimos
+al azar una de entre ellas. Consideramos los sucesos: A: "obtener
+figura" y B: "obtener una carta con un número menor que 4".
+a) Describe, dando todos sus casos, los sucesos A, B, Á, ñ, A u B y A n B.
+b) Calcula las siguientes P(A), P(Ã), P(B), P(Ê), U B)
+y P(AnB).
+Aog:
+3
+6. Introducimos en una bolsa una tarjeta con cada letra distinta que
+aparece en la palabra MATEMATICAS:
+Sacamos una tarjeta al azar. Consideramos los sucesos A: "obtener
+una vocal" y B: "obtener una letra anterior a la M en el
+abecedario":
+a) Describe, dando todos sus casos, los sucesos A, B, É, A B y B.
+b) Calcula las siguientes probabilidades: P(A), P(Ã), P(B), P(Ê), u B)
+y P(AnB).
+?-Q'AOJ
+R: T,ÇS)
+pam
+A' para
+Hope
+pcA);
+
+=== IMAGE 13 | WhatsApp Image 2026-11-26 at 17.01.23 (4).jpeg | 946x2048 ===
+X
+Examen tema 1. Pr
+IES Ruiz de Alda
+I. probabilidad.
+Apellidos:
+No
+NOTA: Para obtener la máxima calificación en un ejercicio, recuerda
+escribir 10 que se pide en cada apartado con rigor y limpieza.
+I. Determina si afirmaciones son verdaderas o falsas, justifica tu
+a) aleatorio. (0'5 p).
+b) probabilidad de I _ p).
+2. Metemcs en una bolsa 10 bolas numeradas del I al 10. Extraem«—
+una al azar y observamos el número que tiene. Consideramos
+sucesos: A: "obtener un número impar" y B: "obtener un número
+primo". (2 puntos).
+a) Describe, dando todos sus casos, los sucesos A, B, Á, É, Aun y (I
+p).
+b) Siguientes probabilidades: P(A), P(Ã),
+y P(AnB). (1 p).
+B: [23 s, 7}
+Aos- {
+Rue),
+3. Sean dos sucesos A y B incompatibles. Sabemos que P(A) y
+= O, 75. (2 puntos).
+a) Calcula (0,75 p)
+b) ¿Son los su«sos A y B independientes? Razona tu respuesta. (0,5 p)
+e) calcule -B). p)
+qss • PIS)
+C)
+PCA•BJ,
+RA-u- RAI -AMO . q
+a. Realizada una encuesta entre los habitantes de Murcia, se ha llegado
+a la conclusión de que el de sus habitantes apoya habitualmente
+a Alonso, a Max y a
+pilotos. Elegido un habitante al azar, se pide: (2 puntos).
+a) ¿Cuál la probabilidad de que apoye al menos a uno de los dos pilotos? (0'5 p)
+b) ¿Cuál la probabilidad de que no apoye ninguno de los dos pilotos? (0'75 p)
+c) probabilidad de apoye a (0'75 p)
+a.
+P(A0vJ
+Rh) -RAnv)
+RAuvJ2 -
+
+=== IMAGE 14 | WhatsApp Image 2026-11-26 at 17.01.23 (5).jpeg | 946x2048 ===
+81
+5. personas se encargan de IOS cobros de la caja de un
+supermercado. EI mes pasado, la primera de ellas realizó el de
+los cobrts, la segunda el y la tercera el resto. La dirección del
+supermercado ha comprobado que de los cobrm realizados por la
+primera persona, el 1% son erróneos, que la segunda cometió errores
+de IOS cobros y la tercera (2 puntos).
+a) Calcule la probabilidad de que un cobro elegido al azar haya sido
+b) Se elige al azar un cobro correcto. ¿Cuál es la probabilidad de que haya sido
+realizado por la segunda (l p)
+AnEr) P'
+R C') 0,01 -
+0,005 -
+o,
+0,02
+b) e PC Alõ)?
+Roan ü)
+Ren
+6. Una urna contiene 6 bolas rojas, 2 bolas azules y 2 bolas verdes. Se
+extrae 1 bola de la urna y sin reposición se extrae una segunda bola.
+Calcula: (2 puntos).
+a) La probabilidad de sacar dos bolas del color. (0,75 p)
+b) La probabilidad de sacar una bola roja y una verde. (0,5)
+c) La probabilidad de extraer bola roja la primera extracción, sabiendo que
+la segunda bola ha sido azul. (0,75)
+90
+PIRanAL
+
+=== IMAGE 15 | WhatsApp Image 2026-11-26 at 17.01.24.jpeg | 946x2048 ===
+X
+Tarea potencias y...
+Ficha potencias y raíces 1
+I. Opera y simplifica las siguientes expresiones.
+82,32-5.432
+a)
+64 n • t
+b)
+c)
+36-2 • 816
+d)
+e)
+43210245
+6412:648
+2. Simplifica al máximo la siguiente expresión.
+3. Extrae factores de Siguientes radicales.
+h)
+i)
+32a'x12
+a'bSCS
+
+=== IMAGE 16 | WhatsApp Image 2026-11-26 at 17.01.24 (1).jpeg | 946x2048 ===
+4. Realiza las siguientes operaciones de raíces y simplifica al máximo
+el resultado.
+202 =
+b)
+d)
+f)
+g)
+4-0Ú+ 6049 — 2vG=
+c) Nis-
+tWãS+ 9\TíÉO+ 5vfiO=
+3 27
+125
+2 12
+9
+
+=== IMAGE 17 | WhatsApp Image 2026-11-26 at 17.01.24 (2).jpeg | 946x2048 ===
+X
+Tarea potencias y...
+Ficha potencias y raíces 1
+1. Opera y simplifica las siguientes expresiones.
+82-32-5.432
+b)
+36-2
+¿gags' _
+d)
+z.s ,
+(2117,16-5)'
+,2
+e)
+6412:648
+2. Simplifica al máximo la siguiente expresión.
+b)
+2Wsi.s••
+3. Extrae factores de los siguientes radicales.
+a)
+h)
+2aJb—4 —
+
+=== IMAGE 18 | WhatsApp Image 2026-11-26 at 17.01.24 (3).jpeg | 946x2048 ===
+4. Realiza las siguientes operaciones de raíces y simplifica al máximo
+el resultado.
+a) 3vtiOõ+ 502— 202=
+325C ¿aíT
+b) 4WÉ+
+"7/3-2 3f7c
+c) 7000 — MS—
+d) 8úS+ 5úO=
+' SuS
+33'13
+h) —2 12
+3
+9
+sG+25G
+10
+10
+
+=== IMAGE 19 | WhatsApp Image 2026-11-26 at 17.01.24 (4).jpeg | 946x2048 ===
+X
+Tarea racionalizar
+Ficha racionalizar
+14
+64
+3vrs ¯
+3 11
+10
+11
+o)
+vrs+vâ¯
+r)
+3ú-1 ¯
+
+=== IMAGE 20 | WhatsApp Image 2026-11-26 at 17.01.25.jpeg | 946x2048 ===
+X
+Tarea definición d...
+a)
+b)
+c)
+d)
+e)
+f)
+g)
+h)
+i)
+j)
+k)
+1)
+0)
+p)
+r)
+s)
+v)
+Tarea definición de logaritmo.
+Calcula los siguientes logaritmos.
+log2(64)
+log3(81) =
+log2 ¯
+(215) -
+logs — —
+log 3 ¯
+log2(1) =
+log3(Võ) =
+log 6(25) =
+log9(27) =
+logad 16) =
+logzo(400) =
+logr(l) =
+(138) ¯
+w) logs — —
+x) log8(4) =
+2. Halla el valor de x.
+a)
+logx(9) = 2
+b) logx(17) = 17
+c)
+logx(2) — 3
+d)
+logx(5) 2
+e)
+logx(32) = 5
+logx(W) = 5
+f)
+g)
+logx(3)
+h)
+logx(81) = 8
+logx(9) = —1
+i)
+j)
+logx(16) = —2
+k)
+logx(125) = —3
+logx(l) = O
+l)
+
+=== IMAGE 21 | WhatsApp Image 2026-11-26 at 17.01.25 (1).jpeg | 946x2048 ===
+X
+Tarea racionalizar
+Ficha racionalizar
+a)
+c)
+d)
+f)
+g)
+i)
+k)
+2
+-ves
+7
+2
+3
+3
+10
+—8
+3
+—8
+4
+S
+-2
+-3
+35
+3
+ss
+- ' r -6-41
+,102
+3
+-8-11
+-8
+3
+qas.ú)
+o)
+r)
+3ú-1 ¯
+1
+qo-m
+2ii
+
+=== IMAGE 22 | WhatsApp Image 2026-11-26 at 17.01.25 (2).jpeg | 946x2048 ===
+X
+Tarea definición d...
+Tarea definición de logaritmo.
+l. Calcula los siguientes logaritmos.
+a) 13 , c
+c) = Qfi(l')
+d) log2 — —0 2
+e) logs ¯
+f) logs = -0
+g) logz(l) = O
+23
+j) logto(l) —O
+m) 24
+r) logVi(16) = X «o (2%" 2'
+2. Halla el valor de x.
+a) logx(9) = 2
+b) logx(17) = 17
+c) logx(2) = 3
+d) logx(5) = 2
+e) logx(32) = 5
+f) logx(VS) = 5
+g) logx(3)
+xc3
+XS:3Z -o X: 2
+i)
+j)
+k)
+l)
+logx(9) = —l
+logx(16) = —2 -L
+logx(125) = —3
+logx(l) = 0
+
+=== IMAGE 23 | WhatsApp Image 2026-11-26 at 17.01.25 (3).jpeg | 946x2048 ===
+X
+Copy of Examen t...
+Tema 2. Números reales.
+Apellidos:
+Fecha: 12/'1/ ZS
+Nombre:
+I. Simplifica las siguientes expresiones. (1'5 puntos).
+14-4 ,493: 722 • 327
+a)
+507: (502 • ¯
+25-5.101; •
+b)
+2021-1005
+2. Extrae los factores de los siguientes radicales. (1,5 puntos).
+Z X .2-3
+3. Calcula y simplifica. (2 puntos).
+a) vas -
++ 12 —s •
+Racionaliza y amplifica al rnáximo la expresión. (1'5 puntos).
+G-v'ã- G -a
+5. Obtén el valor de x utilizando la definición de logaritmo. (2
+puntos).
+a) loga ¯
+c) log ú(x) = 4 X
+(fij-
+3
+6. Sabiendo que log(2)
+puntos).
+a) log(6000)
+= 0'301 y log(3) = 0'477. Calcula: (1'5
+-aq77 -
+
+=== IMAGE 24 | WhatsApp Image 2026-11-26 at 17.01.25 (4).jpeg | 946x2048 ===
+X
+Ficha identidades...
+Ficha identidades notables y factorización de
+polinomios.
+I. Opera y simplifica.
+c) (x6+3x4—2x2+5x
+a)
+b)
+d)
+e)
+g)
+(2x + x3)2
+(x3—4x + x =
++ xy =
+2. Escribe en forma de identidad notable.
+c) 4x2+ 4x 1 =
+h) 4x2
+3. Realiza las siguientes divisiones de polinomios.
+a) (x3 + 6x2 : «2 + x + 1) =
+5 2x4 3x2—5x + 6) : (x2 + 3x—2)
+
+=== IMAGE 25 | WhatsApp Image 2026-11-26 at 17.01.25 (5).jpeg | 946x2048 ===
+16:
+4. Factoriza IOS siguientes polinomios.
+a) p(x) —
+— 12
+b) p(x) = 3x2
+— — 45
+—6x+8
+d) p(x) = 2x2 + 4x
+2x3 + 4x2
+f) p(x) 2x3 + 8x2 + 8x
+g) p(x) — — 5x2 + 4
+h) p(x) = x 4 + 6x3 + 3x
+i) p(x) + 2x3 —3x2
+j) p(x)— s —x
+80
+4 de 4
+
+=== IMAGE 26 | WhatsApp Image 2026-11-26 at 17.01.25 (6).jpeg | 946x2048 ===
+X
+Para trabajar ident...
+Ficha identidades notables.
+I. Opera y simplifica.
+b) (3x + x3)2 =
+22 =
+d) (x — 2y)(x + 2y) = xz-qpa
+e) e + 3xy)2 = z,
+g) (2X2 — 3y)2 =
+2. Escribe en forma de identidad notable.
+a) .rz — 6x + 9 = 1x-3)t
+b)xz — 16
+c) 9x2 + 12x + 4
+e) 25x2 — 4 =
+f) 25 + 10X + X2
+g) 9x4 — y"
+h) + 3x2 + 1
+i) 4x2 — 20xy + 25y2 = (ZX-S,)'
+j) 49x6 — 36y4
+k) 5X2 + 5 S
+
+=== IMAGE 27 | WhatsApp Image 2026-11-26 at 17.01.25 (7).jpeg | 946x2048 ===
+X
+Examen global I.Â...
+IES Ruiz de Alda
+Examen global 1.0 evaluación.
+Apellid os :
+Fecha :
+N ombre:
+I. En un colegio se imparten, como primer idioma, inglés, alemán y
+francés. EI de los alumnos estudian inglés, el alemán y el
+resto francés. La asignatura de robótica es optativa y la elige el 30%
+de los alumnos de inglés, el 50% de los que estudian alemán y el 70%
+de los que cursan francés. Se elige un alumno al azar. ¿Cuál es la
+probabilidad de que estudie robótica? (1'5 puntos).
+2. Sean A y B dos sucesos independientes, tales que p(A) = O, 3,
+p(BlA) = y p(AIB) 0,3: (1,5 puntos).
+a) Calcular n B)_
+b) Calcular p(B). A y B independientes? , razonc su respuesta.
+c) Calcular U É).
+3. Calcula. (1,5 puntos).
+• z3•/S
+4. Racionaliza y simplifica al máximo la expresión. (I punto).
+b)
+5. Sabiendo que log (2) 0'301. Calcula. (0'5 puntos).
+a) log(50) = ( • 2-0,304
+6. Calcula utilizando la definición de logaritmo. (1 puntos).
+7. Calcula las raíces del polinomio y factorízalo. (1'5 puntos).
+2x5—2x4 — 14x3 + 2x2 + 12x,
+8. Simplifica al máximo la siguiente expresión. (I '5 puntos).
+a)
+x2+4X+3 X2—X —X2
+(x-1)2
+x.
+
+=== IMAGE 28 | WhatsApp Image 2026-11-26 at 17.01.25 (8).jpeg | 739x1600 ===
+paz 0'3
+PIA18) 0'3
+R Ang)
+RR); pana)
+Rh).RRlA) PGI•RA1fJ
+0'63 ogo -t d E. dto- O'q
+un a1w„M aw
+OZ.&s- RMA)
+= AMA)
+b)
+p(AiB) -
+Pao g)
+0'48
+d3•R8)
+53
+C) P (AOÊ)
+P(AOÉJ f(A)
+PLA) PC g)
+PIO: '1-AO 1-0"
+P (Anú) PCA) PC 8): 030'* -0'4¿
+PCA) 4.
+0'3
+— 0'0 o' Sa,
+
+=== IMAGE 29 | WhatsApp Image 2026-11-26 at 17.01.25 (9).jpeg | 739x1600 ===
+X
+Examen glo...
+IES Ruiz de Alda
+glolml para
+Una urna negras, del al 5, y siete
+— 0'301 log (S) — 0'477. calcula.
+c) log(120) - log025)
+del al 7. Se
+a) La de qw la
+de
+e) de que
+2. Una máquina funciona modo de los dias y
+de
+n de
+tenga fallo en 0'15.
+de que tenga un fallo cuando modo
+a) la de qw ningún
+b) Si dia fallo, la de qw
+P(A)
+—0.6, P(AnH)
+0.24.
+b) p(AuB) y p(inB),
+b) súã—15' (1—3—
+c) 4v'T+4võ*9v'ñ+16úS+25ã+36v'õ—
+5. Racionaliza y simplifica al la expresión.
+6. que (2)
+
+=== IMAGE 30 | WhatsApp Image 2026-11-26 at 17.01.25 (10).jpeg | 739x1600 ===
+5.
+a)
+1 +úS—v'ã ¯
+b)
+6. Sabiendo que log (2) —
+a) log(5.OOO) =
+c) log(120) — =
+9.
+Racionaliza y simplifica al máximo la expresión.
+— 0'301 log (3) —
+— 0'477. Calcula.
+d) logz(30) =
+7. Calcula utilizando la definición de logaritmo.
+c) In(e202S)
+Calcula las raíces del polinomio y factorízalo.
+P(x) = -2x4 - 14x3 + 2x2 + 12x
+Simplifica al máximo la siguiente expresión.
+a) sx¯2
+X 2—16
+4x—4 x+2 7x—2
+X2—4
+x2+7x+12
+2x2+8x+8
+d)
+x2+2x+2
+e)
+x+2
+x2—I
+2x46
+2x2—18
+x+3
+x+l
+2x42
+x2 + 4x+3
+
+=== IMAGE 31 | WhatsApp Image 2026-11-26 at 17.01.26.jpeg | 739x1600 ===
+X
+Ficha identidades...
+polinomios.
+y simplifica.
+b)
+e)
+: x' -24 —
+(x
+(x' -4x + — (¿x*-qxf-
+(5+xy)2
+g) (7x— 20
+2. Escribe en R»rma de identidad notable.
+e) 4X2+ 4X +1
+— ( xu) - 0-1)
+3. Realiza las siguientes divisiones de polinomios.
+b) (F -2x4 + 3x2-5x46) 2) =
+N - ¿x%oxa -z
+.SIX' 'Ya
+ssx•
+x'-sx%/i,« -s.
+-110
+e) 06+3x4
+zx%sx-}
+
+=== IMAGE 32 | WhatsApp Image 2026-11-26 at 17.01.26 (1).jpeg | 739x1600 ===
+79
+4 de 4
+4. Factoriza Siguientes
+p(r) 12 •
+— 2x3 *4x2.
+— 8x.28
+= x' —5x2+4
+x' + 6x3 + 3x2—26x—
+i) p(x) — 3x2 z
+24 •
+
+=== IMAGE 33 | WhatsApp Image 2026-11-26 at 17.01.26 (2).jpeg | 739x1600 ===
+X
+Ficha ejercicios pr...
+Ficha probabilidad 4
+I. DOS A y B contienen bolas de colores Con la Siguiente
+A 3 4 y 3 rajes, y
+la B contiene 6 bolas y 4 bolas Además, so tiene
+un dado que tiene 2 caras marcadas con la letra A y 4 caras marcadas
+con la letra B. Se lanza el dado y Se Saca bola azar de la urna
+que indica el dado.
+a) ¿Cuál la de que esa Sea
+b) la prolV'bilidad de que bola Sea roja?
+c) Si extraúia vvrde, es la probabilidad de de la urna
+. EI de IOS coches de Se fabrican de
+Valencia, ei 25% en Madrid, y ei resto Lisboa. EI de los coches
+fabricados tiene algim de fabricación, mientras
+que para los coches fabricados en Madrid y en Lisboa estos
+porcentajes Son del y del
+a) Eh•gicb al de esa calcule la protV'bilidad de q
+de calcule de qw si
+c) Sabiendo que es es la que el venga
+de de
+j w•ga en
+i, y la de —10 juega
+a) Sin jugará el calcule la de que
+b) Si ganó el último partido del la probabilidad de que
+jugara e n casa?
+Eu una clase hay 40 de cuales 25 son chicas y el resto
+son Además, 30 estudiantes han aprobado las matemáticas, de
+cuales 10 son Elegido un al azar, se pide:
+a) de que haya las
+b) la de qw• chica y
+c) Si Se elige ha aprobado las la
+de que una clica?
+. Una máquina funciona automático el de días y el
+de
+pmbabilidMl de
+tenga un fallo cuando funciona en automático es 0,15. La
+de tcmga fallo
+es 0,05.
+a) Calcule la de que fallo.
+b) Si dia tiene fallo, la de haya funcionado
+manual?
+O. Eu un se imparten, primer inglés, alemán y
+francés. EI 65% de los alumnos estudian inglés, eI 20% alemán y eI
+franc&. de optativa y la elige el
+de los de inglés, de que alemán y CI
+de que cursan Se elige un alumno al azar. es la
+probabilidad de estudie rotótica?
+
+=== IMAGE 34 | WhatsApp Image 2026-11-26 at 17.01.26 (3).jpeg | 739x1600 ===
+16:
+8.
+9.
+79
+3 de 15
+Un grupo de investigadores de la Universidad de Murcia realizó una
+en la que preguntó a 1000 su
+legal pm•a qtw•
+móvil. Según 560 de que 390 eran
+mujeres, a de De las 440 que
+opinaron contra, 280 eran Si Se selecciona persona
+a) es la probabilidad que esté a favor
+b) de que
+e) la de la o esté a de
+d) Si esa al azar es la de
+q w a favM
+En edificio hay de» ascensores A y B. EI 45 de IOS inquilinos
+del edificio primero (A) y IOS restantes CI segundo EI
+porcentaje de averias del ascensor A "s del 5 que
+segundo se averia un S % de las veces que se utiliza. que un
+ascensor sufre avería, se para y no funciona.
+a) Calcular la probabilidad que elegido al azar, averíe.
+b) Si cierto dia eu el es la
+de que sido en el
+un viaje de 52 % de son De ellos
+el 35 % son así como el 40 % de las Si a un
+a) Calcule la de que rubio.
+b) que NO rubio, ¿Cuál la de que mujer?
+10. En una por de Orientación de
+un instituto a estudiantes de segundo de bachillerato, so Obtuvo
+que 30 de ellos quieren estudiar Veterinaria, 25 20
+15 Biología y 10 Matemáticas. De ellos, 10. 12, 13, 8 y 6 Son
+mujeres, respectivamente. Además, la orientadora del centro les ha
+informado que no es que se más de un grado.
+a) Si se elige a un estudiante azar del estudiado, es la
+b) ¿Cuál la probalilidad de que estudiante de este grupo. al
+azar, y estudie
+c) ¿Cuál de que de al
+d) es la probalálidad de que de grupo, al
+ni Biología ni
+e) ¿Cuál que de al azar.
+dado trata una
+f) Si el al es la de que
+II. La Dirección General de Tráfico ha realizado un estudio estadístico
+la Región de Murcia sobre el 'ISO del de protección por parte
+de de patinetes eléctricos. EI estudio estima que 60 %
+de de patinetes Son hombros y, de el 30 %
+usa el casco; mientras que, entre las mujeres este medio para
+son el % que usan casco de protección. Si
+un —rio de al azar.
+a) Calcule la de qw• de
+b) Sabiendo que el usuario de de
+la de que sea
+
+=== IMAGE 35 | WhatsApp Image 2026-11-26 at 17.01.26 (4).jpeg | 739x1600 ===
+16:
+los
+flu) -
+79
+12. Una contiene cinco bolas del I 5, y Siete
+bolas blancas, numeradas del 7. Se saca de la urna bola al
+a) La de que la
+b) de
+c) de que la esté un par ,
+d) La probabilidad de que la y
+e) de que la sabiendo que
+Sucesos
+b51R
+vef&.
+3/10
+2-
+p ( v It)z
+2
+6
+R gnv)
+40
+60
+sao
+
+=== IMAGE 36 | WhatsApp Image 2026-11-26 at 17.01.26 (5).jpeg | 739x1600 ===
+- P(A) Rv FAB).
+RR): P(AJ • P(Rlh)
+Reno
+RBIV) -
+R v lb)' RO RWE).
+- Pani)
+e? cztk
+c 02 D
+- P(Anô) PC gnó) t- P(cnb)
+O,qrq1S
+RD)' I - o,qsws• Q0025
+023 • 0005
+O, Ob2S
+o, cnos
+0'121Q.
+
+=== IMAGE 37 | WhatsApp Image 2026-11-26 at 17.01.26 (6).jpeg | 739x1600 ===
+78
+a)
+a)
+: P(cos) •
+P(Ã)• r Rh,1H) •
+= RHJ.P(AIH) -
+42 A
+b) PCHnE)• PCM) •
+ABR h)
+a» P(AfÊ)
+Pal Re."'
+RAJ
+O.qs
+
+=== IMAGE 38 | WhatsApp Image 2026-11-26 at 17.01.26 (7).jpeg | 739x1600 ===
+78
+PGnR)
+ua-qs Q g
+P(AAH) Ang)
+P(HuA)• RH) *PIA) • P(Hnh)
+RkJ„ /- J-
+• PCO Rc 10 -
+"s
+
+=== IMAGE 39 | WhatsApp Image 2026-11-26 at 17.01.26 (8).jpeg | 739x1600 ===
+a)
+9
+"S
+• D.qrAq.
+0,374
+PC AAH)
+RAuc)
+Pc õnÉ)
+78
+RAJO.
+s
+
+=== IMAGE 40 | WhatsApp Image 2026-11-26 at 17.01.26 (9).jpeg | 739x1600 ===
+78
+RAJO
+Piõno-
+p(alA)•
+POMc)
+exlner
+c) P(PiE•—
+R PIO) ,
+d) Ren»
+e) R81P)
+pano
+o
+
+
