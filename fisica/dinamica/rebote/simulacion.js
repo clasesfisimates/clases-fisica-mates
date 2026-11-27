@@ -82,7 +82,7 @@
     dibujarPulso(ctx, ancho, alto, d);
   }
 
-  const impulso = { id: "J", nombre: "Impulso", unidad: "N·s", min: -24, max: 0 };
+  const impulso = { id: "Δp", nombre: "Impulso", unidad: "N·s", min: -24, max: 0 };
   montar({
     calcular: rebote, instante: estadoRebote, dibujar,
     ajustar: controles => { controles.salida.max = controles.entrada.value; },
@@ -91,7 +91,7 @@
     }),
     formulas: {
       "formula-impulso": {
-        objetivoInicial: "J",
+        objetivoInicial: "Δp",
         variables: [
           impulso,
           { id: "m", nombre: "Masa", unidad: "kg", min: 0.1, max: 0.6 },
@@ -100,10 +100,10 @@
         ], operadores: ["=", "·", "−"],
         valores: d => ({ m: d.masa, v_f: d.vf, v_i: d.entrada }),
         despejes: {
-          J: { expresion: "J = m · (v_f − v_i)", calcular: ({ m, v_f, v_i }) => m * (v_f - v_i), nota: "El signo menos indica que la pared ejerce el impulso en sentido opuesto a la llegada." },
-          m: { expresion: "m = J/(v_f − v_i)", calcular: ({ J, v_f, v_i }) => v_f !== v_i ? J / (v_f - v_i) : null },
-          v_f: { expresion: "v_f = v_i + J/m", calcular: ({ J, m, v_i }) => m > 0 ? v_i + J / m : null },
-          v_i: { expresion: "v_i = v_f − J/m", calcular: ({ J, m, v_f }) => m > 0 ? v_f - J / m : null },
+          "Δp": { expresion: "Δp = m · (v_f − v_i)", calcular: ({ m, v_f, v_i }) => m * (v_f - v_i), nota: "El signo menos indica que la pared ejerce el impulso en sentido opuesto a la llegada." },
+          m: { expresion: "m = Δp/(v_f − v_i)", calcular: ({ "Δp": deltaP, v_f, v_i }) => v_f !== v_i ? deltaP / (v_f - v_i) : null },
+          v_f: { expresion: "v_f = v_i + Δp/m", calcular: ({ "Δp": deltaP, m, v_i }) => m > 0 ? v_i + deltaP / m : null },
+          v_i: { expresion: "v_i = v_f − Δp/m", calcular: ({ "Δp": deltaP, m, v_f }) => m > 0 ? v_f - deltaP / m : null },
         },
       },
       "formula-fuerza": {
@@ -113,11 +113,11 @@
           impulso,
           { id: "Δt", nombre: "Tiempo de contacto", unidad: "s", min: 0.02, max: 0.18, decimales: 3 },
         ], operadores: ["=", "/"],
-        valores: d => ({ J: d.impulso, "Δt": d.contacto }),
+        valores: d => ({ "Δp": d.impulso, "Δt": d.contacto }),
         despejes: {
-          "Fₘ": { expresion: "Fₘ = J/Δt", calcular: ({ J, "Δt": t }) => t > 0 ? J / t : null, nota: "La fuerza media da el mismo impulso que la fuerza real variable." },
-          J: { expresion: "J = Fₘ · Δt", calcular: ({ "Fₘ": F, "Δt": t }) => F * t },
-          "Δt": { expresion: "Δt = J/Fₘ", calcular: ({ "Fₘ": F, J }) => F !== 0 ? J / F : null },
+          "Fₘ": { expresion: "Fₘ = Δp/Δt", calcular: ({ "Δp": deltaP, "Δt": t }) => t > 0 ? deltaP / t : null, nota: "La fuerza media da el mismo impulso que la fuerza real variable." },
+          "Δp": { expresion: "Δp = Fₘ · Δt", calcular: ({ "Fₘ": F, "Δt": t }) => F * t },
+          "Δt": { expresion: "Δt = Δp/Fₘ", calcular: ({ "Fₘ": F, "Δp": deltaP }) => F !== 0 ? deltaP / F : null },
         },
       },
     },
