@@ -1,7 +1,7 @@
 (() => {
   "use strict";
   const modelo = window.ModeloNormal;
-  const { numero, lienzo, flecha, linea, bloque } = window.LabDinamica;
+  const { numero, lienzo, flecha, etiquetaVector, linea, bloque } = window.LabDinamica;
   const canvas = document.getElementById("normal-lienzo");
   const masa = document.getElementById("normal-masa");
   const reproducir = document.getElementById("normal-reproducir");
@@ -65,22 +65,21 @@
     }
 
     if (base < alto + 80) {
-      // Escala fija de 0,52 píxeles por newton, también al variar la masa.
-      const escalaFuerza = 0.52;
+      // El pico al primer contacto con la masa máxima es de unos 396 N.
+      const escalaFuerza = Math.min((nivel - 36) / 400, (alto - nivel - 6) / 98);
       bloque(ctx, x, base - 32, 92, 64);
       etiqueta(ctx, numero(masa.valueAsNumber) + " kg", x - 21, base - 38, "#fff");
-      flecha(ctx, x - 22, base - 25, 0, datos.peso * escalaFuerza, "#ffba80", false, 4);
-      etiqueta(ctx, "P", x - 45, base - 9 + datos.peso * escalaFuerza, "#ffba80");
+      flecha(ctx, x - 22, base - 25, 0, datos.peso * escalaFuerza, "#ffba80", 4);
+      if (base < alto) etiquetaVector(ctx, "Peso", x - 32, base - 25 + datos.peso * escalaFuerza, "#ffba80", "right");
       if (datos.normal > 0.1) {
-        flecha(ctx, x + 24, base, 0, -datos.normal * escalaFuerza, "#94caff", false, 4);
-        etiqueta(ctx, "N", x + 38, base - datos.normal * escalaFuerza + 6, "#94caff");
+        flecha(ctx, x + 24, base, 0, -datos.normal * escalaFuerza, "#94caff", 4);
+        etiquetaVector(ctx, "Normal", x + 34, base - datos.normal * escalaFuerza, "#94caff", "left");
         linea(ctx, x + 24, base, x + 37, base, "#bcdcff", 2);
         linea(ctx, x + 37, base, x + 37, base - 13, "#bcdcff", 2);
         etiqueta(ctx, "90°", x + 58, base + 7, "#bcdcff");
       }
     } else {
-      flecha(ctx, x, alto - 95, 0, 35, "#ffba80", false, 4);
-      ctx.textAlign = "center"; etiqueta(ctx, "Sigue cayendo", x, alto - 30, "#ffba80"); ctx.textAlign = "left";
+      etiquetaVector(ctx, "↓ El bloque sigue cayendo", x, alto - 32, "#d4e5ff");
     }
   });
 

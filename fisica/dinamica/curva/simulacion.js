@@ -1,5 +1,5 @@
 (() => {
-  const { linea, flecha, rejilla } = window.LabDinamica;
+  const { linea, flecha, etiquetaVector, rejilla } = window.LabDinamica;
   const { montar, unidades, rotulo, disco } = window.TallerDinamica;
   const { gravedad: g, curva, estadoCurva } = window.ModelosTallerDinamica;
   const velocidad = "#a6f1ff";
@@ -42,7 +42,10 @@
     const cx = ancho / 2;
     const cy = alto * 0.47;
     const escala = Math.min((ancho - 42) / 300, (alto - 92) / 300);
-    const radio = d.radio * escala;
+    // Reservamos sitio para las dos flechas incluso en la curva más cerrada.
+    // El radio en metros se lee en la escena; la pista es esquemática.
+    const radioMinimo = 85 * escala;
+    const radio = radioMinimo + (d.radio - 40) / 100 * (140 * escala - radioMinimo);
     const carril = Math.min(22, radio * 0.58);
     ctx.strokeStyle = "#94a9c7";
     pista(ctx, cx, cy, radio, carril + 3);
@@ -52,22 +55,35 @@
     ctx.setLineDash([7, 7]);
     ctx.strokeStyle = "#cbd2db9d";
     pista(ctx, cx, cy, radio, 1);
-    linea(ctx, cx, cy - radio, cx, cy, "#cad9ef7e");
     if (!d.gira) linea(ctx, cx, cy - radio, cx + 105 * escala, cy - radio, tangente, 2);
     ctx.restore();
     disco(ctx, cx, cy, 3.5, "#83a4e4");
-    rotulo(ctx, unidades(d.radio, "m", 0), cx + 8, cy + 13, "#cad9ef", "left");
+    etiquetaVector(ctx, "r = " + unidades(d.radio, "m", 0), 9, 18, "#cad9ef", "left");
 
     const angulo = d.gira ? d.angulo : -Math.PI / 2;
     const x = cx + radio * Math.cos(angulo) + (d.gira ? 0 : d.recorrido * escala);
     const y = cy + radio * Math.sin(angulo);
     const orientacion = angulo + Math.PI / 2;
+    if (d.gira && d.visibles.centripeta) {
+      ctx.save();
+      ctx.setLineDash([2, 5]);
+      linea(ctx, x, y, cx, cy, "#ffcc8b99", 1.5);
+      ctx.restore();
+    }
     dibujarCoche(ctx, x, y, orientacion);
-    if (d.capa) {
-      const lv = d.v * Math.min(ancho, alto) * 0.0039;
-      const lf = d.necesaria * Math.min(ancho, alto) * 0.0000094;
-      flecha(ctx, x, y, Math.cos(orientacion) * lv, Math.sin(orientacion) * lv, velocidad);
-      if (d.gira) flecha(ctx, x, y, -Math.cos(angulo) * lf, -Math.sin(angulo) * lf, fuerza);
+    if (d.visibles.velocidad) {
+      const largo = d.v * Math.min(ancho, alto) * 0.0044;
+      const dx = Math.cos(orientacion), dy = Math.sin(orientacion);
+      flecha(ctx, x, y, dx * largo, dy * largo, velocidad);
+      etiquetaVector(ctx, "v", x + dx * (largo + 13), y + dy * (largo + 13), velocidad);
+    }
+    if (d.visibles.centripeta && d.gira) {
+      // La fuerza máxima con agarre es 1,6 · 1600 · g. Su punta cabe en el radio mínimo.
+      const largo = d.necesaria * (radioMinimo - 6) / (1.6 * 1600 * g);
+      const dx = -Math.cos(angulo), dy = -Math.sin(angulo);
+      const inicioX = x + dx * 6, inicioY = y + dy * 6;
+      flecha(ctx, inicioX, inicioY, dx * largo, dy * largo, fuerza);
+      etiquetaVector(ctx, "Fc", inicioX + dx * (largo + 17), inicioY + dy * (largo + 17), fuerza);
     }
     const yBarra = alto - 36;
     const inicio = 96;

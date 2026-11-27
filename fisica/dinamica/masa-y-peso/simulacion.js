@@ -74,7 +74,7 @@
     linea(ctx, 0, suelo, ancho, suelo, mundo.luz, 1.4);
   }
 
-  function dibujarCapsula(ctx, x, y, ancho, alto, ficha, peso) {
+  function dibujarCapsula(ctx, x, y, ancho, alto, ficha, largoPeso) {
     ctx.save();
     ctx.beginPath();
     ctx.roundRect(x - ancho / 2, y - alto / 2, ancho, alto, Math.min(5, ancho * 0.23));
@@ -92,11 +92,13 @@
     ctx.textBaseline = "middle";
     ctx.fillText(ficha.letra, x, y + 1);
     ctx.restore();
-    flecha(ctx, x, y + alto / 2, 0, peso * 0.02, colores.peso);
+    flecha(ctx, x, y + alto / 2, 0, largoPeso, colores.peso);
   }
 
   function dibujar(ctx, ancho, alto, { mundo, gravedad, altura, tiempo, capsulas }) {
     const suelo = alto * 0.62;
+    // Reservamos sitio para 100 kg a 20 m/s² incluso al tocar el suelo.
+    const escalaPeso = (alto - suelo - 8) / (masaMaxima * Number(gravedadPersonalizada.max));
     const centroX = ancho / 2;
     const anchoMaximo = Math.min(44, ancho * 0.33);
     const carrera = suelo - Math.max(40, anchoMaximo + 5);
@@ -125,7 +127,7 @@
         ctx.fillStyle = estela;
         ctx.fillRect(x - anchoCapsula * 0.18, y - altoCapsula / 2 - cola, anchoCapsula * 0.36, cola);
       }
-      dibujarCapsula(ctx, x, y, anchoCapsula, altoCapsula, capsula, capsula.masa * gravedad);
+      dibujarCapsula(ctx, x, y, anchoCapsula, altoCapsula, capsula, capsula.masa * gravedad * escalaPeso);
     }
   }
 

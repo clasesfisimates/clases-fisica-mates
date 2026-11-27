@@ -58,10 +58,11 @@
             <figure>
               <canvas id="escena" role="img" aria-label="Polea con dos masas colgantes. La tensión tira hacia arriba y el peso hacia abajo en cada masa."></canvas>
               <figcaption>
-                <ul class="taller-leyenda">
-                  <li><i style="--muestra: #83ecd5" aria-hidden="true"></i>Tensión</li>
-                  <li><i style="--muestra: #ffbc8d" aria-hidden="true"></i>Peso</li>
-                </ul>
+                <fieldset class="capas-vectores">
+                  <legend>Flechas visibles</legend>
+                  <label style="--tinta: #14745d"><input type="checkbox" data-vector="tension" checked><b aria-hidden="true">T</b> Tensión</label>
+                  <label style="--tinta: #a75019"><input type="checkbox" data-vector="peso" checked><b aria-hidden="true">P</b> Peso</label>
+                </fieldset>
                 La cuerda ideal obliga a las dos masas a recorrer la misma distancia en sentidos opuestos.
               </figcaption>
             </figure>
@@ -93,7 +94,6 @@
                 <input id="m2" type="range" min="1" max="12" step="0.5" value="5" data-unidad=" kg">
               </div>
             </div>
-            <label class="taller-capa"><input id="capa" type="checkbox" checked> Ver fuerzas en las dos masas</label>
             <div class="taller-botones taller-preajustes" role="group" aria-label="Situaciones de partida">
               <button type="button" class="boton secundario" data-preajuste='{"m1":2,"m2":5}'>Ejercicio 44</button>
               <button type="button" class="boton secundario" data-preajuste='{"m1":5,"m2":5}'>Equilibrio</button>

@@ -59,10 +59,10 @@
           </div>
           <figure class="ejercicio-esquema">
               <div class="ejercicio-planetas">
-                <div class="ejercicio-planeta"><i aria-hidden="true"></i><b>Tierra</b><span>g = 9,81 m/s²</span><span>↓ P = 800 N</span></div>
-                <div class="ejercicio-planeta"><i aria-hidden="true"></i><b>Júpiter</b><span>g = 25,1 m/s²</span><span>↓ P = ?</span></div>
+                <div class="ejercicio-planeta"><span class="peso-planeta">P = 800 N<span class="flecha-esquema" aria-hidden="true"></span></span><i aria-hidden="true"></i><b>Tierra</b><span>g = 9,81 m/s²</span></div>
+                <div class="ejercicio-planeta"><span class="peso-planeta">P = ?<span class="flecha-esquema" aria-hidden="true"></span></span><i aria-hidden="true"></i><b>Júpiter</b><span>g = 25,1 m/s²</span></div>
               </div>
-              <figcaption>La masa es la misma en los dos planetas. Cada flecha indica el peso hacia su centro.</figcaption>
+              <figcaption>La masa es la misma en los dos planetas. La flecha más larga indica dónde pesa más el objeto.</figcaption>
             </figure>
         </div>
         <details class="ejercicio-solucion">
@@ -95,10 +95,10 @@
               <div class="ejercicio-fuerzas" role="img" aria-label="El bloque recibe su peso hacia abajo, la normal hacia arriba, el tirón hacia la derecha y el rozamiento hacia la izquierda.">
                 <span class="fuerzas-superficie"></span>
                 <span class="fuerzas-cuerpo" style="--x: 50%; --y: 49%; --giro: 0deg"></span>
-                <span class="fuerzas-vector normal" style="--angulo: -90deg; --x: 50%; --y: 49%; --largo: 3.18rem"><b>N</b></span>
-                <span class="fuerzas-vector " style="--angulo: 90deg; --x: 50%; --y: 49%; --largo: 3.18rem"><b>P</b></span>
-                <span class="fuerzas-vector aplicada" style="--angulo: 0deg; --x: 50%; --y: 49%; --largo: 4.3rem"><b>F</b></span>
-                <span class="fuerzas-vector rozamiento" style="--angulo: 180deg; --x: 50%; --y: 49%; --largo: 3.3rem"><b>F<sub>r</sub></b></span>
+                <span class="fuerzas-vector normal" style="--angulo: -90deg; --x: 50%; --y: 49%; --largo: 4.2rem"><b>N</b></span>
+                <span class="fuerzas-vector " style="--angulo: 90deg; --x: 50%; --y: 49%; --largo: 4.2rem"><b>P</b></span>
+                <span class="fuerzas-vector aplicada" style="--angulo: 0deg; --x: 50%; --y: 49%; --largo: 1.19rem"><b>F</b></span>
+                <span class="fuerzas-vector rozamiento" style="--angulo: 180deg; --x: 50%; --y: 49%; --largo: 0.84rem"><b>F<sub>r</sub></b></span>
                 <span class="fuerzas-nota" style="--x: 78%; --y: 10%">+x →</span>
               </div>
               <figcaption>Tomamos como positivo el sentido del tirón. Las flechas representan fuerzas.</figcaption>
@@ -140,11 +140,11 @@
               <div class="ejercicio-fuerzas" role="img" aria-label="La cuerda tira hacia arriba y a la derecha formando 30 grados. El rozamiento va a la izquierda, la normal hacia arriba y el peso hacia abajo.">
                 <span class="fuerzas-superficie"></span>
                 <span class="fuerzas-cuerpo" style="--x: 50%; --y: 49%; --giro: 0deg"></span>
-                <span class="fuerzas-vector normal" style="--angulo: -90deg; --x: 50%; --y: 49%; --largo: 3.18rem"><b>N</b></span>
-                <span class="fuerzas-vector " style="--angulo: 90deg; --x: 50%; --y: 49%; --largo: 3.18rem"><b>P</b></span>
-                <span class="fuerzas-vector aplicada" style="--angulo: -30deg; --x: 50%; --y: 49%; --largo: 4.7rem"><b>T</b></span>
-                <span class="fuerzas-vector rozamiento" style="--angulo: 180deg; --x: 50%; --y: 49%; --largo: 3.8rem"><b>F<sub>r</sub></b></span>
-                <span class="fuerzas-nota" style="--x: 79%; --y: 37%">30°</span>
+                <span class="fuerzas-vector normal" style="--angulo: -90deg; --x: 50%; --y: 49%; --largo: 3.66rem"><b>N</b></span>
+                <span class="fuerzas-vector " style="--angulo: 90deg; --x: 50%; --y: 49%; --largo: 4.2rem"><b>P</b></span>
+                <span class="fuerzas-vector aplicada" style="--angulo: -30deg; --x: 50%; --y: 49%; --largo: 1.07rem"><b>T</b></span>
+                <span class="fuerzas-vector rozamiento" style="--angulo: 180deg; --x: 50%; --y: 49%; --largo: 0.93rem"><b>F<sub>r</sub></b></span>
+                <span class="fuerzas-nota" style="--x: 67%; --y: 38%">30°</span>
               </div>
               <figcaption>La cuerda ayuda a sostener el bloque. Por eso la normal vale menos que su peso.</figcaption>
             </figure>
@@ -182,11 +182,13 @@
           <figure class="ejercicio-esquema">
               <div class="ejercicio-fuerzas" role="img" aria-label="Rampa de 30 grados con un bloque. El peso vertical se descompone en una componente cuesta abajo y otra hacia la rampa. La normal sale perpendicular a la rampa.">
                 <span class="fuerzas-superficie rampa"></span>
+                <span class="fuerzas-guia" style="--angulo: -120deg; --largo: 3.64rem"></span>
+                <span class="fuerzas-guia" style="--angulo: -30deg; --largo: 2.1rem"></span>
                 <span class="fuerzas-cuerpo" style="--x: 48%; --y: 43%; --giro: -30deg"></span>
                 <span class="fuerzas-vector " style="--angulo: 90deg; --x: 48%; --y: 43%; --largo: 4.2rem"><b>P</b></span>
-                <span class="fuerzas-vector normal" style="--angulo: -120deg; --x: 48%; --y: 43%; --largo: 3.9rem"><b>N</b></span>
-                <span class="fuerzas-vector componente" style="--angulo: 150deg; --x: 48%; --y: 43%; --largo: 2.9rem"><b>P<sub>∥</sub></b></span>
-                <span class="fuerzas-vector componente" style="--angulo: 60deg; --x: 48%; --y: 43%; --largo: 3.65rem"><b>P<sub>⊥</sub></b></span>
+                <span class="fuerzas-vector normal" style="--angulo: -120deg; --x: 48%; --y: 43%; --largo: 3.64rem"><b>N</b></span>
+                <span class="fuerzas-vector componente" style="--angulo: 150deg; --x: 48%; --y: 43%; --largo: 2.1rem"><b>P<sub>∥</sub></b></span>
+                <span class="fuerzas-vector componente" style="--angulo: 60deg; --x: 48%; --y: 43%; --largo: 3.64rem"><b>P<sub>⊥</sub></b></span>
                 <span class="fuerzas-nota" style="--x: 51%; --y: 3%">+x cuesta arriba ↗</span>
                 <span class="fuerzas-nota" style="--x: 79%; --y: 44%">30°</span>
               </div>
@@ -236,12 +238,12 @@
                 <span class="fuerzas-cuerpo" style="--x: 64%; --y: 51%"></span>
                 <span class="fuerzas-vector aplicada" style="--angulo: -90deg; --x: 36%; --y: 45%; --largo: 2.1rem"><b>T</b></span>
                 <span class="fuerzas-vector aplicada" style="--angulo: -90deg; --x: 64%; --y: 51%; --largo: 2.1rem"><b>T</b></span>
-                <span class="fuerzas-vector" style="--angulo: 90deg; --x: 36%; --y: 45%; --largo: 2.05rem"><b>P₁</b></span>
-                <span class="fuerzas-vector" style="--angulo: 90deg; --x: 64%; --y: 51%; --largo: 3.45rem"><b>P₂</b></span>
+                <span class="fuerzas-vector" style="--angulo: 90deg; --x: 36%; --y: 45%; --largo: 1.47rem"><b>P₁</b></span>
+                <span class="fuerzas-vector" style="--angulo: 90deg; --x: 64%; --y: 51%; --largo: 3.68rem"><b>P₂</b></span>
                 <span class="fuerzas-nota" style="--x: 8%; --y: 42%">2 kg ↑</span>
                 <span class="fuerzas-nota" style="--x: 78%; --y: 49%">5 kg ↓</span>
               </div>
-              <figcaption>Al tirar la cuerda de los dos cuerpos, uno sube lo mismo que baja el otro.</figcaption>
+              <figcaption>La tensión tiene la misma longitud en los dos bloques. Compárala con cada peso para ver cuál sube y cuál baja.</figcaption>
             </figure>
         </div>
         <details class="ejercicio-solucion">
@@ -277,7 +279,7 @@
             <p class="ejercicio-fuente">Prob_dinamica.pdf · ejercicio 30</p>
           </div>
           <figure class="ejercicio-esquema">
-              <div class="ejercicio-muelle"><div><b>Sin carga</b><span><i></i></span><small>L₀</small></div><div><b>Con carga</b><span><i></i></span><small>L₀ + ΔL →</small></div></div>
+              <div class="ejercicio-muelle"><div><b>Sin carga</b><span><i></i></span><small>L₀</small></div><div><b>Con carga</b><span><i></i></span><small>L₀ + ΔL</small></div></div>
               <figcaption>La ley de Hooke relaciona la fuerza aplicada con el alargamiento ΔL.</figcaption>
             </figure>
         </div>
@@ -313,7 +315,10 @@
             <p class="ejercicio-fuente">Prob_dinamica.pdf · ejercicio 15</p>
           </div>
           <figure class="ejercicio-esquema">
-              <div class="ejercicio-interaccion"><div><b>Bola</b><i aria-hidden="true"></i><span>↓ 19,62 N</span></div><div><span>↑ 19,62 N</span><i aria-hidden="true"></i><b>Tierra</b></div></div>
+              <div class="ejercicio-interaccion" role="img" aria-label="La bola y la Tierra se atraen. Cada fuerza vale 19,62 N y apunta al otro cuerpo.">
+                <div><b>Bola</b><i></i><span class="flecha-esquema"></span><strong>19,62 N</strong></div>
+                <div><b>Tierra</b><span class="flecha-esquema"></span><i class="tierra"></i><strong>19,62 N</strong></div>
+              </div>
               <figcaption>Las fuerzas tienen igual intensidad y sentidos contrarios. Cada una actúa sobre un cuerpo distinto.</figcaption>
             </figure>
         </div>
@@ -347,8 +352,8 @@
               <div class="ejercicio-fuerzas" role="img" aria-label="Vista superior de una curva circular. La velocidad es tangente a la trayectoria y la fuerza va hacia el centro.">
                 <span class="fuerzas-curva"></span>
                 <span class="fuerzas-cuerpo" style="--x: 72%; --y: 49%; --giro: 90deg"></span>
-                <span class="fuerzas-vector aplicada" style="--angulo: -90deg; --x: 72%; --y: 49%; --largo: 3.5rem"><b>v</b></span>
-                <span class="fuerzas-vector normal" style="--angulo: 180deg; --x: 72%; --y: 49%; --largo: 3.28rem"><b>F<sub>c</sub></b></span>
+                <span class="fuerzas-vector velocidad" style="--angulo: -90deg; --x: 72%; --y: 49%; --largo: 3.5rem"><b>v</b></span>
+                <span class="fuerzas-vector centripeta" style="--angulo: 180deg; --x: 72%; --y: 49%; --largo: 3.28rem"><b>F<sub>c</sub></b></span>
                 <span class="fuerzas-nota" style="--x: 37%; --y: 55%">Centro</span>
               </div>
               <figcaption>La rapidez es constante, pero la dirección de la velocidad cambia.</figcaption>
@@ -387,7 +392,10 @@
             <p class="ejercicio-fuente">Prob_dinamica.pdf · ejercicio 39</p>
           </div>
           <figure class="ejercicio-esquema">
-              <div class="ejercicio-rebote"><span>Antes&nbsp; ● → 15 m/s</span><span>Después&nbsp; ● ← 10 m/s</span></div>
+              <div class="ejercicio-rebote" role="img" aria-label="Antes del choque la pelota va hacia la pared a 15 m/s. Después vuelve a 10 m/s.">
+                <div><b>Antes</b><span class="flecha-esquema" style="--largo:3rem"></span>15 m/s</div>
+                <div><b>Después</b><span class="flecha-esquema vuelta" style="--largo:2rem"></span>10 m/s</div>
+              </div>
               <figcaption>Si tomas como positivo el sentido hacia la pared, la velocidad de vuelta es negativa.</figcaption>
             </figure>
         </div>

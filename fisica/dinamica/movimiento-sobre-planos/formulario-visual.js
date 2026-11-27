@@ -24,12 +24,7 @@
     }
   }
   function rotulo(ctx, texto, x, y, color = "#d9e8ff", tamano = 16) {
-    ctx.save(); ctx.font = `650 ${tamano}px system-ui, sans-serif`;
-    const ancho = ctx.measureText(texto).width;
-    x = Math.max(9, Math.min(ctx.canvas.clientWidth - ancho - 9, x));
-    y = Math.max(22, Math.min(ctx.canvas.clientHeight - 12, y));
-    ctx.fillStyle = "#132347ed"; ctx.fillRect(x - 3, y - tamano, ancho + 6, tamano + 6);
-    ctx.fillStyle = color; ctx.fillText(texto, x, y); ctx.restore();
+    lab.etiquetaVector(ctx, texto, x, y - 6, color, "left", tamano);
   }
   function lienzo(canvas, dibujar) {
     return lab.lienzo(canvas, (ctx, ancho, alto, datos) => {

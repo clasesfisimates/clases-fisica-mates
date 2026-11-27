@@ -30,6 +30,7 @@
       if (!datos || !ctx) return;
       const ancho = canvas.clientWidth;
       const alto = canvas.clientHeight;
+      if (!ancho || !alto) return;
       const escala = Math.min(window.devicePixelRatio || 1, 2);
       const pixelesX = Math.round(ancho * escala);
       const pixelesY = Math.round(alto * escala);
@@ -52,25 +53,96 @@
     ctx.stroke();
   }
 
-  function flecha(ctx, x, y, dx, dy, color, discontinua = false, grosor = discontinua ? 1.8 : 3) {
-    const longitud = Math.hypot(dx, dy);
-    if (longitud < 0.7) return;
-    const punta = Math.min(9, longitud * 0.65);
-    const ux = dx / longitud;
-    const uy = dy / longitud;
-    const baseX = x + dx - punta * ux;
-    const baseY = y + dy - punta * uy;
+  function suavizar(progreso) {
+    const t = Math.max(0, Math.min(1, progreso));
+    return t * t * (3 - 2 * t);
+  }
+
+  function flecha(ctx, x, y, dx, dy, color, grosor = 4) {
+    const largo = Math.hypot(dx, dy);
+    if (largo < 0.1) return;
+    const punta = Math.min(largo * 0.58, 8 + grosor);
+    const asta = Math.min(grosor / 2, largo * 0.13);
+    const ala = Math.min(punta * 0.49, asta + 4);
     ctx.save();
-    if (discontinua) ctx.setLineDash([4, 4]);
-    linea(ctx, x, y, baseX + ux, baseY + uy, color, grosor);
-    ctx.setLineDash([]);
+    ctx.translate(x, y);
+    ctx.rotate(Math.atan2(dy, dx));
     ctx.beginPath();
-    ctx.moveTo(x + dx, y + dy);
-    ctx.lineTo(baseX - uy * punta * 0.52, baseY + ux * punta * 0.52);
-    ctx.lineTo(baseX + uy * punta * 0.52, baseY - ux * punta * 0.52);
+    ctx.moveTo(0, -asta);
+    ctx.lineTo(largo - punta, -asta);
+    ctx.lineTo(largo - punta, -ala);
+    ctx.lineTo(largo, 0);
+    ctx.lineTo(largo - punta, ala);
+    ctx.lineTo(largo - punta, asta);
+    ctx.lineTo(0, asta);
     ctx.closePath();
+    ctx.lineWidth = Math.min(2.5, largo * 0.13);
+    ctx.lineJoin = "round";
+    ctx.strokeStyle = "#0b202cee";
+    ctx.stroke();
     ctx.fillStyle = color;
     ctx.fill();
+    ctx.restore();
+  }
+
+  function etiquetaVector(ctx, contenido, x, y, color, alineacion = "center", tamano = 14) {
+    ctx.save();
+    ctx.font = "650 " + tamano + "px system-ui, sans-serif";
+    const ancho = ctx.measureText(contenido).width + 12;
+    const alto = tamano + 8;
+    const margen = 4;
+    const inicio = alineacion === "left" ? x : alineacion === "right" ? x - ancho : x - ancho / 2;
+    const izq = Math.max(margen, Math.min(ctx.canvas.clientWidth - ancho - margen, inicio));
+    const arriba = Math.max(margen, Math.min(ctx.canvas.clientHeight - alto - margen, y - alto / 2));
+    ctx.beginPath();
+    ctx.roundRect(izq, arriba, ancho, alto, 5);
+    ctx.fillStyle = "#102631f5";
+    ctx.fill();
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = color;
+    ctx.fillText(contenido, izq + ancho / 2, arriba + alto / 2);
+    ctx.restore();
+  }
+
+  function dibujarVectores(ctx, origen, vectores, ancho, alto) {
+    const etiquetas = [];
+    ctx.save();
+    ctx.font = "650 14px system-ui, sans-serif";
+    for (const [i, v] of vectores.entries()) {
+      const ux = v.x / v.longitud, uy = v.y / v.longitud;
+      // Si dos fuerzas coinciden, abrimos dos carriles sin cambiar sus longitudes.
+      let lateral = 0;
+      for (const [j, otra] of vectores.entries()) {
+        if (i !== j && (ux * otra.x + uy * otra.y) / otra.longitud > 0.998) {
+          lateral += (j < i ? 1 : -1) * 5 * otra.alfa;
+        }
+      }
+      const x0 = origen.x - uy * lateral, y0 = origen.y + ux * lateral;
+      const finX = x0 + v.x, finY = y0 + v.y;
+      ctx.globalAlpha = v.alfa;
+      flecha(ctx, x0, y0, v.x, v.y, v.color, v.grosor ?? 4);
+      if (!v.rotulo || v.alfa < 0.5) continue;
+      const mitad = 6 + ctx.measureText(v.rotulo).width / 2;
+      const distancia = 9 + Math.abs(ux) * mitad + Math.abs(uy) * 11;
+      for (const lado of [0, 1, -1, 2, -2, 3, -3, 4, -4]) {
+        const x = Math.max(mitad + 5, Math.min(ancho - mitad - 5, finX + ux * distancia - uy * lado * 24));
+        const y = Math.max(48, Math.min(alto - 16, finY + uy * distancia + ux * lado * 24));
+        if (etiquetas.some(e => Math.abs(e.x - x) < e.mitad + mitad + 4 && Math.abs(e.y - y) < 24)) continue;
+        etiquetas.push({ x, y, mitad, finX, finY, v });
+        break;
+      }
+    }
+    ctx.globalAlpha = 1;
+    if (vectores.length) {
+      ctx.beginPath(); ctx.arc(origen.x, origen.y, 3, 0, 2 * Math.PI);
+      ctx.fillStyle = "#f1f4df"; ctx.fill();
+    }
+    for (const { x, y, finX, finY, v } of etiquetas) {
+      ctx.globalAlpha = suavizar((v.alfa - 0.5) / 0.35);
+      linea(ctx, finX, finY, x, y, v.color + "88", 1);
+      etiquetaVector(ctx, v.rotulo, x, y, v.color);
+    }
     ctx.restore();
   }
 
@@ -80,8 +152,8 @@
     fondo.addColorStop(1, "#23454a");
     ctx.fillStyle = fondo;
     ctx.fillRect(0, 0, ancho, alto);
-    for (let x = 0; x < ancho; x += 24) linea(ctx, x, 0, x, alto, x % 96 === 0 ? "#a7d2c33b" : "#a7d2c31c");
-    for (let y = 0; y < alto; y += 24) linea(ctx, 0, y, ancho, y, y % 96 === 0 ? "#a7d2c33b" : "#a7d2c31c");
+    for (let x = 0; x < ancho; x += 24) linea(ctx, x, 0, x, alto, x % 96 === 0 ? "#a7d2c327" : "#a7d2c312");
+    for (let y = 0; y < alto; y += 24) linea(ctx, 0, y, ancho, y, y % 96 === 0 ? "#a7d2c327" : "#a7d2c312");
   }
 
   function bloque(ctx, x, y, ancho, alto, angulo = 0) {
@@ -243,5 +315,5 @@
     actualizar();
   }
 
-  window.LabDinamica = { g, colores, numero, superficies, resolverFuerzas, lienzo, linea, flecha, rejilla, bloque, texto, salida, mostrarRangos, crearReloj, bancoDeFuerzas };
+  window.LabDinamica = { g, colores, numero, superficies, resolverFuerzas, lienzo, linea, flecha, etiquetaVector, dibujarVectores, suavizar, rejilla, bloque, texto, salida, mostrarRangos, crearReloj, bancoDeFuerzas };
 })();

@@ -58,11 +58,11 @@
             <figure>
               <canvas id="escena" role="img" aria-label="Muelle horizontal unido a una pared. Debajo aparece una gráfica de fuerza aplicada frente a alargamiento."></canvas>
               <figcaption>
-                <ul class="taller-leyenda">
-                  <li><i style="--muestra: #95f4c9" aria-hidden="true"></i>Fuerza aplicada</li>
-                  <li><i style="--muestra: #ffc781" aria-hidden="true"></i>Fuerza elástica</li>
-                  <li><i style="--muestra: #e2ddff" aria-hidden="true"></i>Objetivo</li>
-                </ul>
+                <fieldset class="capas-vectores">
+                  <legend>Flechas visibles</legend>
+                  <label style="--tinta: #14745d"><input type="checkbox" data-vector="aplicada" checked><b aria-hidden="true">F</b> Fuerza aplicada</label>
+                  <label style="--tinta: #975114"><input type="checkbox" data-vector="elastica" checked><b aria-hidden="true">Fₑ</b> Fuerza elástica</label>
+                </fieldset>
                 La recta muestra los estados de equilibrio del muelle. El punto hueco marca la fuerza elegida.
               </figcaption>
             </figure>
@@ -94,7 +94,6 @@
                 <input id="fuerza" type="range" min="0" max="2" step="0.01" value="0.28" data-unidad=" N">
               </div>
             </div>
-            <label class="taller-capa"><input id="capa" type="checkbox" checked> Ver el par de fuerzas sobre el extremo</label>
             <div class="taller-botones taller-preajustes" role="group" aria-label="Situaciones de partida">
               <button type="button" class="boton secundario" data-preajuste='{"k":6,"fuerza":0.28}'>0,28 N</button>
               <button type="button" class="boton secundario" data-preajuste='{"k":6,"fuerza":1.2}'>Doble de longitud</button>

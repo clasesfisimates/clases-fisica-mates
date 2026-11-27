@@ -173,7 +173,7 @@
 
 .leyenda li { display: flex; align-items: center; gap: 0.35rem; }
 .leyenda-nota { margin: -0.45rem 0 0.9rem; color: var(--texto-secundario); font-size: 0.875rem; }
-.muestra { display: inline-block; width: 0.85rem; height: 0.32rem; border-radius: 1rem; background: var(--vector); }
+.muestra { display: inline-block; width: 1.35rem; height: .72rem; background: var(--vector); clip-path: polygon(0 35%, 62% 35%, 62% 0, 100% 50%, 62% 100%, 62% 65%, 0 65%); }
 .peso-vector { --vector: #b56325; }
 .normal-vector { --vector: #3b72b2; }
 .aplicada-vector { --vector: #18785f; }

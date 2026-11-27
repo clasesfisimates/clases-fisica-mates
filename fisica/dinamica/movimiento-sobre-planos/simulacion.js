@@ -41,7 +41,7 @@
         : "Miramos solo las flechas que van a lo largo del plano. El rozamiento se compensa en el paso siguiente.";
     const componentes = d.pesoParalelo === 0 && d.fuerzaPerpendicular === 0
       ? "El peso ya es perpendicular al plano y el empuje va a lo largo de él. Cada fuerza coincide con una de sus componentes."
-      : "Las guías de puntos cierran un triángulo rectángulo: la fuerza completa es su hipotenusa y las componentes son sus catetos. Las flechas continuas parten del centro del bloque. En el formulario de abajo puedes girar este triángulo y descubrir por qué usamos seno o coseno.";
+      : "Las guías de puntos cierran un triángulo rectángulo: la fuerza completa es su hipotenusa y las componentes son sus catetos. Sigue las flechas del mismo color para ver las dos partes de cada fuerza. En el formulario de abajo puedes girar este triángulo y descubrir por qué usamos seno o coseno.";
     return [
       ["Las fuerzas que actúan", "El peso es vertical; la normal es perpendicular al plano. La fuerza aplicada y el rozamiento también cuentan. Vamos a sumar sus vectores sin mover todavía el bloque.", "El plano horizontal es este mismo sistema con θ = 0°."],
       ["Una fuerza, dos componentes", componentes, `P∥ = ${n(d.pesoParalelo)} N · P⊥ = ${n(d.pesoPerpendicular)} N · F∥ = ${n(d.fuerzaParalela)} N · F⊥ = ${n(d.fuerzaPerpendicular)} N`],
@@ -56,15 +56,17 @@
   function renderizar() {
     const { paso, progreso } = fase();
     const tiempo = datos.seMueve ? Math.max(0, instante - finSuma) * 0.5 : 0;
+    const vistaComponentes = !iniciado && $("componentes").checked;
+    $("componentes").disabled = iniciado || !datos.contacto;
     pintarLienzo({
       d: datos, paso, progreso: reducida.matches ? 1 : progreso, tiempo,
-      iniciado, componentes: $("componentes").checked, reducir: reducida.matches,
+      iniciado, componentes: vistaComponentes, reducir: reducida.matches,
     });
     salida("tiempo", n(tiempo) + " s");
     salida("velocidad", n((datos.aceleracion ?? 0) * tiempo) + " m/s");
     salida("distancia", n((datos.aceleracion ?? 0) * tiempo ** 2 / 2) + " m");
     if (paso !== ultimoPaso) {
-      const relato = relatos()[paso];
+      const relato = relatos()[vistaComponentes && paso === 0 ? 1 : paso];
       salida("titulo-paso", relato[0]); salida("texto-paso", relato[1]); salida("cuenta-paso", relato[2]);
       botonesPasos.forEach((b, i) => {
         if (i === paso) b.setAttribute("aria-current", "step"); else b.removeAttribute("aria-current");
@@ -132,7 +134,7 @@
       detener(); $("reproducir").textContent = "Continuar"; salida("estado", "En pausa. Puedes revisar cada paso."); return;
     }
     if (terminado) reiniciar();
-    iniciado = true; enMarcha = true; $("reproducir").textContent = "Pausar";
+    iniciado = true; enMarcha = true; ultimoPaso = -1; $("reproducir").textContent = "Pausar";
     salida("estado", "Composición en marcha. El tiempo de movimiento empieza al terminar la suma.");
     cuadro = requestAnimationFrame(avanzar);
   });
@@ -149,7 +151,9 @@
   botonesPasos.forEach((b) => b.addEventListener("click", () => irAPaso(Number(b.dataset.paso))));
   $("siguiente").addEventListener("click", () => irAPaso(Math.min(5, fase().paso + 1)));
   $("controles").addEventListener("input", (evento) => {
-    if (evento.target.id === "componentes") renderizar(); else actualizar();
+    if (evento.target.id === "componentes") {
+      ultimoPaso = -1; renderizar();
+    } else actualizar();
   });
   const casos = {
     horizontal: { angulo: 0, masa: 5, fuerza: 30, superficie: "rugosa", beta: 0, sentido: 1 },

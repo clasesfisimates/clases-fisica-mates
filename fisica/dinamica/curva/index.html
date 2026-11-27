@@ -58,12 +58,12 @@
             <figure>
               <canvas id="escena" role="img" aria-label="Vista cenital de una pista circular con un coche. La velocidad es tangente y, con agarre, la fuerza apunta al centro."></canvas>
               <figcaption>
-                <ul class="taller-leyenda">
-                  <li><i style="--muestra: #a6f1ff" aria-hidden="true"></i>Velocidad</li>
-                  <li><i style="--muestra: #ffcc8b" aria-hidden="true"></i>Fuerza centrípeta</li>
-                  <li><i style="--muestra: #ff9bb9" aria-hidden="true"></i>Tangente de salida</li>
-                </ul>
-                Compara las barras de fuerza requerida y disponible. Al perder agarre, el modelo ideal sigue la tangente con rozamiento lateral nulo.
+                <fieldset class="capas-vectores">
+                  <legend>Flechas visibles</legend>
+                  <label style="--tinta: #116583"><input type="checkbox" data-vector="velocidad" checked><b aria-hidden="true">v</b> Velocidad</label>
+                  <label style="--tinta: #975114"><input type="checkbox" data-vector="centripeta" checked><b aria-hidden="true">Fc</b> Fuerza centrípeta</label>
+                </fieldset>
+                La velocidad (m/s) apunta en el sentido de marcha. Con agarre, la fuerza (N) apunta al centro. Cada flecha tiene su propia escala. La pista es esquemática y su radio se indica en metros. Si el coche pierde el agarre, sigue la línea rosa.
               </figcaption>
             </figure>
             <div class="taller-acciones">
@@ -104,7 +104,6 @@
                 <input id="agarre" type="range" min="0" max="1.6" step="0.01" value="1.5" data-unidad="">
               </div>
             </div>
-            <label class="taller-capa"><input id="capa" type="checkbox" checked> Ver los vectores de velocidad y fuerza</label>
             <div class="taller-botones taller-preajustes" role="group" aria-label="Situaciones de partida">
               <button type="button" class="boton secundario" data-preajuste='{"masa":500,"rapidez":120,"radio":80,"agarre":1.5}'>Ejercicio 9</button>
               <button type="button" class="boton secundario" data-preajuste='{"masa":500,"rapidez":120,"radio":80,"agarre":0.6}'>Poco agarre</button>

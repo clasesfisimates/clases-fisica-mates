@@ -95,7 +95,7 @@
               <small id="ayuda-beta">0°: paralelo. Positivo: tira hacia fuera del plano. Negativo: presiona contra él.</small>
             </div>
           </details>
-          <label class="casilla"><input type="checkbox" id="componentes" checked> Ver componentes al preparar</label>
+          <label class="casilla"><input type="checkbox" id="componentes"> Descomponer las fuerzas antes de iniciar</label>
           <p class="modelo-nota">g = 9,8 m/s². Plano fijo, sin aire. El modelo requiere que el bloque siga en contacto con el plano.</p>
           <p id="aviso-contacto" class="aviso-contacto" role="status" hidden></p>
         </section>
@@ -134,7 +134,7 @@
               <div class="medida-resultante"><dt>Resultante paralela</dt><dd id="resultante"></dd></div><div><dt>Aceleración</dt><dd id="aceleracion"></dd></div>
               <div><dt>Velocidad</dt><dd id="velocidad"></dd></div><div><dt>Desplazamiento</dt><dd id="distancia"></dd></div><div><dt>Tiempo de movimiento</dt><dd id="tiempo"></dd></div>
             </dl>
-            <p class="convencion">En el eje paralelo, + apunta a la derecha y − a la izquierda. En el perpendicular, + apunta hacia fuera del plano. Las componentes se dibujan desde el centro y sustituyen a la fuerza original en la suma.</p>
+            <p class="convencion">En el eje paralelo, + apunta a la derecha y − a la izquierda. En el perpendicular, + apunta hacia fuera del plano. Las componentes sustituyen a la fuerza original en la suma. Cuando dos flechas coinciden, se dibujan lado a lado para poder compararlas.</p>
             <p class="estado" id="estado" role="status"></p>
             <p class="convencion">El reloj solo mide el movimiento. Para observarlo mejor, se reproduce a cámara lenta: 0,5× cuando el ritmo está en 1×.</p>
           </div>
@@ -166,6 +166,9 @@
             <button type="button" class="boton" id="triangulo-animar">Ver construcción</button>
             <div class="triangulo-pasos" role="group" aria-label="Pasos de la construcción del triángulo"><button type="button" data-triangulo-paso="0">La fuerza</button><button type="button" data-triangulo-paso="1">Las componentes</button><button type="button" data-triangulo-paso="2" aria-current="step">El triángulo</button></div>
           </div>
+          <label class="triangulo-recorrido" for="triangulo-recorrido">Recorre la construcción
+            <input id="triangulo-recorrido" type="range" min="0" max="1000" value="1000" aria-valuetext="El triángulo">
+          </label>
           <div class="triangulo-dibujos">
             <figure><figcaption id="triangulo-contexto-titulo">En la rampa</figcaption><canvas id="triangulo-contexto" role="img" aria-label="El peso y sus componentes en un plano inclinado."></canvas><p id="triangulo-contexto-nota">El peso es vertical. Fíjate en el ángulo entre el peso y la dirección perpendicular al plano.</p></figure>
             <figure><figcaption>El mismo triángulo, colocado recto</figcaption><canvas id="triangulo-recto" role="img" aria-label="Triángulo rectángulo de las componentes del peso."></canvas><p>Para cerrar el triángulo trasladamos una componente. No añadimos otra fuerza. El lado más largo, la <strong>hipotenusa</strong>, representa la fuerza completa.</p></figure>

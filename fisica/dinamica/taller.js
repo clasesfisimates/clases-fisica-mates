@@ -33,7 +33,8 @@
     const controles = Object.fromEntries([...panel.querySelectorAll("input[type=range]")].map(campo => [campo.id, campo]));
     const recorrido = document.getElementById("recorrido");
     const velocidad = document.getElementById("ritmo");
-    const capa = document.getElementById("capa");
+    const controlesVectores = [...document.querySelectorAll("[data-vector]")];
+    const visibles = Object.fromEntries(controlesVectores.map(campo => [campo.dataset.vector, campo.checked]));
     const salidas = [...document.querySelectorAll("[data-medida]")];
     const pintar = lienzo(document.getElementById("escena"), dibujar);
     let datos;
@@ -46,7 +47,7 @@
       salida("tiempo-ensayo", unidades(actual.t, "s"));
       recorrido.value = String(Math.round(progreso * 1000));
       recorrido.setAttribute("aria-valuetext", unidades(actual.t, "segundos"));
-      pintar({ ...actual, progreso, capa: capa?.checked });
+      pintar({ ...actual, progreso, visibles });
     }, "Iniciar", "Repetir", () => Number(velocidad.value));
 
     function leerControles() {
@@ -75,7 +76,10 @@
       boton.addEventListener("click", () => reloj.irA(duracion * Number(boton.dataset.instante)));
     }
     recorrido.addEventListener("input", () => reloj.irA(duracion * recorrido.valueAsNumber / 1000));
-    capa?.addEventListener("change", reloj.redibujar);
+    for (const campo of controlesVectores) campo.addEventListener("change", () => {
+      visibles[campo.dataset.vector] = campo.checked;
+      reloj.redibujar();
+    });
     for (const [id, definicion] of Object.entries(formulas)) {
       const boton = document.getElementById(id);
       window.FormulaInteractiva.enlazar(boton, { ...definicion, leerValores: () => definicion.valores(actual) });

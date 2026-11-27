@@ -1,6 +1,6 @@
 (() => {
   "use strict";
-  const { numero, lienzo, flecha, linea, bloque } = window.LabDinamica;
+  const { numero, lienzo, flecha, linea, bloque, etiquetaVector, suavizar } = window.LabDinamica;
   const $ = (id) => document.getElementById(id);
   const escribir = (id, texto) => { $(id).textContent = texto; };
   const n = (valor) => numero(valor, 1);
@@ -8,7 +8,6 @@
   const reducido = window.matchMedia("(prefers-reduced-motion: reduce)");
   let tipo = "peso", progreso = 1, cuadro = null, anterior = null, activo = false;
   const azul = "#94caff", violeta = "#e5abff";
-  const escala = 1.5; // Píxeles por newton: fija en ambos dibujos y para todos los ajustes.
 
   function datos() {
     const ejemplo = ejemplos[tipo];
@@ -21,12 +20,7 @@
       color: peso ? "#ffba80" : "#8be9cc" };
   }
   function rotulo(ctx, texto, x, y, color = "#dce9ff", tamano = 16) {
-    ctx.save(); ctx.font = `650 ${tamano}px system-ui, sans-serif`;
-    const anchoTexto = ctx.measureText(texto).width;
-    x = Math.max(8, Math.min(ctx.canvas.clientWidth - anchoTexto - 8, x));
-    y = Math.max(20, Math.min(ctx.canvas.clientHeight - 14, y));
-    ctx.fillStyle = "#132347e8"; ctx.fillRect(x - 3, y - 16, anchoTexto + 6, 21);
-    ctx.fillStyle = color; ctx.fillText(texto, x, y); ctx.restore();
+    etiquetaVector(ctx, texto, x, y - 5, color, "left", tamano);
   }
   const punto = (o, v) => ({ x: o.x + v.x, y: o.y + v.y });
 
@@ -37,9 +31,10 @@
     for (let x = 18; x < ancho; x += 24) for (let y = 18; y < alto; y += 24) {
       ctx.fillStyle = "#99bdf322"; ctx.fillRect(x, y, 1.5, 1.5);
     }
+    const escala = Math.min(1.65, (ancho - 66) / 100, (alto - 107) / 100);
     const largo = d.magnitud * escala;
-    const origen = recto ? { x: (ancho - 150) / 2, y: d.peso ? 66 : alto - 66 }
-      : d.peso ? { x: ancho * 0.49, y: 72 } : { x: (ancho - 150) / 2, y: alto - 74 };
+    const origen = !recto && d.peso ? { x: ancho / 2, y: 62 } :
+      { x: (ancho - 100 * escala) / 2, y: d.peso ? 62 : alto - 65 };
     const adyacente = recto || !d.peso ? { x: d.adyacente * escala, y: 0 }
       : { x: d.adyacente * escala * Math.sin(d.radianes), y: d.adyacente * escala * Math.cos(d.radianes) };
     const opuesto = recto ? { x: 0, y: (d.peso ? 1 : -1) * d.opuesto * escala }
@@ -48,8 +43,11 @@
     const a = punto(origen, adyacente);
     const b = punto(a, opuesto);
     const c = punto(origen, opuesto);
-    const crecimiento = Math.max(0, Math.min(1, (d.progreso - 0.16) / 0.54));
-    const triangulo = Math.max(0, Math.min(1, (d.progreso - 0.66) / 0.24));
+    const junto = suavizar((d.progreso - 0.12) / 0.30);
+    const enfrente = suavizar((d.progreso - 0.34) / 0.29);
+    const triangulo = suavizar((d.progreso - 0.69) / 0.28);
+    const inicioOpuesto = recto ? punto(origen, { x: adyacente.x * triangulo, y: adyacente.y * triangulo }) : origen;
+    const finOpuesto = punto(inicioOpuesto, opuesto);
 
     if (!recto) {
       const theta = d.peso ? d.radianes : 0;
@@ -71,23 +69,30 @@
       ctx.beginPath(); ctx.moveTo(origen.x, origen.y); ctx.lineTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.closePath();
       ctx.fillStyle = "#a690f52c"; ctx.fill(); ctx.restore();
     }
-    if (crecimiento > 0) {
-      if (!recto) {
-        ctx.save(); ctx.globalAlpha = crecimiento * 0.8; ctx.setLineDash([2, 5]);
-        linea(ctx, a.x, a.y, b.x, b.y, violeta, 2);
-        linea(ctx, c.x, c.y, b.x, b.y, azul, 2); ctx.restore();
+    const coincide = d.adyacente === 0 || d.opuesto === 0;
+    if (junto > 0 && !coincide) {
+      ctx.save(); ctx.globalAlpha = junto * 0.7 * (recto ? 1 - triangulo : 1); ctx.setLineDash([2, 5]);
+      linea(ctx, a.x, a.y, b.x, b.y, violeta, 1.5);
+      linea(ctx, c.x, c.y, b.x, b.y, azul, 1.5); ctx.restore();
+    }
+    ctx.save(); ctx.globalAlpha = coincide ? 1 : 1 - 0.52 * enfrente;
+    flecha(ctx, origen.x, origen.y, b.x - origen.x, b.y - origen.y, d.color, 4);
+    ctx.restore();
+    if (!coincide) {
+      flecha(ctx, origen.x, origen.y, adyacente.x * junto, adyacente.y * junto, azul, 4);
+      flecha(ctx, inicioOpuesto.x, inicioOpuesto.y, opuesto.x * enfrente, opuesto.y * enfrente, violeta, 4);
+      if (d.adyacente * escala > 15 && junto > 0.9) {
+        const x = (origen.x + a.x) / 2 + (recto || !d.peso ? 0 : 25);
+        etiquetaVector(ctx, d.ladoAdyacente, x, (origen.y + a.y) / 2 + (d.peso ? -19 : 19), azul);
       }
-      flecha(ctx, origen.x, origen.y, adyacente.x * crecimiento, adyacente.y * crecimiento, azul, false, 4);
-      const inicioOpuesto = recto ? a : origen;
-      flecha(ctx, inicioOpuesto.x, inicioOpuesto.y, opuesto.x * crecimiento, opuesto.y * crecimiento, violeta, false, 4);
-      if (crecimiento > 0.9) {
-        if (d.adyacente > 3) rotulo(ctx, d.ladoAdyacente, (origen.x + a.x) / 2 + (recto ? -12 : 12), (origen.y + a.y) / 2 + (recto && !d.peso ? 26 : -12), azul);
-        if (d.opuesto > 3) rotulo(ctx, d.ladoOpuesto, (inicioOpuesto.x + (recto ? b.x : c.x)) / 2 + (recto ? 16 : -43), (inicioOpuesto.y + (recto ? b.y : c.y)) / 2 + (recto ? 6 : 23), violeta);
+      if (d.opuesto * escala > 15 && enfrente > 0.9) {
+        const lado = recto ? 2 * triangulo - 1 : -1;
+        etiquetaVector(ctx, d.ladoOpuesto, (inicioOpuesto.x + finOpuesto.x) / 2 + 22 * lado,
+          (inicioOpuesto.y + finOpuesto.y) / 2 + (!recto && d.peso ? 12 : 0), violeta);
       }
     }
-    flecha(ctx, origen.x, origen.y, b.x - origen.x, b.y - origen.y, d.color, false, 3);
-    rotulo(ctx, d.simbolo, b.x + 10, b.y + (d.peso ? 22 : -12), d.color);
-
+    const nombre = coincide && enfrente > 0.9 ? d.simbolo + " = " + (d.adyacente ? d.ladoAdyacente : d.ladoOpuesto) : d.simbolo;
+    etiquetaVector(ctx, nombre, b.x, b.y + (d.peso ? 19 : -19), d.color);
     if (triangulo > 0 && d.adyacente * escala > 12 && d.opuesto * escala > 12) {
       const ua = { x: adyacente.x / (d.adyacente * escala), y: adyacente.y / (d.adyacente * escala) };
       const uo = { x: opuesto.x / (d.opuesto * escala), y: opuesto.y / (d.opuesto * escala) };
@@ -96,7 +101,7 @@
       linea(ctx, esquina1.x, esquina1.y, esquina2.x, esquina2.y, "#dce9ff", 1.5);
       linea(ctx, esquina2.x, esquina2.y, a.x + uo.x * 10, a.y + uo.y * 10, "#dce9ff", 1.5);
     }
-    if (triangulo > 0 && d.angulo > 0) {
+    if (triangulo > 0 && !coincide && largo > 55) {
       const inicio = Math.atan2(adyacente.y, adyacente.x);
       const giro = (d.peso ? 1 : -1) * d.radianes;
       const radio = Math.min(30, largo * 0.38);
@@ -104,14 +109,21 @@
       ctx.strokeStyle = "#ffe38a"; ctx.lineWidth = 2; ctx.stroke();
       rotulo(ctx, d.anguloSimbolo, origen.x + (radio + 17) * Math.cos(inicio + giro / 2), origen.y + (radio + 17) * Math.sin(inicio + giro / 2) + 6, "#ffe38a");
     }
-    rotulo(ctx, recto ? "Azul: junto · Violeta: enfrente" : "Flechas: fuerzas · Puntos: guías", 12, alto - 17, "#dce9ff", 14);
+    const lectura = d.progreso < 0.12 ? "Observa la fuerza completa" :
+      coincide ? "Toda la fuerza está en un solo eje" :
+      d.progreso < 0.69 ? "Dos componentes desde el mismo punto" :
+      !recto ? "Los puntos guían la proyección" : triangulo < 0.99 ? "Lleva la segunda flecha hasta la punta" : "Una flecha empieza donde acaba la otra";
+    rotulo(ctx, lectura, 8, alto - 12, "#dce9ff", 12);
   }
   const contexto = lienzo($("triangulo-contexto"), (ctx, ancho, alto, d) => dibujar(ctx, ancho, alto, d, false));
   const recto = lienzo($("triangulo-recto"), (ctx, ancho, alto, d) => dibujar(ctx, ancho, alto, d, true));
   function pintar() {
     const d = { ...datos(), progreso };
     contexto(d); recto(d);
-    const paso = progreso < 0.17 ? 0 : progreso < 0.78 ? 1 : 2;
+    const paso = progreso < 0.12 ? 0 : progreso < 0.69 ? 1 : 2;
+    const recorrido = $("triangulo-recorrido");
+    recorrido.value = Math.round(progreso * 1000);
+    recorrido.setAttribute("aria-valuetext", ["La fuerza completa", "Las dos componentes", "Unión de las componentes"][paso]);
     for (const boton of document.querySelectorAll("[data-triangulo-paso]")) {
       if (Number(boton.dataset.trianguloPaso) === paso) boton.setAttribute("aria-current", "step");
       else boton.removeAttribute("aria-current");
@@ -153,24 +165,31 @@
   function detener() {
     if (cuadro !== null) cancelAnimationFrame(cuadro);
     cuadro = null; anterior = null; activo = false;
-    escribir("triangulo-animar", progreso > 0 && progreso < 1 ? "Continuar construcción" : "Ver construcción");
+    escribir("triangulo-animar", reducido.matches ? "Paso siguiente" : progreso > 0 && progreso < 1 ? "Continuar construcción" : "Ver construcción");
   }
-  function completar() { detener(); progreso = 1; actualizar(); escribir("triangulo-animar", "Ver construcción"); }
+  function completar() { progreso = 1; detener(); actualizar(); }
   function avanzar(ahora) {
     if (!activo) return;
-    if (anterior !== null) progreso = Math.min(1, progreso + Math.min((ahora - anterior) / 1000, 0.05) / 4);
+    if (anterior !== null) progreso = Math.min(1, progreso + Math.min((ahora - anterior) / 1000, 0.05) / 5.2);
     anterior = ahora; pintar();
     if (progreso === 1) detener(); else cuadro = requestAnimationFrame(avanzar);
   }
+  $("triangulo-recorrido").addEventListener("input", evento => {
+    progreso = evento.target.valueAsNumber / 1000;
+    detener(); pintar();
+  });
   $("triangulo-animar").addEventListener("click", () => {
-    if (reducido.matches) { completar(); return; }
+    if (reducido.matches) {
+      progreso = progreso < 0.12 ? 0.66 : progreso < 0.69 ? 1 : 0;
+      detener(); pintar(); return;
+    }
     if (activo) { detener(); return; }
     if (progreso >= 1) progreso = 0;
     activo = true; anterior = null; escribir("triangulo-animar", "Pausar construcción"); pintar();
     cuadro = requestAnimationFrame(avanzar);
   });
   for (const boton of document.querySelectorAll("[data-triangulo-paso]")) boton.addEventListener("click", () => {
-    progreso = [0, 0.69, 1][Number(boton.dataset.trianguloPaso)]; detener(); pintar();
+    progreso = [0, 0.66, 1][Number(boton.dataset.trianguloPaso)]; detener(); pintar();
   });
   for (const campo of ["angulo", "magnitud"]) $("triangulo-" + campo).addEventListener("input", () => {
     ejemplos[tipo][campo] = $("triangulo-" + campo).valueAsNumber;
@@ -212,5 +231,5 @@
   document.querySelector(".casos").addEventListener("click", resumenEnsayo);
   document.addEventListener("visibilitychange", () => { if (document.hidden) detener(); });
   reducido.addEventListener("change", completar);
-  actualizar(); resumenEnsayo();
+  completar(); resumenEnsayo();
 })();

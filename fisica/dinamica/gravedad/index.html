@@ -58,10 +58,10 @@
             <figure>
               <canvas id="escena" role="img" aria-label="Dos asteroides se atraen a lo largo de la recta que une sus centros. Una marca señala el centro de masas."></canvas>
               <figcaption>
-                <ul class="taller-leyenda">
-                  <li><i style="--muestra: #ffe2a4" aria-hidden="true"></i>Fuerzas de igual módulo</li>
-                  <li><i style="--muestra: #8df4df" aria-hidden="true"></i>Centro de masas</li>
-                </ul>
+                <fieldset class="capas-vectores">
+                  <legend>Flechas visibles</legend>
+                  <label style="--tinta: #805714"><input type="checkbox" data-vector="atraccion" checked><b aria-hidden="true">F₁ · F₂</b> Atracción entre los dos cuerpos</label>
+                </fieldset>
                 Las flechas actúan sobre cuerpos distintos. El centro de masas permanece fijo. El tamaño de los asteroides es esquemático.
               </figcaption>
             </figure>
@@ -98,7 +98,6 @@
                 <input id="distancia" type="range" min="2" max="4" step="0.05" value="3" data-unidad=" km">
               </div>
             </div>
-            <label class="taller-capa"><input id="capa" type="checkbox" checked> Ver fuerzas gravitatorias</label>
             <div class="taller-botones taller-preajustes" role="group" aria-label="Situaciones de partida">
               <button type="button" class="boton secundario" data-preajuste='{"m1":6,"m2":6,"distancia":3}'>Masas iguales</button>
               <button type="button" class="boton secundario" data-preajuste='{"m1":2,"m2":10,"distancia":3}'>Una masa mayor</button>

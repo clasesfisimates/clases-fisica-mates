@@ -18,18 +18,18 @@
       ${v.campo("su-angulo", "Dirección de F1", -180, 180, 1, 20, "°")}
       <p class="fv-ayuda">0°: derecha. 90°: arriba. −90°: abajo. Las otras cinco fuerzas mantienen sus valores.</p>
       <div class="fv-ejemplos" role="group" aria-label="Ejemplos de suma vectorial"><button type="button" data-suma-caso="oblicuas">Seis fuerzas oblicuas</button><button type="button" data-suma-caso="equilibrio">Todas se equilibran</button></div>
-      <table class="fv-tabla"><caption>Componentes de cada fuerza, en N</caption><thead><tr><th>Fuerza</th><th>∥</th><th>⊥</th></tr></thead><tbody id="su-tabla"></tbody><tfoot><tr><th>Suma</th><td id="su-total-x"></td><td id="su-total-y"></td></tr></tfoot></table>
+      <table class="fv-tabla"><caption>Elige una fuerza para ver sus componentes (N)</caption><thead><tr><th>Fuerza</th><th>∥</th><th>⊥</th></tr></thead><tbody id="su-tabla"></tbody><tfoot><tr><th>Suma</th><td id="su-total-x"></td><td id="su-total-y"></td></tr></tfoot></table>
     </div></div>
     <div class="fv-desarrollo"><h3>Dos sumas sencillas sustituyen una suma complicada</h3><p>Descompón cada fuerza en horizontal y vertical. En cada eje, <strong>suma las que apuntan en el mismo sentido y resta las que apuntan en sentido contrario</strong>. Se compensan cantidades iguales, no necesariamente flechas enteras.</p><p>Las dos componentes que quedan forman la diagonal de un triángulo: esa diagonal es la <strong>fuerza resultante total</strong>. Resume el efecto de las seis fuerzas; no se añade como una séptima fuerza.</p><p class="ecuacion">R∥ = ΣF∥ &nbsp; · &nbsp; R⊥ = ΣF⊥<br>|R| = √(R∥² + R⊥²)</p></div>`);
   const { $, texto, dialogo } = vista;
-  const duraciones = [1.3, 5.4, 2.6, 2.6, 2.8];
+  const duraciones = [1.5, 12, 2.8, 2.8, 3.4];
   const inicios = duraciones.map((_, i) => duraciones.slice(0, i).reduce((a, b) => a + b, 0));
   const fin = duraciones.reduce((a, b) => a + b, 0);
-  // Solo el ancho de pantalla cambia la escala. Se mantiene al variar los
+  // Solo el tamaño del lienzo cambia la escala. Se mantiene al variar los
   // controles y durante todos los pasos, incluso para las sumas parciales.
-  const escalaPara = (ancho) => Math.min(1.15, (ancho / 2 - 18) / 160);
+  const escalaPara = (ancho, alto) => Math.min(1.15, (ancho / 2 - 18) / 160, (alto * 0.47 - 50) / 160);
   let fuerzas = [], resultado, tiempo = 0, cuadro = null, anterior = null, activo = false, relatoAnterior = "";
-  const suave = (x) => { const t = Math.max(0, Math.min(1, x)); return t * t * (3 - 2 * t); };
+  const suave = v.suavizar;
   function fase() {
     const indice = inicios.findIndex((inicio, i) => tiempo < inicio + duraciones[i]);
     const paso = indice < 0 ? 4 : indice;
@@ -41,27 +41,36 @@
     v.linea(ctx, o.x, 45, o.x, alto - 44, "#90aed459"); ctx.restore();
   }
   function descomponer(ctx, o, f, q, pequeno = false) {
-    const escala = escalaPara(ctx.canvas.clientWidth);
+    const escala = escalaPara(ctx.canvas.clientWidth, ctx.canvas.clientHeight);
     const x = f.x * escala, y = -f.y * escala;
+    if (x === 0 || y === 0) {
+      const color = q < 0.5 ? f.color : x ? "#94caff" : "#e5abff";
+      v.flecha(ctx, o.x, o.y, x, y, color);
+      if (!pequeno) {
+        const nombre = !x && !y ? f.nombre + " = 0 N" :
+          q < 0.5 ? f.nombre : f.nombre + " = " + f.nombre + (x ? "∥" : "⊥");
+        v.etiquetaVector(ctx, nombre, o.x + x, o.y + y + (y < 0 ? -18 : 18), color);
+      }
+      return;
+    }
     if (q > 0) {
       ctx.beginPath(); ctx.moveTo(o.x, o.y); ctx.lineTo(o.x + x, o.y); ctx.lineTo(o.x + x, o.y + y); ctx.closePath();
-      ctx.fillStyle = f.color + "25"; ctx.fill();
-      ctx.save(); ctx.setLineDash([2, 4]);
+      ctx.save(); ctx.globalAlpha = q; ctx.fillStyle = f.color + "25"; ctx.fill(); ctx.restore();
+      ctx.save(); ctx.globalAlpha = q; ctx.setLineDash([2, 4]);
       v.linea(ctx, o.x + x, o.y, o.x + x, o.y + y, f.color + "99", 1.5);
       v.linea(ctx, o.x, o.y + y, o.x + x, o.y + y, f.color + "99", 1.5); ctx.restore();
-      v.flecha(ctx, o.x, o.y, x * q, 0, "#94caff", false, 3.5);
-      v.flecha(ctx, o.x, o.y, 0, y * q, "#e5abff", false, 3.5);
     }
-    ctx.save(); ctx.globalAlpha = 1 - q * 0.65;
-    v.flecha(ctx, o.x, o.y, x, y, f.color, false, 3); ctx.restore();
-    if (!pequeno) {
-      if (Math.abs(x) > 3) v.rotulo(ctx, f.nombre + "∥", o.x + x + (x < 0 ? -31 : 8), o.y + 25, "#94caff");
-      if (Math.abs(y) > 3) v.rotulo(ctx, f.nombre + "⊥", o.x + 10, o.y + y + (y < 0 ? -10 : 22), "#e5abff");
-      v.rotulo(ctx, f.nombre, o.x + x + 8, o.y + y - 12, f.color);
-    }
+    const piezas = [
+      { x, y, color: f.color, rotulo: f.nombre, alfa: 1 - q * 0.16 },
+      { x: x * q, y: 0, color: "#94caff", rotulo: f.nombre + "∥", alfa: q },
+      { x: 0, y: y * q, color: "#e5abff", rotulo: f.nombre + "⊥", alfa: q }
+    ];
+    const vectores = piezas.map(pieza => ({ ...pieza, longitud: Math.hypot(pieza.x, pieza.y),
+      rotulo: pequeno ? "" : pieza.rotulo })).filter(pieza => pieza.longitud >= 0.1);
+    v.dibujarVectores(ctx, o, vectores, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
   }
   const pintar = v.lienzo($("lienzo"), (ctx, ancho, alto, d) => {
-    const escala = escalaPara(ancho);
+    const escala = escalaPara(ancho, alto);
     const { paso, q, r } = d;
     const o = { x: ancho / 2, y: alto * 0.47 };
     ejes(ctx, o, ancho, alto);
@@ -79,12 +88,11 @@
     ctx.save(); ctx.globalAlpha = paso < 2 ? 1 : 0.3;
     v.bloque(ctx, o.x, o.y, 38, 38); ctx.restore();
     if (paso === 0) {
-      for (const f of r.componentes) {
-        const x = f.x * escala, y = -f.y * escala;
-        v.flecha(ctx, o.x, o.y, x, y, f.color, false, 3.5);
-        const longitud = Math.hypot(x, y);
-        if (longitud > 0) v.rotulo(ctx, f.nombre, o.x + x + x / longitud * 19 - 9, o.y + y + y / longitud * 22 + 6, f.color);
-      }
+      const vectores = r.componentes.filter(f => f.magnitud > 0).map(f => ({
+        x: f.x * escala, y: -f.y * escala, longitud: f.magnitud * escala,
+        color: f.color, rotulo: f.nombre, alfa: 1
+      }));
+      v.dibujarVectores(ctx, o, vectores, ancho, alto);
       v.rotulo(ctx, "Seis fuerzas sobre un bloque", 14, 29, "#dce8ff", 14);
     } else if (paso === 1) {
       const tramo = Math.min(5.999, q / 0.88 * 6), indice = Math.floor(tramo);
@@ -99,13 +107,17 @@
       const restoPositivo = (positiva - comun * suave(q)) * escala;
       const restoNegativo = (negativa - comun * suave(q)) * escala;
       if (horizontal) {
-        v.flecha(ctx, o.x, o.y - 9, restoPositivo, 0, "#94caff", false, 5);
-        v.flecha(ctx, o.x, o.y + 9, -restoNegativo, 0, "#e5abff", false, 5);
+        v.flecha(ctx, o.x, o.y - 9, restoPositivo, 0, "#94caff", 5);
+        v.flecha(ctx, o.x, o.y + 9, -restoNegativo, 0, "#94caff", 5);
+        if (restoPositivo > 1) v.etiquetaVector(ctx, "→ " + v.n(restoPositivo / escala) + " N", o.x + restoPositivo / 2, o.y - 30, "#94caff");
+        if (restoNegativo > 1) v.etiquetaVector(ctx, "← " + v.n(restoNegativo / escala) + " N", o.x - restoNegativo / 2, o.y + 30, "#94caff");
       } else {
-        v.flecha(ctx, o.x - 9, o.y, 0, -restoPositivo, "#94caff", false, 5);
-        v.flecha(ctx, o.x + 9, o.y, 0, restoNegativo, "#e5abff", false, 5);
+        v.flecha(ctx, o.x - 9, o.y, 0, -restoPositivo, "#e5abff", 5);
+        v.flecha(ctx, o.x + 9, o.y, 0, restoNegativo, "#e5abff", 5);
+        if (restoPositivo > 1) v.etiquetaVector(ctx, "↑ " + v.n(restoPositivo / escala) + " N", o.x - 20, o.y - restoPositivo / 2, "#e5abff", "right");
+        if (restoNegativo > 1) v.etiquetaVector(ctx, "↓ " + v.n(restoNegativo / escala) + " N", o.x + 20, o.y + restoNegativo / 2, "#e5abff", "left");
         ctx.save(); ctx.globalAlpha = 0.4;
-        v.flecha(ctx, o.x, o.y, r.x * escala, 0, "#94caff", false, 3); ctx.restore();
+        v.flecha(ctx, o.x, o.y, r.x * escala, 0, "#94caff", 3); ctx.restore();
       }
       v.rotulo(ctx, horizontal ? "Derecha contra izquierda" : "Arriba contra abajo", 14, 29, "#dce8ff", 14);
       v.rotulo(ctx, `Opuestas: ${v.n(comun * suave(q))} N por lado`, 14, alto - 27, "#ffe38a", 14);
@@ -113,14 +125,14 @@
       const x = r.x * escala, y = -r.y * escala;
       const trasladar = suave(q / 0.55), destacar = suave((q - 0.35) / 0.65);
       ctx.save(); ctx.globalAlpha = 1 - destacar * 0.65;
-      v.flecha(ctx, o.x, o.y, x, 0, "#94caff", false, 4);
-      v.flecha(ctx, o.x + x * trasladar, o.y, 0, y, "#e5abff", false, 4);
+      v.flecha(ctx, o.x, o.y, x, 0, "#94caff", 4);
+      v.flecha(ctx, o.x + x * trasladar, o.y, 0, y, "#e5abff", 4);
       if (Math.abs(x) > 3 && Math.abs(y) > 3) {
         ctx.beginPath(); ctx.moveTo(o.x, o.y); ctx.lineTo(o.x + x, o.y); ctx.lineTo(o.x + x, o.y + y); ctx.closePath();
         ctx.fillStyle = "#ffe38a20"; ctx.fill();
       }
       ctx.restore();
-      v.flecha(ctx, o.x, o.y, x * destacar, y * destacar, "#ffe38a", false, 5);
+      v.flecha(ctx, o.x, o.y, x * destacar, y * destacar, "#ffe38a", 5);
       if (r.modulo < 1e-8) v.rotulo(ctx, "ΣF = 0 N", o.x - 48, o.y + 60, "#ffe38a", 20);
       else if (destacar > 0.2) v.rotulo(ctx, `R = ${v.n(r.modulo)} N`, o.x + x + 10, o.y + y - 18, "#ffe38a");
       v.rotulo(ctx, r.modulo < 1e-8 ? "Equilibrio: resultante cero" : "La diagonal es la resultante", 14, 29, "#dce8ff", 14);
@@ -134,6 +146,9 @@
     const clave = paso + ":" + parte;
     if (clave !== relatoAnterior) {
       relatoAnterior = clave;
+      for (const boton of $("tabla").querySelectorAll("[data-ver-fuerza]")) {
+        boton.setAttribute("aria-pressed", String(paso === 1 && boton.dataset.verFuerza === parte));
+      }
       const relatos = [
         ["Empezamos con seis fuerzas", "Cada flecha tiene longitud, dirección y sentido. No podemos sumar sus longitudes sin mirar hacia dónde apuntan."],
         [q >= 0.88 ? "Ya están separadas las seis fuerzas" : "Descomponemos una fuerza cada vez", "El lado horizontal y el vertical forman un triángulo con la fuerza original. Ahora todas las piezas se pueden agrupar en solo dos ejes. Mira la tabla para seguir cada componente."],
@@ -154,7 +169,7 @@
     resultado = v.modelo.sumar(fuerzas); relatoAnterior = "";
     texto("fuerza-valor", v.n(fuerzas[0].magnitud) + " N"); texto("angulo-valor", v.n(fuerzas[0].angulo) + "°");
     const n = (valor) => v.numero(valor, 2);
-    $("tabla").innerHTML = resultado.componentes.map((f) => `<tr><th scope="row" style="--color-fuerza:${f.color}">${f.nombre}</th><td>${n(f.x)}</td><td>${n(f.y)}</td></tr>`).join("");
+    $("tabla").innerHTML = resultado.componentes.map((f, i) => `<tr><th scope="row"><button type="button" data-ver-fuerza="${i}" aria-label="Ver componentes de ${f.nombre}" aria-pressed="false">${f.nombre}</button></th><td>${n(f.x)}</td><td>${n(f.y)}</td></tr>`).join("");
     texto("total-x", n(resultado.x)); texto("total-y", n(resultado.y));
     texto("cuenta-x", `ΣF∥ = ${n(resultado.positivaX)} − ${n(resultado.negativaX)} ≈ ${n(resultado.x)} N`);
     texto("cuenta-y", `ΣF⊥ = ${n(resultado.positivaY)} − ${n(resultado.negativaY)} ≈ ${n(resultado.y)} N`);
@@ -179,6 +194,13 @@
     if (activo) { detener(); return; }
     if (tiempo >= fin) tiempo = 0;
     activo = true; anterior = null; texto("animar", "Pausar suma"); cuadro = requestAnimationFrame(avanzar);
+  });
+  $("tabla").addEventListener("click", evento => {
+    const boton = evento.target.closest("[data-ver-fuerza]");
+    if (!boton) return;
+    // Pausa cuando ya han crecido ambas componentes de la fuerza elegida.
+    tiempo = inicios[1] + duraciones[1] * 0.88 * (Number(boton.dataset.verFuerza) + 0.97) / fuerzas.length;
+    detener(); mostrar();
   });
   $("reiniciar").addEventListener("click", reiniciar);
   dialogo.querySelectorAll("[data-suma-paso]").forEach((boton) => boton.addEventListener("click", () => irPaso(Number(boton.dataset.sumaPaso))));

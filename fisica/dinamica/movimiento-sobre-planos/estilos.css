@@ -22,7 +22,7 @@
 .pasos-fuerzas button { position: relative; min-width: 0; padding: 0.8rem 0.25rem; border: 0; border-bottom: 3px solid transparent; background: transparent; color: #445679; font: 650 0.875rem/1.3 system-ui, sans-serif; cursor: pointer; overflow-wrap: anywhere; }
 .pasos-fuerzas button[aria-current="step"] { border-bottom-color: #3a5bb9; background: #fff; color: #263e90; }
 .pasos-fuerzas button[data-completo="true"] { background: #dfe9ff; color: #334d82; }
-.visor-planos .lienzo { height: clamp(21rem, 31vw, 24rem); }
+.visor-planos .lienzo { height: clamp(23rem, 38vw, 29rem); }
 .relato-paso { min-height: 11.5rem; padding: 1rem 1.15rem; border-bottom: 1px solid #d5def2; background: linear-gradient(115deg, #edf3ff, #f2efff); }
 .relato-paso h2 { margin: 0 0 0.35rem; color: #263e90; font-size: 1.2rem; }
 .relato-paso p { margin: 0.35rem 0 0; }

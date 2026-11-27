@@ -57,10 +57,17 @@
     // Escala fija para cada ancho de pantalla; reserva también el avance
     // máximo de la caja para que quepa el empuje de 150 N en móvil.
     const escala = Math.min(0.8, (ancho * 0.345 - 14) / 150);
-    v.flecha(ctx, caja, suelo - 87, d.empuje * escala, 0, "#8be9cc", false, 4);
-    v.rotulo(ctx, "F", caja + d.empuje * escala + 5, suelo - 96, "#8be9cc");
-    v.flecha(ctx, caja, suelo + 24, -d.resistencia * escala, 0, "#e5abff", false, 4);
-    if (d.resistencia > 0) v.rotulo(ctx, "f", caja - d.resistencia * escala - 12, suelo + 46, "#e5abff");
+    const empuje = d.empuje * escala, roce = d.resistencia * escala;
+    const yEmpuje = suelo - 66, yRoce = suelo + 14;
+    if (empuje > 0) {
+      v.linea(ctx, caja, suelo - 52, caja, yEmpuje, "#d6e4e68c");
+      v.flecha(ctx, caja, yEmpuje, empuje, 0, "#8be9cc");
+      v.etiquetaVector(ctx, "Empuje →", caja + empuje / 2, yEmpuje - 18, "#8be9cc");
+    }
+    if (roce > 0) {
+      v.flecha(ctx, caja, yRoce, -roce, 0, "#e5abff");
+      v.etiquetaVector(ctx, "← Rozamiento", caja - roce / 2, yRoce + 19, "#e5abff");
+    }
     v.rotulo(ctx, d.desliza ? "¡La caja me arrastra!" : "Puedo aguantar", 16, 36, "#e5abff");
     v.rotulo(ctx, d.desliza ? "Frena, pero ya no basta" : "Se equilibran: no arranca", 14, alto - 24, "#dce8ff", 14);
   });

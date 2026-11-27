@@ -1,5 +1,5 @@
 (() => {
-  const { linea, flecha, rejilla, bloque } = window.LabDinamica;
+  const { linea, flecha, etiquetaVector, rejilla, bloque } = window.LabDinamica;
   const { montar, unidades, rotulo, disco } = window.TallerDinamica;
   const { gravedad: g, poleas, estadoPoleas } = window.ModelosTallerDinamica;
   const tension = "#83ecd5";
@@ -12,8 +12,8 @@
     const radio = Math.min(ancho * 0.17, alto * 0.18);
     const x1 = cx - radio;
     const x2 = cx + radio;
-    const y1 = alto * (0.60 - datos.distancia * 0.13);
-    const y2 = alto * (0.60 + datos.distancia * 0.13);
+    const y1 = alto * (0.56 - datos.distancia * 0.10);
+    const y2 = alto * (0.56 + datos.distancia * 0.10);
 
     const metal = ctx.createLinearGradient(cx - radio, cy - radio, cx + radio, cy + radio);
     metal.addColorStop(0, "#d0d5b6");
@@ -23,7 +23,7 @@
     linea(ctx, cx - radio * .75, 12, cx + radio * .75, 12, "#d2cfb0", 4);
     disco(ctx, cx, cy, radio, metal, "#bdcabc");
     disco(ctx, cx, cy, radio * .80, "#244448", "#8aaba2");
-    const giro = datos.distancia * alto * 0.13 / radio;
+    const giro = datos.distancia * alto * 0.10 / radio;
     for (let i = 0; i < 6; i++) {
       const angulo = giro + i * Math.PI / 3;
       const extremoX = cx + Math.cos(angulo) * radio * .74;
@@ -45,10 +45,16 @@
     for (const [x, y, masa, nombre] of cajas) {
       bloque(ctx, x, y, 62, 36);
       rotulo(ctx, nombre + " · " + unidades(masa, "kg", 1), x, y + 2);
-      if (datos.capa) {
-        const escala = alto * 0.00165;
-        flecha(ctx, x - 24, y - 12, 0, -datos.tension * escala, tension);
-        flecha(ctx, x + 24, y + 11, 0, masa * g * escala, peso);
+      const escala = (alto * 0.34 - 24) / (12 * g);
+      if (datos.visibles.tension) {
+        const largo = datos.tension * escala;
+        flecha(ctx, x - 21, y - 13, 0, -largo, tension);
+        etiquetaVector(ctx, "T", x - 31, y - 16 - largo, tension, "right");
+      }
+      if (datos.visibles.peso) {
+        const largo = masa * g * escala;
+        flecha(ctx, x + 21, y + 13, 0, largo, peso);
+        etiquetaVector(ctx, "P", x + 31, y + 16 + largo, peso, "left");
       }
     }
   }

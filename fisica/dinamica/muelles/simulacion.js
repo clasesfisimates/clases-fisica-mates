@@ -1,5 +1,5 @@
 (() => {
-  const { linea, flecha, rejilla, bloque } = window.LabDinamica;
+  const { linea, flecha, etiquetaVector, rejilla, bloque } = window.LabDinamica;
   const { montar, unidades, rotulo, disco } = window.TallerDinamica;
   const { muelles, estadoMuelle } = window.ModelosTallerDinamica;
   const aplicada = "#95f4c9";
@@ -27,7 +27,7 @@
   function dibujar(ctx, ancho, alto, d) {
     rejilla(ctx, ancho, alto);
     const inicio = ancho * 0.105;
-    const escala = ancho * 0.91;
+    const escala = ancho * 0.85;
     const y = alto * 0.22;
     const fin = inicio + (longitudNatural + d.extension) * escala;
     const natural = inicio + longitudNatural * escala;
@@ -41,10 +41,19 @@
       linea(ctx, natural, y + 31, fin, y + 31, elastica);
       rotulo(ctx, "ΔL", fin, y + 50, elastica);
     }
-    if (d.capa) {
-      const longitud = Math.min(ancho * 0.1, 50) * d.fuerza / 2;
-      flecha(ctx, fin + 8, y - 7, longitud, 0, aplicada);
-      flecha(ctx, fin - 8, y + 7, -longitud, 0, elastica);
+    const yFlecha = y - 27;
+    const largo = d.fuerza / 2 * Math.min(140, ancho * 0.26);
+    if (d.visibles.aplicada || d.visibles.elastica) {
+      linea(ctx, fin, y - 14, fin, yFlecha, "#c8ded980");
+      if (d.fuerza === 0) etiquetaVector(ctx, "Sin carga · 0 N", fin, yFlecha - 10, objetivo);
+    }
+    if (d.fuerza > 0 && d.visibles.aplicada) {
+      flecha(ctx, fin, yFlecha, largo, 0, aplicada);
+      etiquetaVector(ctx, largo < 12 ? "F →" : "F", fin + largo + 4, yFlecha - 16, aplicada, "left");
+    }
+    if (d.fuerza > 0 && d.visibles.elastica) {
+      flecha(ctx, fin, yFlecha, -largo, 0, elastica);
+      etiquetaVector(ctx, largo < 12 ? "← Fₑ" : "Fₑ", fin - largo - 4, yFlecha - 16, elastica, "right");
     }
 
     const x0 = 38;

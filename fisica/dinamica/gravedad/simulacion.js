@@ -1,5 +1,5 @@
 (() => {
-  const { linea, flecha } = window.LabDinamica;
+  const { linea, flecha, etiquetaVector } = window.LabDinamica;
   const { montar, unidades, rotulo, disco } = window.TallerDinamica;
   const { G, gravitacion, estadoGravedad } = window.ModelosTallerDinamica;
   const fuerza = "#ffe2a4";
@@ -52,12 +52,15 @@
     linea(ctx, x1, cotaY - 5, x1, cotaY + 5, "#a4bce1");
     linea(ctx, x2, cotaY - 5, x2, cotaY + 5, "#a4bce1");
     rotulo(ctx, unidades(d.r / 1000, "km"), (x1 + x2) / 2, cotaY - 13);
-    if (d.capa) {
-      const longitud = d.fuerza / 1e9 * Math.min(62, ancho * 0.152);
-      flecha(ctx, x1, y - 33, longitud, 0, fuerza);
-      flecha(ctx, x2, y + 34, -longitud, 0, fuerza);
-      rotulo(ctx, "F₁ →", x1, y - 48, fuerza);
-      rotulo(ctx, "← F₂", x2, y + 49, fuerza);
+    if (d.visibles.atraccion) {
+      const longitud = d.fuerza / 1e9 * Math.min(125, ancho * 0.19);
+      const y1 = y - radio1 - 8, y2 = y + radio2 + 8;
+      linea(ctx, x1, y - radio1, x1, y1, "#efddb699");
+      linea(ctx, x2, y + radio2, x2, y2, "#efddb699");
+      flecha(ctx, x1, y1, longitud, 0, fuerza);
+      flecha(ctx, x2, y2, -longitud, 0, fuerza);
+      etiquetaVector(ctx, longitud < 12 ? "F₁ →" : "F₁", x1 + longitud / 2, y1 - 16, fuerza);
+      etiquetaVector(ctx, longitud < 12 ? "← F₂" : "F₂", x2 - longitud / 2, y2 + 16, fuerza);
     }
   }
 

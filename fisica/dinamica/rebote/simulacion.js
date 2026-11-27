@@ -1,5 +1,5 @@
 (() => {
-  const { linea, flecha, rejilla } = window.LabDinamica;
+  const { linea, flecha, etiquetaVector, rejilla } = window.LabDinamica;
   const { montar, unidades, rotulo, disco } = window.TallerDinamica;
   const { rebote, estadoRebote } = window.ModelosTallerDinamica;
   const velocidad = "#a5ecff";
@@ -67,9 +67,17 @@
     dibujarPelota(ctx, x, y, radio, d.compresion);
     rotulo(ctx, d.fase, 15, 19, "#ffdaf0", "left");
     rotulo(ctx, "+x →", 15, suelo + 13, velocidad, "left");
-    if (d.capa) {
-      flecha(ctx, x, y - radio - 10, d.v * ancho * 0.0064, 0, velocidad);
-      flecha(ctx, x, y + 1, d.fuerzaActual * ancho * 0.00025, 0, fuerza);
+    if (d.visibles.velocidad) {
+      const largo = d.v * ancho * 0.0064;
+      const fila = y - radio - 12;
+      flecha(ctx, x, fila, largo, 0, velocidad);
+      const lectura = Math.abs(largo) >= 12 ? "v" : "v = " + unidades(d.v, "m/s");
+      etiquetaVector(ctx, lectura, x + largo / 2, fila - 15, velocidad);
+    }
+    if (d.visibles.pared && d.fuerzaActual !== 0) {
+      const largo = d.fuerzaActual * ancho * 0.00048;
+      flecha(ctx, x, y, largo, 0, fuerza);
+      etiquetaVector(ctx, "F", x + largo / 2, y + 18, fuerza);
     }
     dibujarPulso(ctx, ancho, alto, d);
   }

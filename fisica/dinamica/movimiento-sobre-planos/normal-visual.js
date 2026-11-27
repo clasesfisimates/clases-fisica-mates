@@ -40,14 +40,15 @@
     function fuerza(valor, origen, simbolo, color) {
       if (Math.abs(valor) < 0.1) return;
       const punta = { x: origen.x + fuera.x * valor * 0.8, y: origen.y + fuera.y * valor * 0.8 };
-      v.flecha(ctx, origen.x, origen.y, punta.x - origen.x, punta.y - origen.y, color, false, 4);
+      v.flecha(ctx, origen.x, origen.y, punta.x - origen.x, punta.y - origen.y, color, 4);
       v.rotulo(ctx, simbolo, punta.x + (valor > 0 ? -18 : 8), punta.y + (valor > 0 ? -10 : 23), color);
     }
     fuerza(d.normal, contacto, "N", "#94caff");
-    fuerza(-d.pesoPerpendicular, { x: objeto.x - u.x * 20, y: objeto.y - u.y * 20 }, "P⊥", "#ffba80");
+    const pesoCoincide = d.completo && d.angulo === 0;
+    fuerza(-d.pesoPerpendicular, { x: objeto.x - u.x * 20, y: objeto.y - u.y * 20 }, pesoCoincide ? "P = P⊥" : "P⊥", "#ffba80");
     fuerza(d.empuje, { x: objeto.x + u.x * 25, y: objeto.y + u.y * 25 }, "F⊥", "#8be9cc");
-    if (d.completo) {
-      v.flecha(ctx, objeto.x, objeto.y, 0, d.peso * 0.8, "#ffd1a8", false, 2.5);
+    if (d.completo && !pesoCoincide && d.peso > 0) {
+      v.flecha(ctx, objeto.x, objeto.y, 0, d.peso * 0.8, "#ffd1a8", 2.5);
       v.rotulo(ctx, "P", objeto.x + 9, objeto.y + d.peso * 0.8 + 22, "#ffd1a8");
     }
     const esquina = { x: contacto.x + u.x * 12, y: contacto.y + u.y * 12 };

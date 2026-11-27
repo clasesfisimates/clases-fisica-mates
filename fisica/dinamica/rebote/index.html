@@ -58,10 +58,11 @@
             <figure>
               <canvas id="escena" role="img" aria-label="Pelota que se acerca a una pared y sale en sentido contrario. El gráfico inferior marca la fuerza media durante el contacto."></canvas>
               <figcaption>
-                <ul class="taller-leyenda">
-                  <li><i style="--muestra: #a5ecff" aria-hidden="true"></i>Velocidad con signo</li>
-                  <li><i style="--muestra: #ffaccc" aria-hidden="true"></i>Fuerza de la pared</li>
-                </ul>
+                <fieldset class="capas-vectores">
+                  <legend>Flechas visibles</legend>
+                  <label style="--tinta: #116583"><input type="checkbox" data-vector="velocidad" checked><b aria-hidden="true">v</b> Velocidad (m/s)</label>
+                  <label style="--tinta: #9d385d"><input type="checkbox" data-vector="pared" checked><b aria-hidden="true">F</b> Fuerza de la pared (N)</label>
+                </fieldset>
                 El sentido positivo apunta hacia la pared. El dibujo amplía el contacto y esquematiza la deformación de la pelota.
               </figcaption>
             </figure>
@@ -108,7 +109,6 @@
                 <input id="contacto" type="range" min="0.02" max="0.18" step="0.01" value="0.05" data-unidad=" s">
               </div>
             </div>
-            <label class="taller-capa"><input id="capa" type="checkbox" checked> Ver vectores durante el choque</label>
             <div class="taller-botones taller-preajustes" role="group" aria-label="Situaciones de partida">
               <button type="button" class="boton secundario" data-preajuste='{"masa":0.3,"entrada":15,"salida":10,"contacto":0.05}'>Frontón · ej. 39</button>
               <button type="button" class="boton secundario" data-preajuste='{"masa":0.3,"entrada":15,"salida":10,"contacto":0.1}'>Contacto más largo</button>

@@ -43,11 +43,14 @@
 }
 .taller-escena { display: flex; flex-direction: column; overflow: hidden; }
 .taller-escena figure { margin: 0; }
-.taller-escena canvas { display: block; width: 100%; height: clamp(16rem, 30vw, 21rem); }
+.taller-escena canvas { display: block; width: 100%; height: clamp(19rem, 33vw, 25rem); }
 .taller-escena figcaption { padding: .62rem .85rem; color: var(--texto-secundario); font-size: .9rem; }
-.taller-leyenda { display: flex; flex-wrap: wrap; gap: .32rem 1rem; margin: 0 0 .3rem; padding: 0; list-style: none; }
-.taller-leyenda li { display: inline-flex; align-items: center; gap: .42rem; font-weight: 750; }
-.taller-leyenda i { width: .8rem; aspect-ratio: 1; border: 1px solid #20345d; border-radius: 50%; background: var(--muestra); }
+.capas-vectores { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 .55rem; padding: 0; border: 0; }
+.capas-vectores legend { margin-bottom: .3rem; padding: 0; font-weight: 700; }
+.capas-vectores label { display: inline-flex; gap: .4rem; align-items: center; padding: .34rem .6rem; min-height: 2.15rem; border: 1px solid var(--borde); border-radius: .5rem; font-weight: 650; cursor: pointer; }
+.capas-vectores label:has(:checked) { color: var(--tinta); background: color-mix(in srgb, var(--tinta) 6%, white); border-color: color-mix(in srgb, var(--tinta) 36%, white); }
+.capas-vectores input { margin: 0; accent-color: var(--tinta); }
+.capas-vectores b { font-size: 1em; }
 .taller-acciones { order: -1; padding: .7rem .85rem .48rem; }
 .taller-botones { display: flex; flex-wrap: wrap; align-items: center; gap: .42rem .6rem; }
 .taller-pasos { margin-top: .52rem; }
@@ -64,8 +67,6 @@
 .taller-campo input { grid-column: 1 / -1; }
 .taller-campo label { font-weight: 680; }
 .taller-campo output, .taller-cursor output { font-weight: 780; color: var(--acento); }
-.taller-capa { display: flex; align-items: flex-start; gap: .45rem; margin-top: .65rem; color: var(--texto-secundario); font-size: .88rem; font-weight: 650; }
-.taller-capa input { margin-top: .25rem; accent-color: var(--acento); }
 .taller-preajustes { padding-top: .75rem; margin-top: .75rem; border-top: 1px solid var(--borde); }
 .taller-medidas {
   display: grid;
